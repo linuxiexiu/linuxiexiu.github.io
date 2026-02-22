@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kind (Kubernetes IN Docker) on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/kind/</link><description>Recent content in Kind (Kubernetes IN Docker) on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/kind/index.xml" rel="self" type="application/rss+xml"/><item><title>Kind教程</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/kind/kind%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/kind/kind%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="kind教程"&gt;Kind教程&lt;a class="anchor" href="#kind%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Kind（Kubernetes IN Docker）是一个使用Docker容器作为节点来运行本地Kubernetes集群的工具。它由Kubernetes SIGs（特别兴趣小组）开发和维护，专为测试和开发目的设计。Kind的主要特点是快速创建和销毁Kubernetes集群，非常适合CI/CD环境、集成测试和本地开发。&lt;/p&gt;
+&lt;h3 id="kind核心概念"&gt;Kind核心概念&lt;a class="anchor" href="#kind%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;集群&lt;/strong&gt;：由多个节点组成的Kubernetes集群&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;节点&lt;/strong&gt;：使用Docker容器模拟的Kubernetes节点&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置文件&lt;/strong&gt;：定义集群的配置，如节点数量、版本等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;镜像&lt;/strong&gt;：包含Kubernetes组件的Docker镜像&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="kind架构"&gt;Kind架构&lt;a class="anchor" href="#kind%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;控制平面节点&lt;/strong&gt;：运行Kubernetes控制平面组件的Docker容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作节点&lt;/strong&gt;：运行工作负载的Docker容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络&lt;/strong&gt;：连接各个节点容器的网络&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装kind"&gt;安装Kind&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85kind"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在不同操作系统上安装Kind：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Linux/macOS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用curl安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod +x ./kind
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mv ./kind /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# macOS使用Homebrew安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install kind
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Windows使用Chocolatey安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;choco install kind
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 验证安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kind --version&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本kind命令"&gt;基本Kind命令&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ackind%e5%91%bd%e4%bb%a4"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用Kind的基本命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看Kind版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kind --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建集群&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kind create cluster
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建指定名称的集群&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kind create cluster --name my-cluster
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看集群&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kind get clusters
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 删除集群&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kind delete cluster
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 删除指定名称的集群&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kind delete cluster --name my-cluster
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看集群节点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get nodes&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="创建第一个kind集群"&gt;创建第一个Kind集群&lt;a class="anchor" href="#%e5%88%9b%e5%bb%ba%e7%ac%ac%e4%b8%80%e4%b8%aakind%e9%9b%86%e7%be%a4"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;创建一个基本的Kind集群：&lt;/p&gt;</description></item></channel></rss>

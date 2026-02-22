@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>网络架构分析 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90/</link><description>Recent content in 网络架构分析 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml"/><item><title>NetworkArchitectureAnalyzer使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90/NetworkArchitectureAnalyzer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90/NetworkArchitectureAnalyzer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="networkarchitectureanalyzer使用教程"&gt;NetworkArchitectureAnalyzer使用教程&lt;a class="anchor" href="#networkarchitectureanalyzer%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;NetworkArchitectureAnalyzer（NAA）是一款专业的网络架构分析工具，专为网络安全专家、渗透测试人员和网络管理员设计。它能够自动发现和分析网络架构，包括网络拓扑、设备配置、流量模式和安全漏洞等，为网络安全评估和优化提供全面的网络画像。&lt;/p&gt;
+&lt;h3 id="主要功能"&gt;主要功能&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;网络拓扑自动发现和可视化&lt;/li&gt;
+&lt;li&gt;网络设备配置分析&lt;/li&gt;
+&lt;li&gt;网络流量分析和模式识别&lt;/li&gt;
+&lt;li&gt;网络安全漏洞扫描和评估&lt;/li&gt;
+&lt;li&gt;网络性能分析和瓶颈识别&lt;/li&gt;
+&lt;li&gt;网络协议分析&lt;/li&gt;
+&lt;li&gt;网络异常行为检测&lt;/li&gt;
+&lt;li&gt;多网络环境支持（LAN、WAN、云网络）&lt;/li&gt;
+&lt;li&gt;数据可视化和报告生成&lt;/li&gt;
+&lt;li&gt;自动化网络监控和告警&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;网络安全评估和渗透测试&lt;/li&gt;
+&lt;li&gt;网络架构优化和重构&lt;/li&gt;
+&lt;li&gt;网络性能故障排除&lt;/li&gt;
+&lt;li&gt;网络安全态势评估&lt;/li&gt;
+&lt;li&gt;企业网络合规性检查&lt;/li&gt;
+&lt;li&gt;网络变更管理&lt;/li&gt;
+&lt;li&gt;网络容量规划&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装networkarchitectureanalyzer"&gt;安装NetworkArchitectureAnalyzer&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85networkarchitectureanalyzer"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;NetworkArchitectureAnalyzer是一个Python工具，可以通过以下步骤安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 克隆仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/networkarchitectureanalyzer/naa.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 进入目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; naa
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装依赖&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装NAA&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -e .&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本配置"&gt;基本配置&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置NAA的基本设置，包括网络范围和扫描参数：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置文件示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置网络范围&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置扫描参数&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本网络扫描"&gt;基本网络扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e7%bd%91%e7%bb%9c%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用NAA进行基本的网络扫描，发现网络设备和服务：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 基本网络扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描指定网络段&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 发现网络设备&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 识别网络服务&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="网络拓扑发现"&gt;网络拓扑发现&lt;a class="anchor" href="#%e7%bd%91%e7%bb%9c%e6%8b%93%e6%89%91%e5%8f%91%e7%8e%b0"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;自动发现和绘制网络拓扑图：&lt;/p&gt;</description></item></channel></rss>

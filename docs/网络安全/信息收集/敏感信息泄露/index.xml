@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>敏感信息泄露 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/</link><description>Recent content in 敏感信息泄露 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/index.xml" rel="self" type="application/rss+xml"/><item><title>GitLeaks使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/GitLeaks%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/GitLeaks%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="gitleaks使用教程"&gt;GitLeaks使用教程&lt;a class="anchor" href="#gitleaks%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;GitLeaks是一款专门用于检测Git仓库中敏感信息泄露的工具。它能够扫描Git历史记录，识别泄露的API密钥、密码、证书等敏感信息，是代码安全和DevSecOps流程中的重要工具。&lt;/p&gt;
+&lt;h3 id="主要功能"&gt;主要功能&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Git仓库敏感信息扫描&lt;/li&gt;
+&lt;li&gt;多种敏感信息模式匹配&lt;/li&gt;
+&lt;li&gt;支持自定义规则&lt;/li&gt;
+&lt;li&gt;扫描Git历史记录&lt;/li&gt;
+&lt;li&gt;支持多种输出格式&lt;/li&gt;
+&lt;li&gt;CI/CD集成&lt;/li&gt;
+&lt;li&gt;高性能扫描&lt;/li&gt;
+&lt;li&gt;实时监控&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;代码安全审计&lt;/li&gt;
+&lt;li&gt;敏感信息泄露检测&lt;/li&gt;
+&lt;li&gt;DevSecOps流程集成&lt;/li&gt;
+&lt;li&gt;安全合规检查&lt;/li&gt;
+&lt;li&gt;代码仓库安全&lt;/li&gt;
+&lt;li&gt;威胁情报收集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装gitleaks"&gt;安装GitLeaks&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85gitleaks"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="使用go安装"&gt;使用Go安装&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8go%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Go语言（如果未安装）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;export&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;PATH&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$PATH&lt;/span&gt;:/usr/local/go/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装GitLeaks&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go install github.com/zricethezav/gitleaks/v8@latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 验证安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks --version&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="使用homebrew安装"&gt;使用Homebrew安装&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8homebrew%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Homebrew（如果未安装）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/bin/bash -c &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装GitLeaks&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install gitleaks
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 验证安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks --version&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="使用docker安装"&gt;使用Docker安装&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8docker%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Docker运行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run --rm -v &lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;pwd&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;:/path zricethezav/gitleaks:latest --source&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;/path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 或构建本地镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/zricethezav/gitleaks.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; gitleaks
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker build -t gitleaks .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run --rm -v &lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;pwd&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;:/path gitleaks --source&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;/path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本扫描"&gt;基本扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="扫描当前目录"&gt;扫描当前目录&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8f%e5%bd%93%e5%89%8d%e7%9b%ae%e5%bd%95"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描当前目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描特定目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source /path/to/project
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描并显示详细信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --verbose&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="扫描git仓库"&gt;扫描Git仓库&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8fgit%e4%bb%93%e5%ba%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描Git仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描远程仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source https://github.com/user/repo.git --git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描特定分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --git --branch develop&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="扫描git历史"&gt;扫描Git历史&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8fgit%e5%8e%86%e5%8f%b2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描所有Git历史&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --git --history
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描最近N次提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --git --history --depth &lt;span style="color:#ff9f43"&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描特定提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --git --commit abc123&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="扫描选项"&gt;扫描选项&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8f%e9%80%89%e9%a1%b9"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="排除文件和目录"&gt;排除文件和目录&lt;a class="anchor" href="#%e6%8e%92%e9%99%a4%e6%96%87%e4%bb%b6%e5%92%8c%e7%9b%ae%e5%bd%95"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 排除特定文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --exclude &lt;span style="color:#5af78e"&gt;&amp;#34;node_modules&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 排除多个文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --exclude &lt;span style="color:#5af78e"&gt;&amp;#34;node_modules,vendor&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用正则表达式排除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --exclude &lt;span style="color:#5af78e"&gt;&amp;#34;.*\\.min\\.js&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 排除目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --exclude &lt;span style="color:#5af78e"&gt;&amp;#34;*/test/*&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="指定扫描深度"&gt;指定扫描深度&lt;a class="anchor" href="#%e6%8c%87%e5%ae%9a%e6%89%ab%e6%8f%8f%e6%b7%b1%e5%ba%a6"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描当前状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --no-git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描最近50次提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --git --depth &lt;span style="color:#ff9f43"&gt;50&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描所有历史&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --git --history&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="输出格式"&gt;输出格式&lt;a class="anchor" href="#%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="输出为json"&gt;输出为JSON&lt;a class="anchor" href="#%e8%be%93%e5%87%ba%e4%b8%bajson"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出为JSON格式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --report-format json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 指定输出文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --report-format json --report-path report.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 美化JSON输出&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --report-format json | jq .&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="输出为csv"&gt;输出为CSV&lt;a class="anchor" href="#%e8%be%93%e5%87%ba%e4%b8%bacsv"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出为CSV格式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --report-format csv
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 指定输出文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --report-format csv --report-path report.csv&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="输出为sarif"&gt;输出为SARIF&lt;a class="anchor" href="#%e8%be%93%e5%87%ba%e4%b8%basarif"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出为SARIF格式（用于GitHub）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --report-format sarif
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 指定输出文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --report-format sarif --report-path report.sarif&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="中级使用"&gt;中级使用&lt;a class="anchor" href="#%e4%b8%ad%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="自定义规则"&gt;自定义规则&lt;a class="anchor" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e8%a7%84%e5%88%99"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="使用自定义配置文件"&gt;使用自定义配置文件&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e8%87%aa%e5%ae%9a%e4%b9%89%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建自定义配置文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat &amp;gt; gitleaks-config.toml &lt;span style="color:#5af78e"&gt;&amp;lt;&amp;lt; EOF
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;# GitLeaks自定义配置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;title = &amp;#34;Custom GitLeaks Config&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; description = &amp;#34;AWS Access Key&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; regex = &amp;#39;&amp;#39;&amp;#39;AKIA[0-9A-Z]{16}&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; tags = [&amp;#34;key&amp;#34;, &amp;#34;AWS&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; description = &amp;#34;GitHub Token&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; regex = &amp;#39;&amp;#39;&amp;#39;ghp_[a-zA-Z0-9]{36}&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; tags = [&amp;#34;key&amp;#34;, &amp;#34;GitHub&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; description = &amp;#34;Slack Token&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; regex = &amp;#39;&amp;#39;&amp;#39;xox[baprs]-[a-zA-Z0-9-]+&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; tags = [&amp;#34;key&amp;#34;, &amp;#34;Slack&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用自定义配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --config gitleaks-config.toml&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="添加自定义规则"&gt;添加自定义规则&lt;a class="anchor" href="#%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%ae%9a%e4%b9%89%e8%a7%84%e5%88%99"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 添加自定义规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat &amp;gt; custom-rules.toml &lt;span style="color:#5af78e"&gt;&amp;lt;&amp;lt; EOF
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; description = &amp;#34;Custom API Key&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; regex = &amp;#39;&amp;#39;&amp;#39;custom_key_[a-zA-Z0-9]{32}&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; tags = [&amp;#34;key&amp;#34;, &amp;#34;custom&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; description = &amp;#34;Database Password&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; regex = &amp;#39;&amp;#39;&amp;#39;password\s*=\s*[&amp;#39;&amp;#34;]([^&amp;#39;&amp;#34;]+)[&amp;#39;&amp;#34;]&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; tags = [&amp;#34;password&amp;#34;, &amp;#34;database&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用自定义规则&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --config custom-rules.toml&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="高级扫描"&gt;高级扫描&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="扫描多个仓库"&gt;扫描多个仓库&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8f%e5%a4%9a%e4%b8%aa%e4%bb%93%e5%ba%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描多个Git仓库脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;REPOS_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/repos&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;REPORTS_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;./reports&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 遍历所有仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; repo in &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPOS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;/*/; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;basename &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;扫描仓库: &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 运行扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; gitleaks detect --source &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; --git &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-format json &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-path &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#5af78e"&gt;${&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;批量扫描完成&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="并行扫描"&gt;并行扫描&lt;a class="anchor" href="#%e5%b9%b6%e8%a1%8c%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 并行扫描脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;REPOS_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/repos&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;REPORTS_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;./reports&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 并行扫描所有仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; repo in &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPOS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;/*/; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;basename &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;扫描仓库: &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 后台运行扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; gitleaks detect --source &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; --git &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-format json &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-path &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#5af78e"&gt;${&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.json&amp;#34;&lt;/span&gt; &amp;amp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 等待所有扫描完成&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;wait&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;并行扫描完成&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="中上级使用"&gt;中上级使用&lt;a class="anchor" href="#%e4%b8%ad%e4%b8%8a%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="cicd集成"&gt;CI/CD集成&lt;a class="anchor" href="#cicd%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="github-actions集成"&gt;GitHub Actions集成&lt;a class="anchor" href="#github-actions%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# .github/workflows/gitleaks.yml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;name&lt;/span&gt;: GitLeaks Scan
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;branches&lt;/span&gt;: [ main ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;pull_request&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;branches&lt;/span&gt;: [ main ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;schedule&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ff6ac1"&gt;cron&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;0 0 * * 0&amp;#39;&lt;/span&gt; &lt;span style="color:#78787e"&gt;# 每周运行一次&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;gitleaks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;runs-on&lt;/span&gt;: ubuntu-latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ff6ac1"&gt;uses&lt;/span&gt;: actions/checkout@v2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;fetch-depth&lt;/span&gt;: &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt; &lt;span style="color:#78787e"&gt;# 获取完整历史&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ff6ac1"&gt;name&lt;/span&gt;: Run GitLeaks
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;uses&lt;/span&gt;: gitleaks/gitleaks-action@v2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;env&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;GITHUB_TOKEN&lt;/span&gt;: ${{ secrets.GITHUB_TOKEN }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;GITLEAKS_LICENSE&lt;/span&gt;: ${{ secrets.GITLEAKS_LICENSE }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;report-format&lt;/span&gt;: json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;report-path&lt;/span&gt;: gitleaks-report.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ff6ac1"&gt;name&lt;/span&gt;: Upload GitLeaks Report
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;uses&lt;/span&gt;: actions/upload-artifact@v2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;name&lt;/span&gt;: gitleaks-report
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;path&lt;/span&gt;: gitleaks-report.json&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="gitlab-ci集成"&gt;GitLab CI集成&lt;a class="anchor" href="#gitlab-ci%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# .gitlab-ci.yml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;stages&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - security
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;gitleaks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;stage&lt;/span&gt;: security
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;image&lt;/span&gt;: zricethezav/gitleaks:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;script&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - gitleaks detect --source . --git --report-format json --report-path gitleaks-report.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;artifacts&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;paths&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - gitleaks-report.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;expire_in&lt;/span&gt;: &lt;span style="color:#ff9f43"&gt;1&lt;/span&gt; week
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;allow_failure&lt;/span&gt;: &lt;span style="color:#ff6ac1"&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="jenkins集成"&gt;Jenkins集成&lt;a class="anchor" href="#jenkins%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-groovy" data-lang="groovy"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;// Jenkinsfile
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pipeline &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; agent any
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; stages &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; stage&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;GitLeaks Scan&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; steps &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; script &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;// 运行GitLeaks
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sh &lt;span style="color:#5af78e"&gt;&amp;#39;gitleaks detect --source . --git --report-format json --report-path gitleaks-report.json&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;// 解析结果
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#9aedfe"&gt;def&lt;/span&gt; report &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; readJSON &lt;span style="color:#ff5c57"&gt;file:&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;gitleaks-report.json&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;report&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;&lt;span style="color:#57c7ff"&gt;size&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;()&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; error &lt;span style="color:#5af78e"&gt;&amp;#34;发现 ${report.size()} 个敏感信息泄露&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; post &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; always &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;// 归档报告
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; archiveArtifacts &lt;span style="color:#ff5c57"&gt;artifacts:&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;gitleaks-report.json&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;,&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;fingerprint:&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="自动化脚本"&gt;自动化脚本&lt;a class="anchor" href="#%e8%87%aa%e5%8a%a8%e5%8c%96%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="定期扫描脚本"&gt;定期扫描脚本&lt;a class="anchor" href="#%e5%ae%9a%e6%9c%9f%e6%89%ab%e6%8f%8f%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 定期扫描脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;REPOS_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/repos&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;REPORTS_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;./reports&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;LOG_FILE&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;gitleaks-scan.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 记录日志&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;log&lt;span style="color:#ff6ac1"&gt;()&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date &lt;span style="color:#5af78e"&gt;&amp;#39;+%Y-%m-%d %H:%M:%S&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt; - &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$1&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scan_repo&lt;span style="color:#ff6ac1"&gt;()&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;repo_path&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;basename &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_path&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; log &lt;span style="color:#5af78e"&gt;&amp;#34;开始扫描仓库: &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 运行扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; gitleaks detect --source &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_path&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; --git &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-format json &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-path &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#5af78e"&gt;${&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;_&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date +%Y%m%d&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 检查结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;[&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$?&lt;/span&gt; -eq &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;]&lt;/span&gt;; &lt;span style="color:#ff6ac1"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; log &lt;span style="color:#5af78e"&gt;&amp;#34;仓库 &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt; 扫描成功&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; log &lt;span style="color:#5af78e"&gt;&amp;#34;仓库 &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt; 扫描失败&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建报告目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描所有仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; repo in &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPOS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;/*/; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scan_repo &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;log &lt;span style="color:#5af78e"&gt;&amp;#34;定期扫描完成&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="监控脚本"&gt;监控脚本&lt;a class="anchor" href="#%e7%9b%91%e6%8e%a7%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 实时监控脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;WATCH_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/repos&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;REPORTS_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;./reports&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;LOG_FILE&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;gitleaks-monitor.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 记录日志&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;log&lt;span style="color:#ff6ac1"&gt;()&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date &lt;span style="color:#5af78e"&gt;&amp;#39;+%Y-%m-%d %H:%M:%S&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt; - &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$1&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 监控函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;monitor_repo&lt;span style="color:#ff6ac1"&gt;()&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;repo_path&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;basename &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_path&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; log &lt;span style="color:#5af78e"&gt;&amp;#34;监控仓库: &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 进入仓库目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_path&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 监控Git提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;while&lt;/span&gt; true; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 检查是否有新提交&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;NEW_COMMIT&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;git rev-parse HEAD&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;[&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$NEW_COMMIT&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; !&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LAST_COMMIT&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;]&lt;/span&gt;; &lt;span style="color:#ff6ac1"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; log &lt;span style="color:#5af78e"&gt;&amp;#34;检测到新提交: &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$NEW_COMMIT&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 运行扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; gitleaks detect --source . --git &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-format json &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-path &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#5af78e"&gt;${&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;_&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date +%Y%m%d_%H%M%S&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;LAST_COMMIT&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$NEW_COMMIT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sleep &lt;span style="color:#ff9f43"&gt;60&lt;/span&gt; &lt;span style="color:#78787e"&gt;# 每分钟检查一次&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建报告目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$REPORTS_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 监控所有仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; repo in &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$WATCH_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;/*/; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; monitor_repo &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &amp;amp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;log &lt;span style="color:#5af78e"&gt;&amp;#34;监控已启动&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="高级使用"&gt;高级使用&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="高级分析"&gt;高级分析&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="敏感信息分类"&gt;敏感信息分类&lt;a class="anchor" href="#%e6%95%8f%e6%84%9f%e4%bf%a1%e6%81%af%e5%88%86%e7%b1%bb"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; collections &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; defaultdict
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;classify_leaks&lt;/span&gt;(report_file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分类敏感信息泄露&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(report_file) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; report &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; classifications &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; defaultdict(&lt;span style="color:#ff5c57"&gt;list&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; leak &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; report:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; leak_type &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; leak&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;unknown&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; file_path &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; leak&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;file&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;unknown&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; line &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; leak&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;line&amp;#39;&lt;/span&gt;, &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; classifications[leak_type]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append({
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;file&amp;#39;&lt;/span&gt;: file_path,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;line&amp;#39;&lt;/span&gt;: line,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;: leak&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)[:&lt;span style="color:#ff9f43"&gt;20&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;+&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;...&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; })
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; classifications
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;classifications &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; classify_leaks(&lt;span style="color:#5af78e"&gt;&amp;#39;gitleaks-report.json&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; leak_type, leaks &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; classifications&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;items():
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;\n&lt;/span&gt;&lt;span style="color:#5af78e"&gt;=== &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak_type&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt; ===&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; leak &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; leaks:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34; 文件: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;file&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34; 行号: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;line&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34; 密钥: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="趋势分析"&gt;趋势分析&lt;a class="anchor" href="#%e8%b6%8b%e5%8a%bf%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; os
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;analyze_trend&lt;/span&gt;(reports_dir):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分析敏感信息泄露趋势&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; trend_data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 读取所有报告&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; filename &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;sorted&lt;/span&gt;(os&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;listdir(reports_dir)):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; filename&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;endswith(&lt;span style="color:#5af78e"&gt;&amp;#39;.json&amp;#39;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; filepath &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; os&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;path&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;join(reports_dir, filename)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(filepath) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; report &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取时间戳&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; timestamp &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strptime(filename, &lt;span style="color:#5af78e"&gt;&amp;#39;repo_%Y%m&lt;/span&gt;&lt;span style="color:#5af78e"&gt;%d&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.json&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 统计泄露&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; trend_data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append({
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;: timestamp,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;total&amp;#39;&lt;/span&gt;: &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(report),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;api_keys&amp;#39;&lt;/span&gt;: &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;([r &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; r &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; report &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;key&amp;#39;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; r&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;lower()]),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;passwords&amp;#39;&lt;/span&gt;: &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;([r &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; r &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; report &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;password&amp;#39;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; r&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;lower()]),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;tokens&amp;#39;&lt;/span&gt;: &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;([r &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; r &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; report &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;token&amp;#39;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; r&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;lower()])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; })
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; trend_data
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;plot_trend&lt;/span&gt;(trend_data):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;绘制趋势图&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; timestamps &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [d[&lt;span style="color:#5af78e"&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; trend_data]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [d[&lt;span style="color:#5af78e"&gt;&amp;#39;total&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; trend_data]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; api_keys &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [d[&lt;span style="color:#5af78e"&gt;&amp;#39;api_keys&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; trend_data]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; passwords &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [d[&lt;span style="color:#5af78e"&gt;&amp;#39;passwords&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; trend_data]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tokens &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [d[&lt;span style="color:#5af78e"&gt;&amp;#39;tokens&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; trend_data]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;figure(figsize&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;(&lt;span style="color:#ff9f43"&gt;12&lt;/span&gt;, &lt;span style="color:#ff9f43"&gt;6&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;plot(timestamps, total, label&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;Total&amp;#39;&lt;/span&gt;, color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;red&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;plot(timestamps, api_keys, label&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;API Keys&amp;#39;&lt;/span&gt;, color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;blue&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;plot(timestamps, passwords, label&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;Passwords&amp;#39;&lt;/span&gt;, color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;green&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;plot(timestamps, tokens, label&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;Tokens&amp;#39;&lt;/span&gt;, color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;orange&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;xlabel(&lt;span style="color:#5af78e"&gt;&amp;#39;Time&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;ylabel(&lt;span style="color:#5af78e"&gt;&amp;#39;Leak Count&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;title(&lt;span style="color:#5af78e"&gt;&amp;#39;Sensitive Information Leak Trend&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;legend()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;xticks(rotation&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;45&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;tight_layout()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;savefig(&lt;span style="color:#5af78e"&gt;&amp;#39;leak-trend.png&amp;#39;&lt;/span&gt;, dpi&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;300&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;trend_data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; analyze_trend(&lt;span style="color:#5af78e"&gt;&amp;#39;./reports&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plot_trend(trend_data)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="自定义规则开发"&gt;自定义规则开发&lt;a class="anchor" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e8%a7%84%e5%88%99%e5%bc%80%e5%8f%91"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="创建复杂规则"&gt;创建复杂规则&lt;a class="anchor" href="#%e5%88%9b%e5%bb%ba%e5%a4%8d%e6%9d%82%e8%a7%84%e5%88%99"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-toml" data-lang="toml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# advanced-rules.toml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; description = &lt;span style="color:#5af78e"&gt;&amp;#34;AWS Secret Access Key&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; regex = &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;(?i)aws_secret_access_key\s*=\s*[&amp;#39;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;]([A-Za-z0-9/+=]{40})[&amp;#39;&amp;#34;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; entropy = 3.5
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; secretGroup = 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; tags = [&amp;#34;key&amp;#34;, &amp;#34;AWS&amp;#34;, &amp;#34;secret&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; description = &amp;#34;Google Cloud Service Account Key&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; regex = &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;:\&lt;/span&gt;s&lt;span style="color:#ff5c57"&gt;*&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;service_account&amp;#34;&lt;/span&gt;[&lt;span style="color:#ff5c57"&gt;^&lt;/span&gt;}]&lt;span style="color:#ff5c57"&gt;*&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;private_key&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;:\&lt;/span&gt;s&lt;span style="color:#ff5c57"&gt;*&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;-----BEGIN PRIVATE KEY-----&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; entropy = 4.0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; tags = [&amp;#34;&lt;/span&gt;key&lt;span style="color:#5af78e"&gt;&amp;#34;, &amp;#34;&lt;/span&gt;GCP&lt;span style="color:#5af78e"&gt;&amp;#34;, &amp;#34;&lt;/span&gt;service_account&lt;span style="color:#5af78e"&gt;&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; description = &amp;#34;&lt;/span&gt;Database Connection String&lt;span style="color:#5af78e"&gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; regex = &amp;#39;&amp;#39;&amp;#39;(?i)(mysql|postgresql|mongodb)://[^:]+:[^@]+@[^/]+/[^\s&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;]+&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entropy = &lt;span style="color:#ff9f43"&gt;3.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tags = [&lt;span style="color:#5af78e"&gt;&amp;#34;database&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;connection_string&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; description = &lt;span style="color:#5af78e"&gt;&amp;#34;Private Key File&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; regex = &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;-----BEGIN (RSA|EC|DSA|OPENSSH) PRIVATE KEY-----&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entropy = &lt;span style="color:#ff9f43"&gt;4.5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tags = [&lt;span style="color:#5af78e"&gt;&amp;#34;key&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;private_key&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; description = &lt;span style="color:#5af78e"&gt;&amp;#34;JWT Token&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; regex = &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;eyJ[a-zA-Z0-9_-]*\.eyJ[a-zA-Z0-9_-]*\.[a-zA-Z0-9_-]*&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entropy = &lt;span style="color:#ff9f43"&gt;3.5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tags = [&lt;span style="color:#5af78e"&gt;&amp;#34;token&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;JWT&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[[rules]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; description = &lt;span style="color:#5af78e"&gt;&amp;#34;Base64 Encoded Secret&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; regex = &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;[A-Za-z0-9+/]{32,}={0,2}&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entropy = &lt;span style="color:#ff9f43"&gt;4.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tags = [&lt;span style="color:#5af78e"&gt;&amp;#34;base64&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;secret&amp;#34;&lt;/span&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="使用高级规则"&gt;使用高级规则&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e9%ab%98%e7%ba%a7%e8%a7%84%e5%88%99"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用高级规则扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --config advanced-rules.toml --verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 结合多个规则文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gitleaks detect --source . --config default-rules.toml --config advanced-rules.toml&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="大师级使用"&gt;大师级使用&lt;a class="anchor" href="#%e5%a4%a7%e5%b8%88%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="企业级部署"&gt;企业级部署&lt;a class="anchor" href="#%e4%bc%81%e4%b8%9a%e7%ba%a7%e9%83%a8%e7%bd%b2"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="集中式扫描服务"&gt;集中式扫描服务&lt;a class="anchor" href="#%e9%9b%86%e4%b8%ad%e5%bc%8f%e6%89%ab%e6%8f%8f%e6%9c%8d%e5%8a%a1"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 集中式扫描服务脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;SCAN_QUEUE&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/scan_queue&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;SCAN_RESULTS&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/scan_results&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;LOG_FILE&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/var/log/gitleaks-service.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 初始化队列&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$SCAN_QUEUE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$SCAN_RESULTS&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scan_repo&lt;span style="color:#ff6ac1"&gt;()&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;repo_path&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;repo_name&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;basename &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_path&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;result_dir&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$SCAN_RESULTS&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: 开始扫描 &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 创建结果目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mkdir -p &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$result_dir&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 运行扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; gitleaks detect --source &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_path&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; --git &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-format json &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --report-path &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$result_dir&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/scan_&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date +%Y%m%d_%H%M%S&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 记录结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;[&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$?&lt;/span&gt; -eq &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;]&lt;/span&gt;; &lt;span style="color:#ff6ac1"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt; 扫描成功&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_name&lt;/span&gt;&lt;span style="color:#5af78e"&gt; 扫描失败&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 监控队列&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;while&lt;/span&gt; true; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; task in &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$SCAN_QUEUE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;/*; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;[&lt;/span&gt; -f &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$task&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;]&lt;/span&gt;; &lt;span style="color:#ff6ac1"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;repo_path&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;cat &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$task&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; scan_repo &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$repo_path&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 移除已处理的任务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; rm &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$task&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sleep &lt;span style="color:#ff9f43"&gt;60&lt;/span&gt; &lt;span style="color:#78787e"&gt;# 每分钟检查一次&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="分布式扫描"&gt;分布式扫描&lt;a class="anchor" href="#%e5%88%86%e5%b8%83%e5%bc%8f%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; subprocess
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; multiprocessing
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; os
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;scan_repo&lt;/span&gt;(repo_path, output_dir):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;扫描单个仓库&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; repo_name &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; os&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;path&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;basename(repo_path)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; output_file &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; os&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;path&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;join(output_dir, &lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;repo_name&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.json&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cmd &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;gitleaks&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;detect&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;--source&amp;#34;&lt;/span&gt;, repo_path,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;--git&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;--report-format&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;json&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;--report-path&amp;#34;&lt;/span&gt;, output_file
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; subprocess&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;run(cmd, capture_output&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;True&lt;/span&gt;, text&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; result&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;returncode, result&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;stdout, result&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;stderr
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;distributed_scan&lt;/span&gt;(repos, output_base_dir, workers&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;4&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分布式扫描&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; os&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;makedirs(output_base_dir, exist_ok&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 创建进程池&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; multiprocessing&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;Pool(workers) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; pool:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; results &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; repo &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; repos:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; pool&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;apply_async(scan_repo, (repo, output_base_dir))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; results&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append(result)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 等待所有任务完成&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; result &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; results:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; returncode, stdout, stderr &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; result&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; returncode &lt;span style="color:#ff6ac1"&gt;!=&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;扫描失败: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;stderr&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;扫描成功: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;stdout&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;repos &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/repo1&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/repo2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;/path/to/repo3&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;distributed_scan(repos, &lt;span style="color:#5af78e"&gt;&amp;#34;./scan_results&amp;#34;&lt;/span&gt;, workers&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;4&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="高级集成"&gt;高级集成&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="与jira集成"&gt;与Jira集成&lt;a class="anchor" href="#%e4%b8%8ejira%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; jira &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; JIRA
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;create_jira_issue&lt;/span&gt;(leak, project_key):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;创建Jira问题&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; jira &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; JIRA(server&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;https://your-jira-instance.com&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; basic_auth&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#39;username&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;password&amp;#39;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; issue_dict &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;project&amp;#39;&lt;/span&gt;: {&lt;span style="color:#5af78e"&gt;&amp;#39;key&amp;#39;&lt;/span&gt;: project_key},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;summary&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Sensitive Information Leak: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;description&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; File: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;file&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; Line: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;line&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; Secret: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; Rule: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; Please investigate and remediate this leak immediately.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;issuetype&amp;#39;&lt;/span&gt;: {&lt;span style="color:#5af78e"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;Bug&amp;#39;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;priority&amp;#39;&lt;/span&gt;: {&lt;span style="color:#5af78e"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;High&amp;#39;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; new_issue &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; jira&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;create_issue(fields&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;issue_dict)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; new_issue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;key
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;create_jira_issues&lt;/span&gt;(report_file, project_key):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;为所有泄露创建Jira问题&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(report_file) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; report &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; leak &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; report:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; issue_key &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; create_jira_issue(leak, project_key)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Created Jira issue: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;issue_key&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;create_jira_issues(&lt;span style="color:#5af78e"&gt;&amp;#39;gitleaks-report.json&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;SEC&amp;#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="与slack集成"&gt;与Slack集成&lt;a class="anchor" href="#%e4%b8%8eslack%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;send_slack_notification&lt;/span&gt;(webhook_url, message):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;发送Slack通知&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; payload &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;text&amp;#39;&lt;/span&gt;: message,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;username&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;GitLeaks Bot&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;icon_emoji&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;:shield:&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;post(webhook_url, json&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;payload)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;status_code &lt;span style="color:#ff6ac1"&gt;==&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;create_slack_message&lt;/span&gt;(report):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;创建Slack消息&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_leaks &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(report)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; high_severity &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;([r &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; r &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; report &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;key&amp;#39;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; r&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;lower()])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; message &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; 🚨 *Sensitive Information Leaks Detected*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; *Scan Time:* &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strftime(&lt;span style="color:#5af78e"&gt;&amp;#39;%Y-%m-&lt;/span&gt;&lt;span style="color:#5af78e"&gt;%d&lt;/span&gt;&lt;span style="color:#5af78e"&gt; %H:%M:%S&amp;#39;&lt;/span&gt;)&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; *Summary:*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; • Total Leaks: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;total_leaks&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; • High Severity: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;high_severity&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; *Top Leaks:*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; leak &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; report[:&lt;span style="color:#ff9f43"&gt;5&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; message &lt;span style="color:#ff6ac1"&gt;+=&lt;/span&gt; &lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;\n&lt;/span&gt;&lt;span style="color:#5af78e"&gt;• &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;rule&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt; in &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;file&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;:&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;leak[&lt;span style="color:#5af78e"&gt;&amp;#39;line&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; total_leaks &lt;span style="color:#ff6ac1"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;5&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; message &lt;span style="color:#ff6ac1"&gt;+=&lt;/span&gt; &lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;\n&lt;/span&gt;&lt;span style="color:#5af78e"&gt;• ... and &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;total_leaks &lt;span style="color:#ff6ac1"&gt;-&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;5&lt;/span&gt;&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt; more&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; message
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#39;gitleaks-report.json&amp;#39;&lt;/span&gt;) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; report &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;message &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; create_slack_message(report)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;webhook_url &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https://hooks.slack.com/services/YOUR/WEBHOOK/URL&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;send_slack_notification(webhook_url, message)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="实战案例"&gt;实战案例&lt;a class="anchor" href="#%e5%ae%9e%e6%88%98%e6%a1%88%e4%be%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="案例1-企业代码库安全审计"&gt;案例1: 企业代码库安全审计&lt;a class="anchor" href="#%e6%a1%88%e4%be%8b1-%e4%bc%81%e4%b8%9a%e4%bb%a3%e7%a0%81%e5%ba%93%e5%ae%89%e5%85%a8%e5%ae%a1%e8%ae%a1"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="场景描述"&gt;场景描述&lt;a class="anchor" href="#%e5%9c%ba%e6%99%af%e6%8f%8f%e8%bf%b0"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;对企业代码库进行全面的安全审计，识别所有敏感信息泄露。&lt;/p&gt;</description></item></channel></rss>

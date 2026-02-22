@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker Swarm on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/docker-swarm/</link><description>Recent content in Docker Swarm on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/docker-swarm/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Swarm教程</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/docker-swarm/docker-swarm%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/docker-swarm/docker-swarm%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="docker-swarm教程"&gt;Docker Swarm教程&lt;a class="anchor" href="#docker-swarm%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Docker Swarm是Docker原生的容器编排系统，用于管理和调度容器集群。它允许您将多个Docker主机组成一个集群，作为单一的虚拟系统进行管理。Docker Swarm提供了高可用性、负载均衡、滚动更新等企业级特性。&lt;/p&gt;
+&lt;h3 id="docker-swarm核心概念"&gt;Docker Swarm核心概念&lt;a class="anchor" href="#docker-swarm%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;节点&lt;/strong&gt;：Docker Swarm集群中的主机，可以是管理节点或工作节点&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;服务&lt;/strong&gt;：在Swarm集群中运行的容器定义，包括镜像、命令、端口等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;任务&lt;/strong&gt;：服务的单个运行实例，是Swarm中的最小调度单位&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;服务栈&lt;/strong&gt;：一组相关的服务，通过Docker Compose文件定义&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;负载均衡&lt;/strong&gt;：Swarm内置的负载均衡，用于分发服务请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="docker-swarm架构"&gt;Docker Swarm架构&lt;a class="anchor" href="#docker-swarm%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;管理节点&lt;/strong&gt;：负责集群管理、服务调度和状态维护&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作节点&lt;/strong&gt;：负责运行容器任务&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Raft一致性算法&lt;/strong&gt;：确保集群状态的一致性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;服务发现&lt;/strong&gt;：内置的服务发现机制，用于容器间通信&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="初始化docker-swarm"&gt;初始化Docker Swarm&lt;a class="anchor" href="#%e5%88%9d%e5%a7%8b%e5%8c%96docker-swarm"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;初始化Docker Swarm集群：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 在第一个节点上初始化Swarm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# --advertise-addr指定管理节点的IP地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker swarm init --advertise-addr 192.168.1.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看节点状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker node ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 获取加入工作节点的命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker swarm join-token worker
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 获取加入管理节点的命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker swarm join-token manager
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 在其他节点上加入Swarm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行从join-token命令获得的命令&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本docker-swarm命令"&gt;基本Docker Swarm命令&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%acdocker-swarm%e5%91%bd%e4%bb%a4"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用Docker Swarm的基本命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看节点状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker node ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看服务状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker service ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看任务状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker service ps service_name
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker service create --name web --replicas &lt;span style="color:#ff9f43"&gt;3&lt;/span&gt; -p 80:80 nginx:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扩展服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker service scale &lt;span style="color:#ff5c57"&gt;web&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 更新服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker service update --image nginx:alpine web
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 删除服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker service rm web
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看集群信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker info
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 离开Swarm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker swarm leave --force&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本服务管理"&gt;基本服务管理&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%9c%8d%e5%8a%a1%e7%ae%a1%e7%90%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;管理Docker Swarm服务：&lt;/p&gt;</description></item></channel></rss>

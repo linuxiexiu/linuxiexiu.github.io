@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>暗网情报收集 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%9A%97%E7%BD%91%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/</link><description>Recent content in 暗网情报收集 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%9A%97%E7%BD%91%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/index.xml" rel="self" type="application/rss+xml"/><item><title>暗网情报收集技术</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%9A%97%E7%BD%91%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/%E6%9A%97%E7%BD%91%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E6%8A%80%E6%9C%AF/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%9A%97%E7%BD%91%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/%E6%9A%97%E7%BD%91%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86%E6%8A%80%E6%9C%AF/</guid><description>&lt;h1 id="暗网情报收集技术"&gt;暗网情报收集技术&lt;a class="anchor" href="#%e6%9a%97%e7%bd%91%e6%83%85%e6%8a%a5%e6%94%b6%e9%9b%86%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;暗网情报收集是指通过合法的OSINT（开源情报）技术，收集和分析暗网中的公开信息。这项技术主要用于安全研究、威胁情报收集和网络安全防护，必须在法律框架内进行。&lt;/p&gt;
+&lt;h3 id="主要功能"&gt;主要功能&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tor网络访问&lt;/li&gt;
+&lt;li&gt;暗网市场监控&lt;/li&gt;
+&lt;li&gt;威胁情报收集&lt;/li&gt;
+&lt;li&gt;泄露数据分析&lt;/li&gt;
+&lt;li&gt;论坛信息收集&lt;/li&gt;
+&lt;li&gt;安全研究&lt;/li&gt;
+&lt;li&gt;风险评估&lt;/li&gt;
+&lt;li&gt;报告生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;威胁情报收集&lt;/li&gt;
+&lt;li&gt;安全研究&lt;/li&gt;
+&lt;li&gt;网络安全防护&lt;/li&gt;
+&lt;li&gt;合规性检查&lt;/li&gt;
+&lt;li&gt;风险评估&lt;/li&gt;
+&lt;li&gt;安全监控&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="tor网络基础"&gt;Tor网络基础&lt;a class="anchor" href="#tor%e7%bd%91%e7%bb%9c%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="安装tor浏览器"&gt;安装Tor浏览器&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85tor%e6%b5%8f%e8%a7%88%e5%99%a8"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 下载Tor浏览器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 访问 https://www.torproject.org/download/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Linux系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://www.torproject.org/dist/torbrowser/13.0.8/tor-browser-linux64-13.0.8_en-US.tar.xz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -xf tor-browser-linux64-13.0.8_en-US.tar.xz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; tor-browser_en-US
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./start-tor-browser.desktop
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Windows系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 下载并运行安装程序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# macOS系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 下载DMG文件并安装&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="配置tor网络"&gt;配置Tor网络&lt;a class="anchor" href="#%e9%85%8d%e7%bd%aetor%e7%bd%91%e7%bb%9c"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Tor服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install tor
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置Tor&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo nano /etc/tor/torrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 添加以下配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;SocksPort &lt;span style="color:#ff9f43"&gt;9050&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ControlPort &lt;span style="color:#ff9f43"&gt;9051&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DataDirectory /var/lib/tor
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ExitNodes &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;us&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 重启Tor服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl restart tor
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 验证Tor状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl status tor&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本访问"&gt;基本访问&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e8%ae%bf%e9%97%ae"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="访问onion网站"&gt;访问.onion网站&lt;a class="anchor" href="#%e8%ae%bf%e9%97%aeonion%e7%bd%91%e7%ab%99"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Tor浏览器访问&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 在Tor浏览器地址栏输入.onion地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用curl通过Tor代理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl --socks5 127.0.0.1:9050 http://example.onion
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用torsocks&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install torsocks
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;torsocks curl http://example.onion&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="dns查询"&gt;DNS查询&lt;a class="anchor" href="#dns%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 通过Tor进行DNS查询&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;torsocks nslookup example.onion
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用dig&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;torsocks dig example.onion
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Python进行DNS查询&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;import socket
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;import socks
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;socks.set_default_proxy&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;socks.SOCKS5, &lt;span style="color:#5af78e"&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt;, 9050&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;socket.socket &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; socks.socksocket
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;socket.gethostbyname&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;example.onion&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="暗网目录"&gt;暗网目录&lt;a class="anchor" href="#%e6%9a%97%e7%bd%91%e7%9b%ae%e5%bd%95"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="常用暗网目录"&gt;常用暗网目录&lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e6%9a%97%e7%bd%91%e7%9b%ae%e5%bd%95"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 访问暗网目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 注意：这些地址可能会变化&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# The Hidden Wiki&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# http://thehiddenwiki.org/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Onion Link Directory&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# http://onionlinks.net/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Deep Web Directory&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# http://deepweblinks.com/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 注意：访问这些网站时要注意安全&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 不要下载可疑文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 不要提供个人信息&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="目录使用技巧"&gt;目录使用技巧&lt;a class="anchor" href="#%e7%9b%ae%e5%bd%95%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 验证网站信誉&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 查看用户评价&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 检查网站年龄&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 避免新网站&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 使用虚拟机&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 在隔离环境中访问&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 使用VPN + Tor&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 定期快照&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 禁用JavaScript&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - Tor浏览器设置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - Security Level: Safest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 使用专用配置文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 创建独立的Tor浏览器配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# - 不保存浏览历史&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="信息收集基础"&gt;信息收集基础&lt;a class="anchor" href="#%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="论坛信息收集"&gt;论坛信息收集&lt;a class="anchor" href="#%e8%ae%ba%e5%9d%9b%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; bs4 &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; BeautifulSoup
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;scrape_forum&lt;/span&gt;(forum_url):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;收集论坛信息&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 通过Tor代理访问&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; proxies &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(forum_url, proxies&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;proxies, timeout&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;30&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; soup &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; BeautifulSoup(response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;content, &lt;span style="color:#5af78e"&gt;&amp;#39;html.parser&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取帖子标题&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; titles &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; soup&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;find_all(&lt;span style="color:#5af78e"&gt;&amp;#39;h2&amp;#39;&lt;/span&gt;, class_&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;post-title&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; title &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; titles:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(title&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;text&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strip())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取发布时间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; times &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; soup&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;find_all(&lt;span style="color:#5af78e"&gt;&amp;#39;span&amp;#39;&lt;/span&gt;, class_&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;post-time&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; time &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; times:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(time&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;text&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strip())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;except&lt;/span&gt; Exception &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Error: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;e&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scrape_forum(&lt;span style="color:#5af78e"&gt;&amp;#39;http://example-forum.onion&amp;#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="市场信息收集"&gt;市场信息收集&lt;a class="anchor" href="#%e5%b8%82%e5%9c%ba%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;collect_market_data&lt;/span&gt;(market_url):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;收集市场数据&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; proxies &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(market_url, proxies&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;proxies, timeout&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;30&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 解析JSON数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;json()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取商品信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; products &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;products&amp;#39;&lt;/span&gt;, [])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; product &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; products:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;商品: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;product[&lt;span style="color:#5af78e"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;价格: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;product[&lt;span style="color:#5af78e"&gt;&amp;#39;price&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;卖家: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;product[&lt;span style="color:#5af78e"&gt;&amp;#39;seller&amp;#39;&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;except&lt;/span&gt; Exception &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Error: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;e&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;collect_market_data(&lt;span style="color:#5af78e"&gt;&amp;#39;http://example-market.onion/api/products&amp;#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="中级使用"&gt;中级使用&lt;a class="anchor" href="#%e4%b8%ad%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="自动化收集"&gt;自动化收集&lt;a class="anchor" href="#%e8%87%aa%e5%8a%a8%e5%8c%96%e6%94%b6%e9%9b%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="定期监控脚本"&gt;定期监控脚本&lt;a class="anchor" href="#%e5%ae%9a%e6%9c%9f%e7%9b%91%e6%8e%a7%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 暗网定期监控脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;TARGET_URLS&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;http://example-forum.onion&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;http://example-market.onion&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;OUTPUT_DIR&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;./darkweb_monitoring&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;LOG_FILE&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;monitoring.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建输出目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$OUTPUT_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 监控函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;monitor_url&lt;span style="color:#ff6ac1"&gt;()&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;url&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;timestamp&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date +%Y%m%d_%H%M%S&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;local&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;output_file&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$OUTPUT_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$url&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|http://||&amp;#39;&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|/||g&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;_&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$timestamp&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.html&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: 监控 &lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$url&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 通过Tor下载页面&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; curl --socks5 127.0.0.1:9050 -o &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$output_file&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$url&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; 2&amp;gt;&amp;amp;&lt;span style="color:#ff9f43"&gt;1&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 检查变化&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;[&lt;/span&gt; -f &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$OUTPUT_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$url&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|http://||&amp;#39;&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|/||g&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;_previous.html&amp;#34;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;]&lt;/span&gt;; &lt;span style="color:#ff6ac1"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; diff &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$OUTPUT_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$url&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|http://||&amp;#39;&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|/||g&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;_previous.html&amp;#34;&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$output_file&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$OUTPUT_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/changes_&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date +%Y%m%d_%H%M%S&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.txt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 保存当前版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cp &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$output_file&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$OUTPUT_DIR&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$url&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|http://||&amp;#39;&lt;/span&gt; | sed &lt;span style="color:#5af78e"&gt;&amp;#39;s|/||g&amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;_previous.html&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 监控所有URL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; url in &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;${&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;TARGET_URLS&lt;/span&gt;[@]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;; &lt;span style="color:#ff6ac1"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; monitor_url &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$url&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;date&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: 监控完成&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;$LOG_FILE&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="数据提取脚本"&gt;数据提取脚本&lt;a class="anchor" href="#%e6%95%b0%e6%8d%ae%e6%8f%90%e5%8f%96%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; bs4 &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; BeautifulSoup
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;extract_data&lt;/span&gt;(url, output_file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;提取数据并保存&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; proxies &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(url, proxies&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;proxies, timeout&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;30&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; soup &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; BeautifulSoup(response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;content, &lt;span style="color:#5af78e"&gt;&amp;#39;html.parser&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;: url,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;: datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;isoformat(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;titles&amp;#39;&lt;/span&gt;: [t&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;text&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strip() &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; t &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; soup&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;find_all(&lt;span style="color:#5af78e"&gt;&amp;#39;h2&amp;#39;&lt;/span&gt;)],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;links&amp;#39;&lt;/span&gt;: [a[&lt;span style="color:#5af78e"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; a &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; soup&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;find_all(&lt;span style="color:#5af78e"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;, href&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;True&lt;/span&gt;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 保存数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(output_file, &lt;span style="color:#5af78e"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;dump(data, f, indent&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;数据已保存到 &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;output_file&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;except&lt;/span&gt; Exception &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Error: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;e&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;extract_data(&lt;span style="color:#5af78e"&gt;&amp;#39;http://example-forum.onion&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;forum_data.json&amp;#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="数据分析"&gt;数据分析&lt;a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="文本分析"&gt;文本分析&lt;a class="anchor" href="#%e6%96%87%e6%9c%ac%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; collections &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; Counter
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; re
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;analyze_text&lt;/span&gt;(data_file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分析文本数据&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(data_file) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取所有文本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; text &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;join(data[&lt;span style="color:#5af78e"&gt;&amp;#39;titles&amp;#39;&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 词频统计&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; words &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; re&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;findall(&lt;span style="color:#5af78e"&gt;r&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;\b\w+\b&amp;#39;&lt;/span&gt;, text&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;lower())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; word_freq &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; Counter(words)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;=== 词频统计 ===&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; word, count &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; word_freq&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;most_common(&lt;span style="color:#ff9f43"&gt;20&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;word&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;count&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取URL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; urls &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; data[&lt;span style="color:#5af78e"&gt;&amp;#39;links&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;\n&lt;/span&gt;&lt;span style="color:#5af78e"&gt;=== URL统计 ===&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;总URL数: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(urls)&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;唯一URL数: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(&lt;span style="color:#ff5c57"&gt;set&lt;/span&gt;(urls))&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; domains &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [url&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;split(&lt;span style="color:#5af78e"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;)[&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; url &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; urls &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;://&amp;#39;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; url]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; domain_freq &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; Counter(domains)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;\n&lt;/span&gt;&lt;span style="color:#5af78e"&gt;=== 域名统计 ===&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; domain, count &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; domain_freq&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;most_common(&lt;span style="color:#ff9f43"&gt;10&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;domain&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;count&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;analyze_text(&lt;span style="color:#5af78e"&gt;&amp;#39;forum_data.json&amp;#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="关系分析"&gt;关系分析&lt;a class="anchor" href="#%e5%85%b3%e7%b3%bb%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; networkx &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; nx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;build_relationship_graph&lt;/span&gt;(data_file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;构建关系图&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(data_file) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; G &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; nx&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;Graph()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 添加节点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; title &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data[&lt;span style="color:#5af78e"&gt;&amp;#39;titles&amp;#39;&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; words &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; title&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;split()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; word &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; words:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(word) &lt;span style="color:#ff6ac1"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;3&lt;/span&gt;: &lt;span style="color:#78787e"&gt;# 忽略短词&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; G&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;add_node(word)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 添加边（共现关系）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; title &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data[&lt;span style="color:#5af78e"&gt;&amp;#39;titles&amp;#39;&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; words &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [w &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; w &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; title&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;split() &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(w) &lt;span style="color:#ff6ac1"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;3&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; i &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;range&lt;/span&gt;(&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(words)):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; j &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;range&lt;/span&gt;(i&lt;span style="color:#ff6ac1"&gt;+&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;, &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(words)):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; G&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;add_edge(words[i], words[j])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; G
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;visualize_graph&lt;/span&gt;(G, output_file&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;relationship_graph.png&amp;#39;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;可视化关系图&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;figure(figsize&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;(&lt;span style="color:#ff9f43"&gt;12&lt;/span&gt;, &lt;span style="color:#ff9f43"&gt;8&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pos &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; nx&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;spring_layout(G)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; nx&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;draw(G, pos, with_labels&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;True&lt;/span&gt;, node_size&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;3000&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; node_color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;lightblue&amp;#39;&lt;/span&gt;, font_size&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;8&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;savefig(output_file, dpi&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;300&lt;/span&gt;, bbox_inches&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;tight&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;关系图已保存到 &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;output_file&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;G &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; build_relationship_graph(&lt;span style="color:#5af78e"&gt;&amp;#39;forum_data.json&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;visualize_graph(G)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="中上级使用"&gt;中上级使用&lt;a class="anchor" href="#%e4%b8%ad%e4%b8%8a%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="高级监控"&gt;高级监控&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e7%9b%91%e6%8e%a7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="实时监控"&gt;实时监控&lt;a class="anchor" href="#%e5%ae%9e%e6%97%b6%e7%9b%91%e6%8e%a7"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; time
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; hashlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;monitor_changes&lt;/span&gt;(url, interval&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;300&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;实时监控变化&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; proxies &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; last_hash &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;while&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: 检查 &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;url&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(url, proxies&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;proxies, timeout&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;30&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; content &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;content
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 计算哈希&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; current_hash &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; hashlib&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;md5(content)&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;hexdigest()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 检查变化&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; last_hash &lt;span style="color:#ff6ac1"&gt;and&lt;/span&gt; current_hash &lt;span style="color:#ff6ac1"&gt;!=&lt;/span&gt; last_hash:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: 检测到变化！&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 保存变化&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;change_&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strftime(&lt;span style="color:#5af78e"&gt;&amp;#39;%Y%m&lt;/span&gt;&lt;span style="color:#5af78e"&gt;%d&lt;/span&gt;&lt;span style="color:#5af78e"&gt;_%H%M%S&amp;#39;&lt;/span&gt;)&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;.html&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;wb&amp;#39;&lt;/span&gt;) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;write(content)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; last_hash &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; current_hash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 等待下一次检查&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;sleep(interval)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;except&lt;/span&gt; Exception &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Error: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;e&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;sleep(&lt;span style="color:#ff9f43"&gt;60&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;monitor_changes(&lt;span style="color:#5af78e"&gt;&amp;#39;http://example-forum.onion&amp;#39;&lt;/span&gt;, interval&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;300&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="多线程监控"&gt;多线程监控&lt;a class="anchor" href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e7%9b%91%e6%8e%a7"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; threading
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; queue &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; Queue
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;monitor_url&lt;/span&gt;(url, result_queue):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;监控单个URL&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; proxies &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(url, proxies&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;proxies, timeout&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;30&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;put((url, response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;status_code, &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;content)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;except&lt;/span&gt; Exception &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;put((url, &lt;span style="color:#ff5c57"&gt;str&lt;/span&gt;(e), &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;multi_thread_monitor&lt;/span&gt;(urls, num_threads&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;5&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;多线程监控&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result_queue &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; Queue()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; threads &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 创建线程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; url &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; urls:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; thread &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; threading&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;Thread(target&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;monitor_url, args&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;(url, result_queue))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; thread&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;start()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; threads&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append(thread)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 限制并发线程数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(threads) &lt;span style="color:#ff6ac1"&gt;&amp;gt;=&lt;/span&gt; num_threads:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; t &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; threads:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; t&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;join()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; threads &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 等待所有线程完成&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; t &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; threads:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; t&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;join()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 收集结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;while&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;not&lt;/span&gt; result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;empty():
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url, status, size &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;url&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;status&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;, &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;size&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt; bytes&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;urls &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http://example1.onion&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http://example2.onion&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http://example3.onion&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;multi_thread_monitor(urls, num_threads&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;3&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="数据存储"&gt;数据存储&lt;a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ad%98%e5%82%a8"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="数据库存储"&gt;数据库存储&lt;a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%ad%98%e5%82%a8"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; sqlite3
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;create_database&lt;/span&gt;(db_file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;创建数据库&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; conn &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; sqlite3&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;connect(db_file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cursor &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; conn&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;cursor()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cursor&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;execute(&lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; CREATE TABLE IF NOT EXISTS darkweb_data (
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; id INTEGER PRIMARY KEY AUTOINCREMENT,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; url TEXT NOT NULL,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; title TEXT,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; content TEXT,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; conn&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;commit()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; conn
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;insert_data&lt;/span&gt;(conn, url, title, content):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;插入数据&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cursor &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; conn&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;cursor()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cursor&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;execute(&lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; INSERT INTO darkweb_data (url, title, content)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; VALUES (?, ?, ?)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;, (url, title, content))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; conn&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;commit()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;query_data&lt;/span&gt;(conn, url_pattern&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;None&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;查询数据&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cursor &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; conn&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;cursor()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; url_pattern:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cursor&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;execute(&lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; SELECT * FROM darkweb_data
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; WHERE url LIKE ?
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; ORDER BY timestamp DESC
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;, (&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;%&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;url_pattern&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;%&amp;#39;&lt;/span&gt;,))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cursor&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;execute(&lt;span style="color:#5af78e"&gt;&amp;#39;&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; SELECT * FROM darkweb_data
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; ORDER BY timestamp DESC
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#5af78e"&gt; &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; cursor&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;fetchall()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;conn &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; create_database(&lt;span style="color:#5af78e"&gt;&amp;#39;darkweb_data.db&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 插入数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;insert_data(conn, &lt;span style="color:#5af78e"&gt;&amp;#39;http://example.onion&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;Example Title&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;Example Content&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查询数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;results &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; query_data(conn, &lt;span style="color:#5af78e"&gt;&amp;#39;example&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; row &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; results:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;URL: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;row[&lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Title: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;row[&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Timestamp: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;row[&lt;span style="color:#ff9f43"&gt;4&lt;/span&gt;]&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;conn&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;close()&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="高级使用"&gt;高级使用&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="威胁情报分析"&gt;威胁情报分析&lt;a class="anchor" href="#%e5%a8%81%e8%83%81%e6%83%85%e6%8a%a5%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="恶意指标提取"&gt;恶意指标提取&lt;a class="anchor" href="#%e6%81%b6%e6%84%8f%e6%8c%87%e6%a0%87%e6%8f%90%e5%8f%96"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; re
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;extract_iocs&lt;/span&gt;(content):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;提取恶意指标&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; iocs &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;: [],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;ips&amp;#39;&lt;/span&gt;: [],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;urls&amp;#39;&lt;/span&gt;: [],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;emails&amp;#39;&lt;/span&gt;: [],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;hashes&amp;#39;&lt;/span&gt;: []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; re&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;findall(&lt;span style="color:#5af78e"&gt;r&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;\b[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\b&amp;#39;&lt;/span&gt;, content)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取IP地址&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;ips&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; re&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;findall(&lt;span style="color:#5af78e"&gt;r&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;\b(?:[0-9]{1,3}\.)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{3}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;[0-9]{1,3}\b&amp;#39;&lt;/span&gt;, content)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取URL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;urls&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; re&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;findall(&lt;span style="color:#5af78e"&gt;r&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;https?://[^\s&amp;lt;&amp;gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;|&lt;/span&gt;&lt;span style="color:#5af78e"&gt;\\&lt;/span&gt;&lt;span style="color:#5af78e"&gt;^`\[\]]+&amp;#39;&lt;/span&gt;, content)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取电子邮件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;emails&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; re&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;findall(&lt;span style="color:#5af78e"&gt;r&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b&amp;#39;&lt;/span&gt;, content)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取哈希&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;hashes&amp;#39;&lt;/span&gt;] &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; re&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;findall(&lt;span style="color:#5af78e"&gt;r&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;\b[a-fA-F0-9]{32,64}\b&amp;#39;&lt;/span&gt;, content)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; iocs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;analyze_threat_intel&lt;/span&gt;(url):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分析威胁情报&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; proxies &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(url, proxies&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;proxies, timeout&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;30&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; iocs &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; extract_iocs(response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;text)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 保存IOC&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#39;threat_iocs.json&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;dump(iocs, f, indent&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;IOC提取完成:&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;域名: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;])&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;IP地址: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;ips&amp;#39;&lt;/span&gt;])&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;URL: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;urls&amp;#39;&lt;/span&gt;])&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;电子邮件: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;emails&amp;#39;&lt;/span&gt;])&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;哈希: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(iocs[&lt;span style="color:#5af78e"&gt;&amp;#39;hashes&amp;#39;&lt;/span&gt;])&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;except&lt;/span&gt; Exception &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Error: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;e&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;analyze_threat_intel(&lt;span style="color:#5af78e"&gt;&amp;#39;http://example-forum.onion&amp;#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="趋势分析"&gt;趋势分析&lt;a class="anchor" href="#%e8%b6%8b%e5%8a%bf%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; collections &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; defaultdict
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;analyze_trends&lt;/span&gt;(data_files):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分析趋势&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; trends &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; defaultdict(&lt;span style="color:#ff6ac1"&gt;lambda&lt;/span&gt;: defaultdict(&lt;span style="color:#ff5c57"&gt;int&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; file &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data_files:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(file) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取时间戳&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; timestamp &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strptime(data[&lt;span style="color:#5af78e"&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;], &lt;span style="color:#5af78e"&gt;&amp;#39;%Y-%m-&lt;/span&gt;&lt;span style="color:#5af78e"&gt;%d&lt;/span&gt;&lt;span style="color:#5af78e"&gt;T%H:%M:%S&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; date_key &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; timestamp&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strftime(&lt;span style="color:#5af78e"&gt;&amp;#39;%Y-%m-&lt;/span&gt;&lt;span style="color:#5af78e"&gt;%d&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 统计各类指标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; domain &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;, []):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; trends[&lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;][date_key] &lt;span style="color:#ff6ac1"&gt;+=&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; ip &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;ips&amp;#39;&lt;/span&gt;, []):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; trends[&lt;span style="color:#5af78e"&gt;&amp;#39;ips&amp;#39;&lt;/span&gt;][date_key] &lt;span style="color:#ff6ac1"&gt;+=&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; url &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;urls&amp;#39;&lt;/span&gt;, []):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; trends[&lt;span style="color:#5af78e"&gt;&amp;#39;urls&amp;#39;&lt;/span&gt;][date_key] &lt;span style="color:#ff6ac1"&gt;+=&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; trends
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;plot_trends&lt;/span&gt;(trends, output_file&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;trend_analysis.png&amp;#39;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;绘制趋势图&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; fig, axes &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;subplots(&lt;span style="color:#ff9f43"&gt;3&lt;/span&gt;, &lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;, figsize&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;(&lt;span style="color:#ff9f43"&gt;12&lt;/span&gt;, &lt;span style="color:#ff9f43"&gt;12&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 域名趋势&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; dates &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;sorted&lt;/span&gt;(trends[&lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;keys())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; domain_counts &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [trends[&lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;][d] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; dates]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;plot(dates, domain_counts, color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;blue&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;set_title(&lt;span style="color:#5af78e"&gt;&amp;#39;Domain Trend&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;set_ylabel(&lt;span style="color:#5af78e"&gt;&amp;#39;Count&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;0&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;tick_params(axis&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;, rotation&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;45&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# IP趋势&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ip_counts &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [trends[&lt;span style="color:#5af78e"&gt;&amp;#39;ips&amp;#39;&lt;/span&gt;][d] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; dates]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;plot(dates, ip_counts, color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;red&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;set_title(&lt;span style="color:#5af78e"&gt;&amp;#39;IP Address Trend&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;set_ylabel(&lt;span style="color:#5af78e"&gt;&amp;#39;Count&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;1&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;tick_params(axis&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;, rotation&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;45&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# URL趋势&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url_counts &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [trends[&lt;span style="color:#5af78e"&gt;&amp;#39;urls&amp;#39;&lt;/span&gt;][d] &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; dates]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;plot(dates, url_counts, color&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;green&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;set_title(&lt;span style="color:#5af78e"&gt;&amp;#39;URL Trend&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;set_ylabel(&lt;span style="color:#5af78e"&gt;&amp;#39;Count&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; axes[&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;tick_params(axis&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;, rotation&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;45&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;tight_layout()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;savefig(output_file, dpi&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;300&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;趋势图已保存到 &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;output_file&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;data_files &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [&lt;span style="color:#5af78e"&gt;&amp;#39;threat_iocs_1.json&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;threat_iocs_2.json&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;threat_iocs_3.json&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;trends &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; analyze_trends(data_files)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plot_trends(trends)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="大师级使用"&gt;大师级使用&lt;a class="anchor" href="#%e5%a4%a7%e5%b8%88%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="自动化系统"&gt;自动化系统&lt;a class="anchor" href="#%e8%87%aa%e5%8a%a8%e5%8c%96%e7%b3%bb%e7%bb%9f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="分布式监控"&gt;分布式监控&lt;a class="anchor" href="#%e5%88%86%e5%b8%83%e5%bc%8f%e7%9b%91%e6%8e%a7"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; multiprocessing
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; time
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;monitor_node&lt;/span&gt;(url, result_queue):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;监控单个节点&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; proxies &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;https&amp;#39;&lt;/span&gt;: &lt;span style="color:#5af78e"&gt;&amp;#39;socks5://127.0.0.1:9050&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;try&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; start_time &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; time&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;time()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(url, proxies&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;proxies, timeout&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;30&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end_time &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; time&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;time()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;: url,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;status_code&amp;#39;&lt;/span&gt;: response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;status_code,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;response_time&amp;#39;&lt;/span&gt;: end_time &lt;span style="color:#ff6ac1"&gt;-&lt;/span&gt; start_time,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;content_length&amp;#39;&lt;/span&gt;: &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;content),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;: datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;isoformat()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;put(result)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;except&lt;/span&gt; Exception &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; e:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;put({
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;: url,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;error&amp;#39;&lt;/span&gt;: &lt;span style="color:#ff5c57"&gt;str&lt;/span&gt;(e),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;: datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;isoformat()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; })
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;distributed_monitor&lt;/span&gt;(urls, num_workers&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;4&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分布式监控&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result_queue &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; multiprocessing&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;Queue()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; processes &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 创建进程池&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pool &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; multiprocessing&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;Pool(processes&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;num_workers)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 启动监控&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; results &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; url &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; urls:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; pool&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;apply_async(monitor_node, (url, result_queue))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; results&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append(result)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 收集结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; result &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; results:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;wait()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pool&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pool&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;join()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 收集所有结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; all_results &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;while&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;not&lt;/span&gt; result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;empty():
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; all_results&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append(result_queue&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; all_results
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;urls &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http://example1.onion&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http://example2.onion&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http://example3.onion&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;http://example4.onion&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;results &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; distributed_monitor(urls, num_workers&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;4&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; result &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; results:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;dumps(result, indent&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="智能分析"&gt;智能分析&lt;a class="anchor" href="#%e6%99%ba%e8%83%bd%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; numpy &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; np
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; sklearn.cluster &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; KMeans
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; sklearn.feature_extraction.text &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; TfidfVectorizer
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;cluster_texts&lt;/span&gt;(texts, num_clusters&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;3&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;聚类文本&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 特征提取&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; vectorizer &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; TfidfVectorizer(max_features&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;1000&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; X &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; vectorizer&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;fit_transform(texts)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 聚类&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; kmeans &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; KMeans(n_clusters&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;num_clusters, random_state&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;42&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; kmeans&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;fit(X)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; kmeans&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;labels_
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;analyze_patterns&lt;/span&gt;(data_file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;分析模式&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(data_file) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 提取文本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; texts &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;titles&amp;#39;&lt;/span&gt;, [])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 聚类&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; labels &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; cluster_texts(texts, num_clusters&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;3&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 分析聚类结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; clusters &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; i, label &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;enumerate&lt;/span&gt;(labels):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; label &lt;span style="color:#ff6ac1"&gt;not&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; clusters:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; clusters[label] &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; clusters[label]&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append(texts[i])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 输出聚类结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; cluster_id, cluster_texts &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; clusters&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;items():
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#5af78e"&gt;\n&lt;/span&gt;&lt;span style="color:#5af78e"&gt;=== Cluster &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;cluster_id&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt; ===&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;Size: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(cluster_texts)&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;Sample texts:&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; text &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; cluster_texts[:&lt;span style="color:#ff9f43"&gt;5&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34; - &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;text&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;analyze_patterns(&lt;span style="color:#5af78e"&gt;&amp;#39;forum_data.json&amp;#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="报告生成"&gt;报告生成&lt;a class="anchor" href="#%e6%8a%a5%e5%91%8a%e7%94%9f%e6%88%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="自动报告"&gt;自动报告&lt;a class="anchor" href="#%e8%87%aa%e5%8a%a8%e6%8a%a5%e5%91%8a"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; datetime &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; datetime
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; jinja2 &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; Template
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;generate_report&lt;/span&gt;(data_files, template_file, output_file):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;生成报告&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 收集所有数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; all_data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; file &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data_files:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(file) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; json&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;load(f)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; all_data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;append(data)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 统计数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_domains &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(&lt;span style="color:#ff5c57"&gt;set&lt;/span&gt;([d &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; data &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; all_data &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;domains&amp;#39;&lt;/span&gt;, [])]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_ips &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(&lt;span style="color:#ff5c57"&gt;set&lt;/span&gt;([d &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; data &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; all_data &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;ips&amp;#39;&lt;/span&gt;, [])]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_urls &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(&lt;span style="color:#ff5c57"&gt;set&lt;/span&gt;([d &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; data &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; all_data &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; d &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; data&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;get(&lt;span style="color:#5af78e"&gt;&amp;#39;urls&amp;#39;&lt;/span&gt;, [])]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 生成报告&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; template &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; Template(&lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(template_file)&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;read())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; report &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; template&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;render(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; timestamp&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;datetime&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;now()&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;strftime(&lt;span style="color:#5af78e"&gt;&amp;#39;%Y-%m-&lt;/span&gt;&lt;span style="color:#5af78e"&gt;%d&lt;/span&gt;&lt;span style="color:#5af78e"&gt; %H:%M:%S&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_data&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;len&lt;/span&gt;(all_data),
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_domains&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;total_domains,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_ips&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;total_ips,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; total_urls&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;total_urls,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;all_data
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;with&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;open&lt;/span&gt;(output_file, &lt;span style="color:#5af78e"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;) &lt;span style="color:#ff6ac1"&gt;as&lt;/span&gt; f:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;write(report)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;报告已生成: &lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;output_file&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;generate_report(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [&lt;span style="color:#5af78e"&gt;&amp;#39;threat_iocs_1.json&amp;#39;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#39;threat_iocs_2.json&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;report_template.html&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;darkweb_report.html&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="实战案例"&gt;实战案例&lt;a class="anchor" href="#%e5%ae%9e%e6%88%98%e6%a1%88%e4%be%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="案例1-威胁情报监控"&gt;案例1: 威胁情报监控&lt;a class="anchor" href="#%e6%a1%88%e4%be%8b1-%e5%a8%81%e8%83%81%e6%83%85%e6%8a%a5%e7%9b%91%e6%8e%a7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="场景描述"&gt;场景描述&lt;a class="anchor" href="#%e5%9c%ba%e6%99%af%e6%8f%8f%e8%bf%b0"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;监控暗网论坛和市场，收集威胁情报和恶意指标。&lt;/p&gt;</description></item></channel></rss>

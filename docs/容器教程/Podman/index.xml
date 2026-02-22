@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Podman on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/Podman/</link><description>Recent content in Podman on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/Podman/index.xml" rel="self" type="application/rss+xml"/><item><title>Podman教程</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/Podman/Podman%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/Podman/Podman%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="podman教程"&gt;Podman教程&lt;a class="anchor" href="#podman%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Podman（Pod Manager）是一种开源的容器管理工具，它提供了与Docker兼容的命令行界面，但不需要守护进程。Podman可以在没有root权限的情况下运行容器，提供了更好的安全性。&lt;/p&gt;
+&lt;h3 id="podman核心概念"&gt;Podman核心概念&lt;a class="anchor" href="#podman%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器&lt;/strong&gt;：运行在隔离环境中的应用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pod&lt;/strong&gt;：一组共享网络和存储的容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;镜像&lt;/strong&gt;：容器的只读模板&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卷&lt;/strong&gt;：持久化存储&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络&lt;/strong&gt;：容器间通信&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;镜像仓库&lt;/strong&gt;：存储和分发镜像&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="podman架构"&gt;Podman架构&lt;a class="anchor" href="#podman%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无守护进程&lt;/strong&gt;：Podman直接与容器运行时和Linux内核交互，不需要守护进程&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rootless容器&lt;/strong&gt;：支持在没有root权限的情况下运行容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker兼容&lt;/strong&gt;：提供与Docker兼容的命令行界面&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;集成Pod&lt;/strong&gt;：原生支持Kubernetes Pod概念&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装podman"&gt;安装Podman&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85podman"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在不同操作系统上安装Podman：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt-get install podman
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# CentOS/RHEL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install podman
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Fedora&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dnf install podman
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 验证安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman info&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本podman命令"&gt;基本Podman命令&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%acpodman%e5%91%bd%e4%bb%a4"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用Podman的基本命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看Podman版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看Podman信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman info
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 搜索镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman search ubuntu
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 拉取镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman pull ubuntu:20.04
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看本地镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman images
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman run -it --name mycontainer ubuntu:20.04 /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看运行中的容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman ps
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看所有容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman ps -a
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 停止容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman stop mycontainer
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 启动容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman start mycontainer
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 删除容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman rm mycontainer
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 删除镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;podman rmi ubuntu:20.04&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="容器操作"&gt;容器操作&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%93%8d%e4%bd%9c"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;操作Podman容器：&lt;/p&gt;</description></item></channel></rss>

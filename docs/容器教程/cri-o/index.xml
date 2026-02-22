@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CRI-O on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/cri-o/</link><description>Recent content in CRI-O on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/cri-o/index.xml" rel="self" type="application/rss+xml"/><item><title>CRI-O教程</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/cri-o/cri-o%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/cri-o/cri-o%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="cri-o教程"&gt;CRI-O教程&lt;a class="anchor" href="#cri-o%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;CRI-O是一个轻量级的容器运行时，专为Kubernetes设计，实现了Kubernetes容器运行时接口(CRI)。它提供了一个与Kubernetes完全兼容的容器运行时环境，专注于简单性、安全性和性能。CRI-O使用OCI（Open Container Initiative）兼容的运行时，如runc，来运行容器。&lt;/p&gt;
+&lt;h3 id="cri-o核心概念"&gt;CRI-O核心概念&lt;a class="anchor" href="#cri-o%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器&lt;/strong&gt;：运行在隔离环境中的应用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;镜像&lt;/strong&gt;：容器的只读模板&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pod&lt;/strong&gt;：Kubernetes中的Pod概念，包含一个或多个容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运行时&lt;/strong&gt;：执行容器的底层运行时，如runc&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;存储&lt;/strong&gt;：容器的存储管理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络&lt;/strong&gt;：容器的网络配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="cri-o架构"&gt;CRI-O架构&lt;a class="anchor" href="#cri-o%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心组件&lt;/strong&gt;：CRI-O daemon、OCI运行时、镜像管理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API&lt;/strong&gt;：Kubernetes CRI接口&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;集成&lt;/strong&gt;：与Kubernetes无缝集成&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插件系统&lt;/strong&gt;：存储、网络、监控等插件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装cri-o"&gt;安装CRI-O&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85cri-o"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在不同操作系统上安装CRI-O：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 添加CRI-O仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;. /etc/os-release
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_&lt;/span&gt;&lt;span style="color:#5af78e"&gt;${&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;VERSION_ID&lt;/span&gt;&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;/ /&amp;#34;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_&lt;span style="color:#5af78e"&gt;${&lt;/span&gt;&lt;span style="color:#ff5c57"&gt;VERSION_ID&lt;/span&gt;&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;/Release.key | sudo apt-key add -
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装CRI-O&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt-get install cri-o cri-o-runc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# CentOS/RHEL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 添加CRI-O仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum-config-manager --add-repo&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;https://cbs.centos.org/repos/paas7-crio-311-candidate/x86_64/os/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装CRI-O&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install cri-o
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 启动CRI-O服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl start crio
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl &lt;span style="color:#ff5c57"&gt;enable&lt;/span&gt; crio
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 验证安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crio --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crictl version&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本cri-o命令"&gt;基本CRI-O命令&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%accri-o%e5%91%bd%e4%bb%a4"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用CRI-O的基本命令：&lt;/p&gt;</description></item></channel></rss>

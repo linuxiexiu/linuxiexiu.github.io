@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>端口扫描 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link><description>Recent content in 端口扫描 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>Masscan使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Masscan%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Masscan%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="masscan使用教程"&gt;Masscan使用教程&lt;a class="anchor" href="#masscan%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Masscan是一款高速的互联网级端口扫描器，能够在几分钟内扫描整个互联网。它的设计目标是在保持高速度的同时，提供与Nmap类似的功能。&lt;/p&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="基本扫描"&gt;基本扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：扫描单个IP或IP范围的指定端口&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描单个IP的80端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan 192.168.1.1 -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描IP范围的多个端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan 192.168.1.1-100 -p 80,443,22
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描整个网段&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan 192.168.1.0/24 -p 1-1000
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan example.com -p 80,443&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-p&lt;/code&gt;：指定端口范围，可使用逗号分隔多个端口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="结果输出"&gt;结果输出&lt;a class="anchor" href="#%e7%bb%93%e6%9e%9c%e8%be%93%e5%87%ba"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：将扫描结果输出到文件&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出到文本文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan 192.168.1.0/24 -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; -oG scan.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出到XML文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan 192.168.1.0/24 -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; -oX scan.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出到JSON文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan 192.168.1.0/24 -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; -oJ scan.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出到二进制文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan 192.168.1.0/24 -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; -oB scan.bin&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-oG&lt;/code&gt;：输出到grepable格式文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-oX&lt;/code&gt;：输出到XML格式文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-oJ&lt;/code&gt;：输出到JSON格式文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-oB&lt;/code&gt;：输出到二进制格式文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="速度控制"&gt;速度控制&lt;a class="anchor" href="#%e9%80%9f%e5%ba%a6%e6%8e%a7%e5%88%b6"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：控制扫描速度和性能&lt;/p&gt;</description></item><item><title>Netcat使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="netcat使用教程"&gt;Netcat使用教程&lt;a class="anchor" href="#netcat%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Netcat（简称nc）是一款功能强大的网络工具，被称为网络工具中的“瑞士军刀”。它可以用于端口扫描、文件传输、网络调试、远程shell等多种网络任务。&lt;/p&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="基本端口扫描"&gt;基本端口扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e7%ab%af%e5%8f%a3%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：扫描目标主机的开放端口&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描单个端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc -zv 192.168.1.1 &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描多个端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc -zv 192.168.1.1 &lt;span style="color:#ff9f43"&gt;21&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;22&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; &lt;span style="color:#ff9f43"&gt;443&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描端口范围&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc -zv 192.168.1.1 1-1000
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc -zv example.com &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-z&lt;/code&gt;：零I/O模式，仅用于扫描&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v&lt;/code&gt;：详细输出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="简单网络连接"&gt;简单网络连接&lt;a class="anchor" href="#%e7%ae%80%e5%8d%95%e7%bd%91%e7%bb%9c%e8%bf%9e%e6%8e%a5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：建立TCP连接到目标主机&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 连接到目标主机的指定端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc 192.168.1.1 &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 连接到域名的指定端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc example.com &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 发送HTTP请求&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; -e &lt;span style="color:#5af78e"&gt;&amp;#34;GET / HTTP/1.1\r\nHost: example.com\r\n\r\n&amp;#34;&lt;/span&gt; | nc example.com &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 连接到邮件服务器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc mail.example.com &lt;span style="color:#ff9f43"&gt;25&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无特殊参数：建立标准TCP连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="文件传输"&gt;文件传输&lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e4%bc%a0%e8%be%93"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：在两台主机之间传输文件&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 接收端：监听指定端口并保存文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc -l &lt;span style="color:#ff9f43"&gt;1234&lt;/span&gt; &amp;gt; received_file.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 发送端：连接到接收端并发送文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc 192.168.1.100 &lt;span style="color:#ff9f43"&gt;1234&lt;/span&gt; &amp;lt; file_to_send.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 传输目录（使用tar）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 发送端&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -czf - directory/ | nc 192.168.1.100 &lt;span style="color:#ff9f43"&gt;1234&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 接收端&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nc -l &lt;span style="color:#ff9f43"&gt;1234&lt;/span&gt; | tar -xzf -&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>Nmap使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Nmap%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Nmap%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="nmap使用教程"&gt;Nmap使用教程&lt;a class="anchor" href="#nmap%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Nmap（Network Mapper）是一款功能强大的网络扫描和安全审计工具，被广泛用于网络发现、端口扫描、服务识别、操作系统检测等信息收集任务。&lt;/p&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="基本扫描"&gt;基本扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：扫描目标主机的开放端口&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描单个IP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描IP范围&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap 192.168.1.1-100
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描网段&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap 192.168.1.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap example.com&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无参数：默认扫描前1000个常用端口&lt;/li&gt;
+&lt;li&gt;结果解读：显示开放端口、服务名称、版本信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="扫描指定端口"&gt;扫描指定端口&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8f%e6%8c%87%e5%ae%9a%e7%ab%af%e5%8f%a3"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：扫描指定的端口范围&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描单个端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描多个端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -p 80,443,22 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描端口范围&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -p 1-1000 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描所有端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -p- 192.168.1.1&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="服务识别"&gt;服务识别&lt;a class="anchor" href="#%e6%9c%8d%e5%8a%a1%e8%af%86%e5%88%ab"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：识别目标主机运行的服务和版本&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 启用服务版本检测&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sV 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 同时扫描操作系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -A 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 详细服务版本检测&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap --version-intensity &lt;span style="color:#ff9f43"&gt;9&lt;/span&gt; 192.168.1.1&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>Unicornscan使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Unicornscan%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Unicornscan%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="unicornscan使用教程"&gt;Unicornscan使用教程&lt;a class="anchor" href="#unicornscan%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Unicornscan是一款高性能的网络扫描器，专注于异步TCP和UDP扫描。它的设计目标是提供快速、灵活的网络发现和服务检测能力。&lt;/p&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="基本扫描"&gt;基本扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：扫描目标主机的开放端口&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描单个IP的TCP端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan 192.168.1.1:TCP
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描IP范围的UDP端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan 192.168.1.1-100:UDP
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描网段的所有端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan 192.168.1.0/24:a
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan example.com:TCP&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:TCP&lt;/code&gt;：扫描TCP端口&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:UDP&lt;/code&gt;：扫描UDP端口&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:a&lt;/code&gt;：扫描所有端口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="扫描指定端口"&gt;扫描指定端口&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8f%e6%8c%87%e5%ae%9a%e7%ab%af%e5%8f%a3"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：扫描指定的端口范围&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描单个TCP端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan 192.168.1.1:80
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描多个TCP端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan 192.168.1.1:21,22,80,443
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描TCP端口范围&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan 192.168.1.1:1-1000
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描UDP端口范围&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan 192.168.1.1:1-1000:UDP&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:端口&lt;/code&gt;：指定TCP端口&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:端口:UDP&lt;/code&gt;：指定UDP端口&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:端口范围&lt;/code&gt;：指定端口范围&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="速度控制"&gt;速度控制&lt;a class="anchor" href="#%e9%80%9f%e5%ba%a6%e6%8e%a7%e5%88%b6"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：控制扫描速度&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置扫描速率（每秒数据包数）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan -r &lt;span style="color:#ff9f43"&gt;1000&lt;/span&gt; 192.168.1.1:TCP
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置更高速率&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan -r &lt;span style="color:#ff9f43"&gt;10000&lt;/span&gt; 192.168.1.1:TCP
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置并发数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan -c &lt;span style="color:#ff9f43"&gt;500&lt;/span&gt; 192.168.1.1:TCP
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置超时时间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unicornscan -t &lt;span style="color:#ff9f43"&gt;1000&lt;/span&gt; 192.168.1.1:TCP&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>Zmap使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Zmap%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/Zmap%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="zmap使用教程"&gt;Zmap使用教程&lt;a class="anchor" href="#zmap%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Zmap是一款高性能的网络扫描器，专为互联网级别的扫描设计，能够在几分钟内扫描整个IPv4地址空间。它的特点是速度极快，同时保持资源占用低。&lt;/p&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="基本扫描"&gt;基本扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：扫描目标网络的指定端口&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描单个IP的80端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描IP范围&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.1-192.168.1.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描网段&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描多个端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p 80,443 192.168.1.0/24&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-p&lt;/code&gt;：指定端口，可使用逗号分隔多个端口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="结果输出"&gt;结果输出&lt;a class="anchor" href="#%e7%bb%93%e6%9e%9c%e8%be%93%e5%87%ba"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：将扫描结果输出到文件&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出到文本文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.0/24 -o scan.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出到CSV文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.0/24 -o csv:scan.csv
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出到JSON文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.0/24 -o json:scan.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 输出统计信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zmap -p &lt;span style="color:#ff9f43"&gt;80&lt;/span&gt; 192.168.1.0/24 -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;参数说明&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-o&lt;/code&gt;：指定输出文件和格式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v&lt;/code&gt;：启用详细输出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="速度控制"&gt;速度控制&lt;a class="anchor" href="#%e9%80%9f%e5%ba%a6%e6%8e%a7%e5%88%b6"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;功能说明&lt;/strong&gt;：控制扫描速度&lt;/p&gt;</description></item></channel></rss>

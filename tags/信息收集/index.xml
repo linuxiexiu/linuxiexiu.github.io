@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>信息收集 on Linux邪修</title><link>https://linuxiexiu.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</link><description>Recent content in 信息收集 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><lastBuildDate>Thu, 25 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://linuxiexiu.github.io/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/index.xml" rel="self" type="application/rss+xml"/><item><title>端口扫描技术详解</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/</link><pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/</guid><description>&lt;h1 id="端口扫描技术详解"&gt;端口扫描技术详解&lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%89%ab%e6%8f%8f%e6%8a%80%e6%9c%af%e8%af%a6%e8%a7%a3"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="端口扫描基础"&gt;端口扫描基础&lt;a class="anchor" href="#%e7%ab%af%e5%8f%a3%e6%89%ab%e6%8f%8f%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;端口扫描是通过向目标主机的TCP或UDP端口发送数据包，根据返回的结果判断端口是否开放的技术。这是信息收集中的重要环节，可以帮助我们发现目标系统的服务和潜在漏洞。&lt;/p&gt;
+&lt;h2 id="常用端口扫描技术"&gt;常用端口扫描技术&lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e7%ab%af%e5%8f%a3%e6%89%ab%e6%8f%8f%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-tcp-connect扫描全连接扫描"&gt;1. TCP Connect扫描（全连接扫描）&lt;a class="anchor" href="#1-tcp-connect%e6%89%ab%e6%8f%8f%e5%85%a8%e8%bf%9e%e6%8e%a5%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：完整的TCP三次握手，可靠性高&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;：Nmap (&lt;code&gt;-sT&lt;/code&gt;参数)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优缺点&lt;/strong&gt;：准确但容易被防火墙检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-syn扫描半连接扫描"&gt;2. SYN扫描（半连接扫描）&lt;a class="anchor" href="#2-syn%e6%89%ab%e6%8f%8f%e5%8d%8a%e8%bf%9e%e6%8e%a5%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：只发送SYN包，不完成三次握手&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;：Nmap (&lt;code&gt;-sS&lt;/code&gt;参数)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优缺点&lt;/strong&gt;：速度快，不易被检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-udp扫描"&gt;3. UDP扫描&lt;a class="anchor" href="#3-udp%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：扫描UDP端口&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;：Nmap (&lt;code&gt;-sU&lt;/code&gt;参数)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优缺点&lt;/strong&gt;：速度慢，但可以发现UDP服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4--fin扫描"&gt;4. FIN扫描&lt;a class="anchor" href="#4--fin%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：发送FIN包，利用RFC 793标准&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;：Nmap (&lt;code&gt;-sF&lt;/code&gt;参数)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优缺点&lt;/strong&gt;：可以绕过某些防火墙&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="实战示例"&gt;实战示例&lt;a class="anchor" href="#%e5%ae%9e%e6%88%98%e7%a4%ba%e4%be%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="使用nmap进行综合扫描"&gt;使用Nmap进行综合扫描&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8nmap%e8%bf%9b%e8%a1%8c%e7%bb%bc%e5%90%88%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 基本端口扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sS -sV -p 1-65535 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 快速扫描常用端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -F 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描并识别操作系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -O 192.168.1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 综合扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -A 192.168.1.1&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="使用masscan进行高速扫描"&gt;使用Masscan进行高速扫描&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8masscan%e8%bf%9b%e8%a1%8c%e9%ab%98%e9%80%9f%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Masscan&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/robertdavidgraham/masscan.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; masscan
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 高速扫描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;masscan -p 1-65535 192.168.1.0/24 --rate&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;&lt;span style="color:#ff9f43"&gt;10000&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="扫描策略"&gt;扫描策略&lt;a class="anchor" href="#%e6%89%ab%e6%8f%8f%e7%ad%96%e7%95%a5"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;分阶段扫描&lt;/strong&gt;：先扫描常用端口，再扫描全部端口&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合理限速&lt;/strong&gt;：避免对目标网络造成过大负载&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;躲避检测&lt;/strong&gt;：使用随机延迟、分散扫描等技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果分析&lt;/strong&gt;：对扫描结果进行整理和分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="安全注意事项"&gt;安全注意事项&lt;a class="anchor" href="#%e5%ae%89%e5%85%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;授权扫描&lt;/strong&gt;：确保您有权限对目标系统进行扫描&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;法律法规&lt;/strong&gt;：遵守当地关于网络安全测试的法律法规&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;道德规范&lt;/strong&gt;：仅用于合法的安全测试目的&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果保护&lt;/strong&gt;：妥善保存扫描结果，避免泄露&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="总结"&gt;总结&lt;a class="anchor" href="#%e6%80%bb%e7%bb%93"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;端口扫描是信息收集的重要技术，通过选择合适的扫描方法和工具，可以高效地发现目标系统的开放端口和服务，为后续的安全评估提供关键信息。在使用端口扫描技术时，务必注意合法性和安全性，避免对目标系统造成损害。&lt;/p&gt;</description></item><item><title>域名信息收集技术</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%8A%80%E6%9C%AF/</link><pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%8A%80%E6%9C%AF/</guid><description>&lt;h1 id="域名信息收集技术"&gt;域名信息收集技术&lt;a class="anchor" href="#%e5%9f%9f%e5%90%8d%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="什么是域名信息收集"&gt;什么是域名信息收集？&lt;a class="anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%9f%9f%e5%90%8d%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;域名信息收集是指通过各种方法获取与域名相关的信息，包括注册信息、DNS记录、子域名等。这些信息对于网络安全评估和渗透测试非常重要。&lt;/p&gt;
+&lt;h2 id="常用工具"&gt;常用工具&lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-whois查询"&gt;1. WHOIS查询&lt;a class="anchor" href="#1-whois%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：查询域名的注册信息，包括注册人、注册商、到期日期等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在线WHOIS查询网站&lt;/li&gt;
+&lt;li&gt;命令行工具：&lt;code&gt;whois example.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Python库：python-whois&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-dns枚举"&gt;2. DNS枚举&lt;a class="anchor" href="#2-dns%e6%9e%9a%e4%b8%be"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：获取域名的DNS记录，如A记录、MX记录、TXT记录等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;命令行工具：&lt;code&gt;dig example.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在线工具：DNS查询网站&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-子域名枚举"&gt;3. 子域名枚举&lt;a class="anchor" href="#3-%e5%ad%90%e5%9f%9f%e5%90%8d%e6%9e%9a%e4%b8%be"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：发现目标域名的子域名&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;Subfinder&lt;/li&gt;
+&lt;li&gt;Sublist3r&lt;/li&gt;
+&lt;li&gt;Amass&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="实战示例"&gt;实战示例&lt;a class="anchor" href="#%e5%ae%9e%e6%88%98%e7%a4%ba%e4%be%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="使用subfinder发现子域名"&gt;使用Subfinder发现子域名&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8subfinder%e5%8f%91%e7%8e%b0%e5%ad%90%e5%9f%9f%e5%90%8d"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Subfinder&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Subfinder枚举子域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;subfinder -d example.com -o subdomains.txt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="解析子域名ip"&gt;解析子域名IP&lt;a class="anchor" href="#%e8%a7%a3%e6%9e%90%e5%ad%90%e5%9f%9f%e5%90%8dip"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装MassDNS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/blechschmidt/massdns.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; massdns
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用MassDNS解析子域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./bin/massdns -r lists/resolvers.txt -t A -o S subdomains.txt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="注意事项"&gt;注意事项&lt;a class="anchor" href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;合法性&lt;/strong&gt;：确保您有权限对目标域名进行信息收集&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隐私保护&lt;/strong&gt;：不要收集和使用他人的敏感信息&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;速率限制&lt;/strong&gt;：避免对目标服务器造成过大负载&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;记录保存&lt;/strong&gt;：妥善保存收集到的信息，便于后续分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="总结"&gt;总结&lt;a class="anchor" href="#%e6%80%bb%e7%bb%93"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;域名信息收集是网络安全评估的重要环节，通过合理使用各种工具和技术，可以获取目标系统的大量信息，为后续的安全测试提供基础。&lt;/p&gt;</description></item></channel></rss>
