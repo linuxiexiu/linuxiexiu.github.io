@@ -236,6 +236,8 @@ const pages = [
   "/docs/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/Ruby/",
   "/docs/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/scp/",
   "/docs/Linux/shell%E8%AF%AD%E6%B3%95/%E5%91%BD%E4%BB%A4%E9%9B%86%E6%88%90/",
+  "/docs/%E7%BD%91%E7%BB%9C/AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8/%E5%8D%8E%E4%B8%89AC/",
+  "/docs/%E7%BD%91%E7%BB%9C/%E6%97%A0%E7%BA%BFAP/%E5%8D%8E%E4%B8%89AP%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/",
   "/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%95%B0%E6%8D%AE%E6%B8%97%E9%80%8F/",
   "/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7/%E8%AF%81%E4%B9%A6%E7%A0%B4%E8%A7%A3/",
   "/docs/%E4%B8%AD%E9%97%B4%E4%BB%B6/",
@@ -642,8 +644,8 @@ const pages = [
   "/docs/Linux/shell%E8%84%9A%E6%9C%AC%E9%9B%86/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/",
   "/docs/Linux/shell%E8%84%9A%E6%9C%AC%E9%9B%86/%E7%BD%91%E7%BB%9C/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/",
   "/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css",
-  "/zh.search-data.min.11c8bedec44c3f29a11ef7f5131b635453b9349040a882f53fd72e7a2ea67600.json",
-  "/zh.search.min.59dd428c20590ff8fda758db74c636544f153408e595d3a83a14f69606fb0ceb.js",
+  "/zh.search-data.min.02a6737d963400538869edd5370e3c80b0b20cf4f828eec40267c3db037ed7ed.json",
+  "/zh.search.min.876e8ac7bb1fde3ac5787d9abada00932a94f3bd482b50537b8bbc6c9088dc1f.js",
   
 ];
 

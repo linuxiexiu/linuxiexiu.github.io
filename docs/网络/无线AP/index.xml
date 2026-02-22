@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>无线AP on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/%E6%97%A0%E7%BA%BFAP/</link><description>Recent content in 无线AP on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/%E6%97%A0%E7%BA%BFAP/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>无线AP on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/%E6%97%A0%E7%BA%BFAP/</link><description>Recent content in 无线AP on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/%E6%97%A0%E7%BA%BFAP/index.xml" rel="self" type="application/rss+xml"/><item><title>华三AP常用命令</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/%E6%97%A0%E7%BA%BFAP/%E5%8D%8E%E4%B8%89AP%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/%E6%97%A0%E7%BA%BFAP/%E5%8D%8E%E4%B8%89AP%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid><description>&lt;p&gt;华三（H3C）的 &lt;strong&gt;AP（无线接入点）&lt;/strong&gt; 命令取决于 AP 的工作模式：是 &lt;strong&gt;Fit AP（瘦 AP，由 AC 统一管理）&lt;/strong&gt; 还是 &lt;strong&gt;Fat AP（胖 AP，独立工作）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在实际网络中，90% 的企业场景使用的是 &lt;strong&gt;Fit AP&lt;/strong&gt;，此时 AP 本身几乎不需要配置命令，所有配置都在 AC 上完成。只有 &lt;strong&gt;Fat AP&lt;/strong&gt; 或需要 &lt;strong&gt;排查故障&lt;/strong&gt; 时，才需要登录到 AP 设备上操作。&lt;/p&gt;
+&lt;p&gt;以下是针对这两种场景的常用命令清单：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="场景一fit-ap瘦-ap"&gt;场景一：Fit AP（瘦 AP）&lt;a class="anchor" href="#%e5%9c%ba%e6%99%af%e4%b8%80fit-ap%e7%98%a6-ap"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;特点&lt;/strong&gt;：AP 启动后自动寻找 AC，配置由 AC 下发。
+&lt;strong&gt;如何操作&lt;/strong&gt;：通常无法直接登录 AP 命令行，除非在 AC 上使用 &lt;code&gt;telnet&lt;/code&gt; 或 &lt;code&gt;session&lt;/code&gt; 命令“穿透”进入 AP。&lt;/p&gt;
+&lt;h4 id="1-从-ac-登录到-ap-排障专用"&gt;1. 从 AC 登录到 AP (排障专用)&lt;a class="anchor" href="#1-%e4%bb%8e-ac-%e7%99%bb%e5%bd%95%e5%88%b0-ap-%e6%8e%92%e9%9a%9c%e4%b8%93%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;在 AC 的系统视图或用户视图下执行：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;telnet &amp;lt;ap-ip&amp;gt;&lt;/code&gt; (如果 AP 有独立 IP)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wlan ap &amp;lt;ap-name&amp;gt; ssid&lt;/code&gt; (某些版本支持)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最常用&lt;/strong&gt;：&lt;code&gt;session &amp;lt;slot-number&amp;gt; &amp;lt;ap-id&amp;gt;&lt;/code&gt; 或 &lt;code&gt;telnet &amp;lt;ap-ip&amp;gt;&lt;/code&gt; (取决于版本)
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;注：V7 平台常用 &lt;code&gt;wlan ap &amp;lt;name&amp;gt; telnet&lt;/code&gt; 或在 AC 上直接 &lt;code&gt;telnet &amp;lt;ap的管理IP&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="2-在-ap-内部执行的命令-仅限排障"&gt;2. 在 AP 内部执行的命令 (仅限排障)&lt;a class="anchor" href="#2-%e5%9c%a8-ap-%e5%86%85%e9%83%a8%e6%89%a7%e8%a1%8c%e7%9a%84%e5%91%bd%e4%bb%a4-%e4%bb%85%e9%99%90%e6%8e%92%e9%9a%9c"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;一旦登录进 Fit AP，常用命令极少，主要用于看状态：&lt;/p&gt;</description></item></channel></rss>

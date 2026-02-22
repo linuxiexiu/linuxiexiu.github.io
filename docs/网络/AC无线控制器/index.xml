@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AC无线控制器 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8/</link><description>Recent content in AC无线控制器 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AC无线控制器 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8/</link><description>Recent content in AC无线控制器 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8/index.xml" rel="self" type="application/rss+xml"/><item><title>华三AC命令配置</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8/%E5%8D%8E%E4%B8%89AC/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C/AC%E6%97%A0%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8/%E5%8D%8E%E4%B8%89AC/</guid><description>&lt;p&gt;华三（H3C）无线控制器（AC）的命令体系基于 Comware V7 平台。要列出“正好100个”常用命令并不完全准确，因为实际工作中常用的核心命令大约在 40-50 个左右，其余多为参数组合或特定场景命令。&lt;/p&gt;
+&lt;p&gt;为了帮你全面掌握，我将这些命令按&lt;strong&gt;功能场景&lt;/strong&gt;分类，整理了&lt;strong&gt;最核心、最高频&lt;/strong&gt;的命令清单（涵盖配置、查看、调试、维护等），数量接近百条实用指令组合，足以应对 95% 的日常运维工作。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="一基础系统与视图切换-system--view"&gt;一、基础系统与视图切换 (System &amp;amp; View)&lt;a class="anchor" href="#%e4%b8%80%e5%9f%ba%e7%a1%80%e7%b3%bb%e7%bb%9f%e4%b8%8e%e8%a7%86%e5%9b%be%e5%88%87%e6%8d%a2-system--view"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;进入不同配置视图是执行命令的前提。&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;system-view&lt;/code&gt; (进入系统视图)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;quit&lt;/code&gt; / &lt;code&gt;return&lt;/code&gt; (退出当前视图 / 直接退回到用户视图)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sysname &amp;lt;name&amp;gt;&lt;/code&gt; (修改设备名称)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;clock datetime &amp;lt;HH:MM:SS&amp;gt; &amp;lt;YYYY/MM/DD&amp;gt;&lt;/code&gt; (修改时间)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;clock timezone &amp;lt;zone-name&amp;gt; &amp;lt;offset&amp;gt;&lt;/code&gt; (配置时区，如 &lt;code&gt;clock timezone Beijing add 08:00:00&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display current-configuration&lt;/code&gt; (查看当前运行配置)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display saved-configuration&lt;/code&gt; (查看保存的配置)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;save&lt;/code&gt; (保存配置)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display version&lt;/code&gt; (查看版本信息)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display device&lt;/code&gt; (查看设备硬件状态)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display cpu-usage&lt;/code&gt; (查看 CPU 利用率)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display memory-usage&lt;/code&gt; (查看内存利用率)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display interface brief&lt;/code&gt; (查看接口简要状态)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ping &amp;lt;ip&amp;gt;&lt;/code&gt; (测试连通性)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tracert &amp;lt;ip&amp;gt;&lt;/code&gt; (路由追踪)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="二capwap-隧道与-ap-管理-ap-management"&gt;二、CAPWAP 隧道与 AP 管理 (AP Management)&lt;a class="anchor" href="#%e4%ba%8ccapwap-%e9%9a%a7%e9%81%93%e4%b8%8e-ap-%e7%ae%a1%e7%90%86-ap-management"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;AC 最核心的功能，管理 AP 的上线与状态。&lt;/em&gt;&lt;/p&gt;</description></item></channel></rss>
