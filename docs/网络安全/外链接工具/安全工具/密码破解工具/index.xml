@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>密码破解工具 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7/</link><description>Recent content in 密码破解工具 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>密码破解工具使用指南</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7/%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7/%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="密码破解工具使用指南"&gt;密码破解工具使用指南&lt;a class="anchor" href="#%e5%af%86%e7%a0%81%e7%a0%b4%e8%a7%a3%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8%e6%8c%87%e5%8d%97"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;密码破解是网络安全领域的重要组成部分，用于测试密码强度、恢复丢失的密码以及评估系统的安全性。密码破解工具是进行密码破解工作的关键工具，包括暴力破解工具、字典破解工具、彩虹表破解工具等。本教程将详细介绍各种密码破解工具的使用方法和最佳实践，帮助您有效地使用密码破解工具进行安全测试和密码恢复。&lt;/p&gt;
+&lt;h3 id="密码破解工具分类"&gt;密码破解工具分类&lt;a class="anchor" href="#%e5%af%86%e7%a0%81%e7%a0%b4%e8%a7%a3%e5%b7%a5%e5%85%b7%e5%88%86%e7%b1%bb"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;暴力破解工具&lt;/strong&gt;：通过尝试所有可能的密码组合来破解密码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;字典破解工具&lt;/strong&gt;：使用预定义的字典文件来破解密码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;彩虹表破解工具&lt;/strong&gt;：使用预先计算好的哈希值表来破解密码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;混合破解工具&lt;/strong&gt;：结合多种破解方法的综合工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;专用破解工具&lt;/strong&gt;：针对特定类型密码的专用工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在线破解工具&lt;/strong&gt;：通过在线服务进行密码破解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="密码破解工具使用场景"&gt;密码破解工具使用场景&lt;a class="anchor" href="#%e5%af%86%e7%a0%81%e7%a0%b4%e8%a7%a3%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;安全测试&lt;/strong&gt;：测试系统和应用程序的密码强度&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;密码恢复&lt;/strong&gt;：恢复用户丢失的密码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全评估&lt;/strong&gt;：评估系统的整体安全性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;渗透测试&lt;/strong&gt;：模拟攻击者的行为，测试系统的安全性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合规性检查&lt;/strong&gt;：检查系统是否符合安全合规要求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="暴力破解工具"&gt;暴力破解工具&lt;a class="anchor" href="#%e6%9a%b4%e5%8a%9b%e7%a0%b4%e8%a7%a3%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用基本的暴力破解工具：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用John the Ripper进行暴力破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装John the Ripper&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install john &lt;span style="color:#78787e"&gt;# Linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 准备密码文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建包含用户名和密码哈希的文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 例如，对于Linux系统，可以使用/etc/shadow文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行John the Ripper进行暴力破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;john /etc/shadow
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Hashcat进行暴力破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Hashcat&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install hashcat &lt;span style="color:#78787e"&gt;# Linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 准备密码哈希文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 例如，创建包含MD5哈希值的文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Hashcat进行暴力破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hashcat -m &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt; -a &lt;span style="color:#ff9f43"&gt;3&lt;/span&gt; hash.txt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="字典破解工具"&gt;字典破解工具&lt;a class="anchor" href="#%e5%ad%97%e5%85%b8%e7%a0%b4%e8%a7%a3%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用基本的字典破解工具：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用John the Ripper进行字典破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 准备字典文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 例如，使用rockyou.txt字典&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行John the Ripper进行字典破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;john --wordlist&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;/usr/share/wordlists/rockyou.txt hash.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Hashcat进行字典破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Hashcat进行字典破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hashcat -m &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt; -a &lt;span style="color:#ff9f43"&gt;0&lt;/span&gt; hash.txt /usr/share/wordlists/rockyou.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Hydra进行在线字典破解&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Hydra&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install hydra &lt;span style="color:#78787e"&gt;# Linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Hydra破解SSH密码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hydra -l admin -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Hydra破解FTP密码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://192.168.1.100&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="彩虹表破解工具"&gt;彩虹表破解工具&lt;a class="anchor" href="#%e5%bd%a9%e8%99%b9%e8%a1%a8%e7%a0%b4%e8%a7%a3%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用基本的彩虹表破解工具：&lt;/p&gt;</description></item></channel></rss>

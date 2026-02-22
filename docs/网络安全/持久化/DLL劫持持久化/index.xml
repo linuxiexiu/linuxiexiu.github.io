@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DLL劫持持久化 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96/</link><description>Recent content in DLL劫持持久化 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>DLL劫持持久化基础知识</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid><description>&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;DLL劫持持久化是一种利用Windows系统DLL加载机制进行持久化攻击的技术。攻击者通过替换或伪造DLL文件，使系统在启动特定程序时加载恶意DLL，从而实现持久化访问。本教程将详细介绍DLL劫持持久化的基础知识、核心概念和技术方法，帮助安全人员理解和防御DLL劫持持久化攻击。&lt;/p&gt;
+&lt;h3 id="dll劫持持久化核心概念"&gt;DLL劫持持久化核心概念&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%8c%81%e4%b9%85%e5%8c%96%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DLL（Dynamic Link Library）&lt;/strong&gt;：动态链接库，Windows系统中可被多个程序共享的代码库&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL劫持（DLL Hijacking）&lt;/strong&gt;：利用DLL加载机制进行攻击的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL搜索顺序（DLL Search Order）&lt;/strong&gt;：Windows系统加载DLL的搜索顺序&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL代理（DLL Proxying）&lt;/strong&gt;：通过代理DLL进行劫持的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL重定向（DLL Redirection）&lt;/strong&gt;：重定向DLL加载路径的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL注入（DLL Injection）&lt;/strong&gt;：将恶意DLL注入到进程中的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL侧加载（DLL Side-Loading）&lt;/strong&gt;：侧加载恶意DLL的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL路径劫持（DLL Path Hijacking）&lt;/strong&gt;：劫持DLL加载路径的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL替换（DLL Replacement）&lt;/strong&gt;：替换系统DLL的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久化（Persistence）&lt;/strong&gt;：在系统中保持长期访问的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;启动持久化（Startup Persistence）&lt;/strong&gt;：通过启动项实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;服务持久化（Service Persistence）&lt;/strong&gt;：通过服务实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计划任务持久化（Scheduled Task Persistence）&lt;/strong&gt;：通过计划任务实现持久化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dll劫持持久化的特点"&gt;DLL劫持持久化的特点&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%8c%81%e4%b9%85%e5%8c%96%e7%9a%84%e7%89%b9%e7%82%b9"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;隐蔽性&lt;/strong&gt;：DLL劫持攻击隐蔽性强&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久性&lt;/strong&gt;：DLL劫持可以实现持久化访问&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵活性&lt;/strong&gt;：DLL劫持技术灵活多样&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;依赖性&lt;/strong&gt;：DLL劫持依赖DLL加载机制&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;检测难度&lt;/strong&gt;：DLL劫持检测难度较大&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响范围&lt;/strong&gt;：DLL劫持影响范围广&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dll劫持持久化的重要性"&gt;DLL劫持持久化的重要性&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%8c%81%e4%b9%85%e5%8c%96%e7%9a%84%e9%87%8d%e8%a6%81%e6%80%a7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;攻击检测&lt;/strong&gt;：检测DLL劫持攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统加固&lt;/strong&gt;：加固系统防止DLL劫持&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全防护&lt;/strong&gt;：防护DLL劫持攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合规性&lt;/strong&gt;：满足合规性要求&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险降低&lt;/strong&gt;：降低安全风险&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;业务保护&lt;/strong&gt;：保护业务连续性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="技术体系"&gt;技术体系&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bd%93%e7%b3%bb"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;DLL劫持持久化技术体系主要包括以下几个方面：&lt;/p&gt;
+&lt;h3 id="dll劫持原理"&gt;DLL劫持原理&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e5%8e%9f%e7%90%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DLL搜索顺序&lt;/strong&gt;：Windows系统加载DLL的搜索顺序&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL加载机制&lt;/strong&gt;：Windows系统加载DLL的机制&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL劫持原理&lt;/strong&gt;：DLL劫持的基本原理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL劫持类型&lt;/strong&gt;：DLL劫持的不同类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dll劫持技术"&gt;DLL劫持技术&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DLL代理劫持&lt;/strong&gt;：通过代理DLL进行劫持&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL路径劫持&lt;/strong&gt;：劫持DLL加载路径&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL替换劫持&lt;/strong&gt;：替换系统DLL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL侧加载劫持&lt;/strong&gt;：侧加载恶意DLL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL注入劫持&lt;/strong&gt;：注入恶意DLL到进程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dll劫持防御"&gt;DLL劫持防御&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e9%98%b2%e5%be%a1"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DLL签名验证&lt;/strong&gt;：验证DLL签名&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL路径保护&lt;/strong&gt;：保护DLL加载路径&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL完整性检查&lt;/strong&gt;：检查DLL完整性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL白名单&lt;/strong&gt;：使用DLL白名单&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL黑名单&lt;/strong&gt;：使用DLL黑名单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="工具使用"&gt;工具使用&lt;a class="anchor" href="#%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="dll劫持检测工具"&gt;DLL劫持检测工具&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%a3%80%e6%b5%8b%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PowerShell脚本&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：检测DLL劫持漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用途&lt;/strong&gt;：扫描系统中的DLL劫持漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用方法&lt;/strong&gt;：
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用PowerShell检测DLL劫持&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 检查可执行文件的DLL依赖&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;Get-ChildItem&lt;/span&gt; -Path &lt;span style="color:#5af78e"&gt;&amp;#34;C:\Program Files&amp;#34;&lt;/span&gt; -Recurse -Include *.exe | &lt;span style="color:#ff5c57"&gt;ForEach-Object&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;$dlls&lt;/span&gt; = dumpbin /DEPENDENTS &lt;span style="color:#ff5c57"&gt;$_&lt;/span&gt;.FullName &lt;span style="color:#ff9f43"&gt;2&lt;/span&gt;&amp;gt;&lt;span style="color:#ff5c57"&gt;$null&lt;/span&gt; | &lt;span style="color:#ff5c57"&gt;Select-String&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;\.dll$&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; (&lt;span style="color:#ff5c57"&gt;$dlls&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;Write-Host&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;$(&lt;span style="color:#ff5c57"&gt;$_&lt;/span&gt;.FullName)&lt;span style="color:#5af78e"&gt; depends on:&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;$dlls&lt;/span&gt; | &lt;span style="color:#ff5c57"&gt;ForEach-Object&lt;/span&gt; { &lt;span style="color:#ff5c57"&gt;Write-Host&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$_&lt;/span&gt;.Line.Trim() }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 检查DLL搜索路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#ff9f43"&gt;System.Environment&lt;/span&gt;]::GetEnvironmentVariable(&lt;span style="color:#5af78e"&gt;&amp;#34;PATH&amp;#34;&lt;/span&gt;) -split &lt;span style="color:#5af78e"&gt;&amp;#39;;&amp;#39;&lt;/span&gt; | &lt;span style="color:#ff5c57"&gt;ForEach-Object&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; (&lt;span style="color:#ff5c57"&gt;Test-Path&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$_&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;Get-ChildItem&lt;/span&gt; -Path &lt;span style="color:#ff5c57"&gt;$_&lt;/span&gt; -Filter &lt;span style="color:#5af78e"&gt;&amp;#34;*.dll&amp;#34;&lt;/span&gt; | &lt;span style="color:#ff5c57"&gt;Select-Object&lt;/span&gt; FullName
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Process Monitor&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>DLL劫持持久化技术详解</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96/DLL%E5%8A%AB%E6%8C%81%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/</guid><description>&lt;h1 id="dll劫持持久化技术详解"&gt;DLL劫持持久化技术详解&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%8c%81%e4%b9%85%e5%8c%96%e6%8a%80%e6%9c%af%e8%af%a6%e8%a7%a3"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;DLL劫持（DLL Hijacking）是一种常见的持久化技术，攻击者通过替换或伪造应用程序依赖的动态链接库（DLL），实现恶意代码的持久执行。这种技术利用了Windows系统加载DLL的搜索顺序机制，当应用程序加载DLL时，如果在搜索路径中找到恶意DLL，系统会优先加载它，从而执行恶意代码。本教程将详细介绍DLL劫持的核心概念、技术方法、防御措施和案例分析，帮助安全人员理解和防御这种持久化攻击。&lt;/p&gt;
+&lt;h3 id="dll劫持核心概念"&gt;DLL劫持核心概念&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动态链接库（DLL）&lt;/strong&gt;：Windows系统中用于存储可被多个应用程序共享的代码和数据的文件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL搜索路径&lt;/strong&gt;：Windows系统查找DLL的顺序，包括应用程序目录、当前目录、系统目录等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL劫持&lt;/strong&gt;：通过在DLL搜索路径中放置恶意DLL，使应用程序优先加载恶意DLL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;导出函数&lt;/strong&gt;：DLL中可供其他程序调用的函数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;函数转发&lt;/strong&gt;：恶意DLL调用原始DLL的函数，保持应用程序正常运行&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久化&lt;/strong&gt;：使恶意代码在系统重启后仍然能够执行的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特权提升&lt;/strong&gt;：通过DLL劫持获取更高的系统权限&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;防御规避&lt;/strong&gt;：绕过安全软件检测的技术&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dll劫持技术体系"&gt;DLL劫持技术体系&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e6%8a%80%e6%9c%af%e4%bd%93%e7%b3%bb"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DLL搜索顺序劫持&lt;/strong&gt;：利用Windows DLL搜索顺序，在应用程序搜索路径中放置恶意DLL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL替换&lt;/strong&gt;：直接替换系统或应用程序的合法DLL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL路径劫持&lt;/strong&gt;：修改应用程序的DLL搜索路径，指向包含恶意DLL的目录&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL导出函数劫持&lt;/strong&gt;：创建与合法DLL具有相同导出函数的恶意DLL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Side-loading&lt;/strong&gt;：利用应用程序对未签名DLL的信任，加载恶意DLL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反射型DLL注入&lt;/strong&gt;：将DLL加载到内存中执行，不写入磁盘&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="dll劫持防御技术"&gt;DLL劫持防御技术&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e9%98%b2%e5%be%a1%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DLL签名验证&lt;/strong&gt;：验证DLL的数字签名，确保其来源合法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL路径保护&lt;/strong&gt;：使用SafeDllSearchMode、AppLocker等技术限制DLL搜索路径&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DLL加载监控&lt;/strong&gt;：监控应用程序的DLL加载行为，检测异常&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最小权限原则&lt;/strong&gt;：限制应用程序的权限，减少DLL劫持的影响范围&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用程序白名单&lt;/strong&gt;：只允许运行已验证的应用程序和DLL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="dll劫持基础"&gt;DLL劫持基础&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;了解DLL劫持的基本概念和技术：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. DLL搜索顺序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Windows系统的DLL搜索顺序（默认）：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 应用程序加载的目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 当前工作目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 系统目录（C:\Windows\System32）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 16位系统目录（C:\Windows\System）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 5. Windows目录（C:\Windows）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 6. PATH环境变量中列出的目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 查看应用程序依赖的DLL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Dependency Walker工具&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 下载Dependency Walker：https://www.dependencywalker.com/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Dependency Walker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 打开应用程序（如notepad.exe）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看应用程序依赖的DLL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Process Explorer工具&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 下载Process Explorer：https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Process Explorer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 选择应用程序进程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看&amp;#34;DLL&amp;#34;选项卡，查看已加载的DLL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 基本DLL劫持演示&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建恶意DLL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Visual Studio创建DLL项目&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// dllmain.cpp
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#include &amp;lt;windows.h&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;BOOL APIENTRY DllMain&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; switch &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;ul_reason_for_call&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_PROCESS_ATTACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; // 执行恶意代码
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; MessageBox&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;NULL, L&lt;span style="color:#5af78e"&gt;&amp;#34;DLL Hijacked!&amp;#34;&lt;/span&gt;, L&lt;span style="color:#5af78e"&gt;&amp;#34;Alert&amp;#34;&lt;/span&gt;, MB_OK&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; break;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_THREAD_ATTACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_THREAD_DETACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_PROCESS_DETACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; break;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; TRUE;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 编译DLL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 将编译后的DLL重命名为应用程序依赖的DLL名称（如user32.dll）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 将恶意DLL复制到应用程序目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行应用程序，观察是否弹出消息框&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 函数转发&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 修改DLL代码，添加函数转发，保持应用程序正常运行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// dllmain.cpp
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#include &amp;lt;windows.h&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// 加载原始DLL
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;HMODULE &lt;span style="color:#ff5c57"&gt;hOriginalDll&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; NULL;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;BOOL APIENTRY DllMain&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; switch &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;ul_reason_for_call&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_PROCESS_ATTACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; // 执行恶意代码
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; MessageBox&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;NULL, L&lt;span style="color:#5af78e"&gt;&amp;#34;DLL Hijacked!&amp;#34;&lt;/span&gt;, L&lt;span style="color:#5af78e"&gt;&amp;#34;Alert&amp;#34;&lt;/span&gt;, MB_OK&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; // 加载原始DLL
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;hOriginalDll&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; LoadLibrary&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;L&lt;span style="color:#5af78e"&gt;&amp;#34;C:\\Windows\\System32\\user32.dll&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; break;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_THREAD_ATTACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_THREAD_DETACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;case&lt;/span&gt; DLL_PROCESS_DETACH:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; // 卸载原始DLL
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;if&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;hOriginalDll&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; FreeLibrary&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;hOriginalDll&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; break;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; TRUE;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;// 导出函数，转发到原始DLL
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;extern &lt;span style="color:#5af78e"&gt;&amp;#34;C&amp;#34;&lt;/span&gt; __declspec&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;dllexport&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt; int WINAPI MessageBoxA&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; typedef int &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;WINAPI *MESSAGEBOXAFN&lt;span style="color:#ff6ac1"&gt;)(&lt;/span&gt;HWND, LPCSTR, LPCSTR, UINT&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; MESSAGEBOXAFN &lt;span style="color:#ff5c57"&gt;pMessageBoxA&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;MESSAGEBOXAFN&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;GetProcAddress&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;hOriginalDll, &lt;span style="color:#5af78e"&gt;&amp;#34;MessageBoxA&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; pMessageBoxA&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;hWnd, lpText, lpCaption, uType&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;extern &lt;span style="color:#5af78e"&gt;&amp;#34;C&amp;#34;&lt;/span&gt; __declspec&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;dllexport&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt; int WINAPI MessageBoxW&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; typedef int &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;WINAPI *MESSAGEBOXWFN&lt;span style="color:#ff6ac1"&gt;)(&lt;/span&gt;HWND, LPCWSTR, LPCWSTR, UINT&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; MESSAGEBOXWFN &lt;span style="color:#ff5c57"&gt;pMessageBoxW&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;MESSAGEBOXWFN&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;GetProcAddress&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;hOriginalDll, &lt;span style="color:#5af78e"&gt;&amp;#34;MessageBoxW&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; pMessageBoxW&lt;span style="color:#ff6ac1"&gt;(&lt;/span&gt;hWnd, lpText, lpCaption, uType&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 5. DLL劫持防御基础&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 启用SafeDllSearchMode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看当前设置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;reg query &lt;span style="color:#5af78e"&gt;&amp;#34;HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\SafeDllSearchMode&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 启用SafeDllSearchMode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;reg add &lt;span style="color:#5af78e"&gt;&amp;#34;HKLM\SYSTEM\CurrentControlSet\Control\Session Manager&amp;#34;&lt;/span&gt; /v SafeDllSearchMode /t REG_DWORD /d &lt;span style="color:#ff9f43"&gt;1&lt;/span&gt; /f
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用AppLocker限制DLL加载&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 打开本地组策略编辑器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# gpedit.msc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 计算机配置 -&amp;gt; Windows设置 -&amp;gt; 安全设置 -&amp;gt; 应用程序控制策略 -&amp;gt; AppLocker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置DLL规则&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="dll劫持工具"&gt;DLL劫持工具&lt;a class="anchor" href="#dll%e5%8a%ab%e6%8c%81%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;了解和使用DLL劫持相关工具：&lt;/p&gt;</description></item></channel></rss>

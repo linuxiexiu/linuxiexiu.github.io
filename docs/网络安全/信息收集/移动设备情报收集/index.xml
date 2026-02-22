@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>移动设备情报收集 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/</link><description>Recent content in 移动设备情报收集 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/index.xml" rel="self" type="application/rss+xml"/><item><title>MobileDeviceAnalyzer使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/MobileDeviceAnalyzer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/MobileDeviceAnalyzer%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="mobiledeviceanalyzer使用教程"&gt;MobileDeviceAnalyzer使用教程&lt;a class="anchor" href="#mobiledeviceanalyzer%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;MobileDeviceAnalyzer（MDA）是一款专业的移动设备情报收集和分析工具，专为安全研究人员、移动安全专家和渗透测试人员设计。它能够从多种来源收集移动设备相关的情报，包括设备信息、应用程序、安全漏洞和用户行为等，为移动安全评估和研究提供全面的情报支持。&lt;/p&gt;
+&lt;h3 id="主要功能"&gt;主要功能&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;移动设备信息收集和分析&lt;/li&gt;
+&lt;li&gt;移动应用程序情报收集&lt;/li&gt;
+&lt;li&gt;移动设备漏洞数据库查询&lt;/li&gt;
+&lt;li&gt;移动网络流量分析&lt;/li&gt;
+&lt;li&gt;移动设备行为监控&lt;/li&gt;
+&lt;li&gt;移动应用程序安全评估&lt;/li&gt;
+&lt;li&gt;移动设备取证分析&lt;/li&gt;
+&lt;li&gt;多平台支持（iOS、Android）&lt;/li&gt;
+&lt;li&gt;数据可视化和报告生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;移动设备安全评估&lt;/li&gt;
+&lt;li&gt;移动应用程序渗透测试&lt;/li&gt;
+&lt;li&gt;移动网络安全研究&lt;/li&gt;
+&lt;li&gt;移动设备取证分析&lt;/li&gt;
+&lt;li&gt;企业移动设备管理&lt;/li&gt;
+&lt;li&gt;移动威胁情报收集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装mobiledeviceanalyzer"&gt;安装MobileDeviceAnalyzer&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85mobiledeviceanalyzer"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;MobileDeviceAnalyzer是一个Python工具，可以通过以下步骤安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 克隆仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/mobiledeviceanalyzer/mda.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 进入目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; mda
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装依赖&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装MDA&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -e .&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本配置"&gt;基本配置&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置MDA的基本设置，包括API密钥和分析参数：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置文件示例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置API密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置分析参数&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本设备信息收集"&gt;基本设备信息收集&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e8%ae%be%e5%a4%87%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用MDA收集移动设备的基本信息：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 基本设备信息收集&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 收集iOS设备信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 收集Android设备信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 收集设备硬件信息&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="应用程序情报收集"&gt;应用程序情报收集&lt;a class="anchor" href="#%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f%e6%83%85%e6%8a%a5%e6%94%b6%e9%9b%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;收集移动应用程序的相关情报：&lt;/p&gt;</description></item></channel></rss>

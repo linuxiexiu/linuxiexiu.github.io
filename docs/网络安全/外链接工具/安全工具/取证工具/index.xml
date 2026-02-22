@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>取证工具 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/</link><description>Recent content in 取证工具 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>数字取证工具使用指南</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="数字取证工具使用指南"&gt;数字取证工具使用指南&lt;a class="anchor" href="#%e6%95%b0%e5%ad%97%e5%8f%96%e8%af%81%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8%e6%8c%87%e5%8d%97"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;数字取证是网络安全领域的重要组成部分，用于收集、分析和保存数字证据，以支持网络安全事件的调查和法律诉讼。数字取证工具是进行数字取证工作的关键工具，包括内存取证工具、磁盘取证工具、网络取证工具、移动设备取证工具等。本教程将详细介绍各种数字取证工具的使用方法和最佳实践，帮助您有效地使用数字取证工具进行安全事件调查和证据收集。&lt;/p&gt;
+&lt;h3 id="数字取证工具分类"&gt;数字取证工具分类&lt;a class="anchor" href="#%e6%95%b0%e5%ad%97%e5%8f%96%e8%af%81%e5%b7%a5%e5%85%b7%e5%88%86%e7%b1%bb"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;内存取证工具&lt;/strong&gt;：用于分析计算机内存中的数据，发现正在运行的进程、网络连接和恶意代码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;磁盘取证工具&lt;/strong&gt;：用于分析计算机硬盘中的数据，恢复删除的文件和分析文件系统&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络取证工具&lt;/strong&gt;：用于分析网络流量，发现网络攻击和异常行为&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;移动设备取证工具&lt;/strong&gt;：用于分析手机、平板等移动设备中的数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据库取证工具&lt;/strong&gt;：用于分析数据库中的数据，发现数据篡改和泄露&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日志分析工具&lt;/strong&gt;：用于分析系统和应用程序的日志，发现安全事件的线索&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;取证工具包&lt;/strong&gt;：集成多种取证工具的综合工具包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="数字取证工具使用场景"&gt;数字取证工具使用场景&lt;a class="anchor" href="#%e6%95%b0%e5%ad%97%e5%8f%96%e8%af%81%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;安全事件调查&lt;/strong&gt;：使用数字取证工具收集和分析安全事件的证据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络犯罪调查&lt;/strong&gt;：使用数字取证工具收集和分析网络犯罪的证据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据泄露调查&lt;/strong&gt;：使用数字取证工具收集和分析数据泄露的证据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内部威胁调查&lt;/strong&gt;：使用数字取证工具收集和分析内部威胁的证据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合规性检查&lt;/strong&gt;：使用数字取证工具检查系统和网络是否符合安全合规要求&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;知识产权保护&lt;/strong&gt;：使用数字取证工具收集和分析知识产权侵权的证据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="内存取证工具"&gt;内存取证工具&lt;a class="anchor" href="#%e5%86%85%e5%ad%98%e5%8f%96%e8%af%81%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用基本的内存取证工具：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Volatility 3分析内存镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Volatility 3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install volatility3
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 列出内存中的进程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;volatility3 -f memory.dmp windows.pslist
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 列出内存中的网络连接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;volatility3 -f memory.dmp windows.netscan
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 列出内存中的已加载DLL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;volatility3 -f memory.dmp windows.dlllist
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 提取内存中的文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;volatility3 -f memory.dmp windows.dumpfiles
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 分析内存中的注册表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;volatility3 -f memory.dmp windows.registry.hivelist&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="磁盘取证工具"&gt;磁盘取证工具&lt;a class="anchor" href="#%e7%a3%81%e7%9b%98%e5%8f%96%e8%af%81%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用基本的磁盘取证工具：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Sleuth Kit分析磁盘镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Sleuth Kit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install sleuthkit &lt;span style="color:#78787e"&gt;# Linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看磁盘镜像信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tsinfo image.dd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 列出文件系统内容&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;fls -r image.dd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 提取文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;icat image.dd &lt;span style="color:#ff9f43"&gt;1234&lt;/span&gt; &amp;gt; file.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 分析文件系统时间线&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mactime -b bodyfile.txt &amp;gt; timeline.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Autopsy分析磁盘镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Autopsy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install autopsy &lt;span style="color:#78787e"&gt;# Linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 启动Autopsy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;autopsy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 访问Autopsy Web界面&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# http://localhost:9999&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="网络取证工具"&gt;网络取证工具&lt;a class="anchor" href="#%e7%bd%91%e7%bb%9c%e5%8f%96%e8%af%81%e5%b7%a5%e5%85%b7"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用基本的网络取证工具：&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rancher on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/rancher/</link><description>Recent content in Rancher on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/rancher/index.xml" rel="self" type="application/rss+xml"/><item><title>Rancher教程</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/rancher/rancher%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/rancher/rancher%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="rancher教程"&gt;Rancher教程&lt;a class="anchor" href="#rancher%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Rancher是一个完整的容器管理平台，专为管理Kubernetes集群而设计。它提供了直观的用户界面，简化了Kubernetes集群的部署、管理和监控。Rancher支持多种Kubernetes发行版，包括RKE、K3s、EKS、GKE、AKS等，是企业级容器管理的理想选择。&lt;/p&gt;
+&lt;h3 id="rancher核心概念"&gt;Rancher核心概念&lt;a class="anchor" href="#rancher%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;集群&lt;/strong&gt;：Kubernetes集群，可以是导入的或由Rancher创建的&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;项目&lt;/strong&gt;：集群内的资源隔离单元&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;命名空间&lt;/strong&gt;：Kubernetes命名空间，用于进一步隔离资源&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用&lt;/strong&gt;：在集群中运行的应用程序&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;节点&lt;/strong&gt;：Kubernetes集群中的物理或虚拟机器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用户&lt;/strong&gt;：Rancher的用户，具有不同的权限级别&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="rancher架构"&gt;Rancher架构&lt;a class="anchor" href="#rancher%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rancher Server&lt;/strong&gt;：核心管理组件，提供用户界面和API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes集群&lt;/strong&gt;：由Rancher管理的Kubernetes集群&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;节点驱动&lt;/strong&gt;：用于创建和管理集群节点的驱动&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;认证后端&lt;/strong&gt;：用于用户认证的后端服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装rancher"&gt;安装Rancher&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85rancher"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在不同环境中安装Rancher：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Docker安装Rancher&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 拉取Rancher镜像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull rancher/rancher:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 运行Rancher容器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d --restart&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看容器状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用Kubernetes安装Rancher&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建命名空间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl create namespace cattle-system
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 添加Helm仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装Rancher&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm install rancher rancher-stable/rancher &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --namespace cattle-system &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set &lt;span style="color:#ff5c57"&gt;hostname&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;rancher.example.com &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set &lt;span style="color:#ff5c57"&gt;bootstrapPassword&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;admin
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看Rancher部署状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl rollout status deployment rancher -n cattle-system&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本rancher操作"&gt;基本Rancher操作&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%acrancher%e6%93%8d%e4%bd%9c"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用Rancher的基本操作：&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>物联网设备情报收集 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%89%A9%E8%81%94%E7%BD%91%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/</link><description>Recent content in 物联网设备情报收集 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%89%A9%E8%81%94%E7%BD%91%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/index.xml" rel="self" type="application/rss+xml"/><item><title>IoTSearch使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%89%A9%E8%81%94%E7%BD%91%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/IoTSearch%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%89%A9%E8%81%94%E7%BD%91%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/IoTSearch%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="iotsearch使用教程"&gt;IoTSearch使用教程&lt;a class="anchor" href="#iotsearch%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;IoTSearch是一款专业的物联网设备搜索引擎，专为安全研究人员和网络管理员设计。它能够通过Shodan、Censys等搜索引擎快速发现网络中的物联网设备，并提供详细的设备信息，为物联网设备管理和安全评估提供重要支持。&lt;/p&gt;
+&lt;h3 id="主要功能"&gt;主要功能&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;多搜索引擎支持（Shodan、Censys、ZoomEye等）&lt;/li&gt;
+&lt;li&gt;物联网设备快速发现&lt;/li&gt;
+&lt;li&gt;设备类型识别和分类&lt;/li&gt;
+&lt;li&gt;设备漏洞信息查询&lt;/li&gt;
+&lt;li&gt;地理位置信息查询&lt;/li&gt;
+&lt;li&gt;批量设备搜索&lt;/li&gt;
+&lt;li&gt;设备信息导出&lt;/li&gt;
+&lt;li&gt;自定义搜索查询&lt;/li&gt;
+&lt;li&gt;设备监控和告警&lt;/li&gt;
+&lt;li&gt;API集成支持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;物联网设备发现和管理&lt;/li&gt;
+&lt;li&gt;物联网安全评估&lt;/li&gt;
+&lt;li&gt;网络安全研究&lt;/li&gt;
+&lt;li&gt;设备资产盘点&lt;/li&gt;
+&lt;li&gt;安全漏洞扫描&lt;/li&gt;
+&lt;li&gt;设备合规性检查&lt;/li&gt;
+&lt;li&gt;威胁情报收集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装iotsearch"&gt;安装IoTSearch&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85iotsearch"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;IoTSearch是一个Python工具，可以通过以下步骤安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 克隆仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/iotsearch/iotsearch.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 进入目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; iotsearch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装依赖&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装IoTSearch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python setup.py install&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="配置api密钥"&gt;配置API密钥&lt;a class="anchor" href="#%e9%85%8d%e7%bd%aeapi%e5%af%86%e9%92%a5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;配置搜索引擎的API密钥：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建配置文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# config.yaml内容：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;shodan:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; api_key: &lt;span style="color:#5af78e"&gt;&amp;#34;YOUR_SHODAN_API_KEY&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;censys:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; api_id: &lt;span style="color:#5af78e"&gt;&amp;#34;YOUR_CENSYS_API_ID&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; api_secret: &lt;span style="color:#5af78e"&gt;&amp;#34;YOUR_CENSYS_API_SECRET&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zoomeye:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; username: &lt;span style="color:#5af78e"&gt;&amp;#34;YOUR_ZOOMEYE_USERNAME&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; password: &lt;span style="color:#5af78e"&gt;&amp;#34;YOUR_ZOOMEYE_PASSWORD&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本设备搜索"&gt;基本设备搜索&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e8%ae%be%e5%a4%87%e6%90%9c%e7%b4%a2"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用IoTSearch进行基本的物联网设备搜索：&lt;/p&gt;</description></item><item><title>IoTSeeker使用教程</title><link>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%89%A9%E8%81%94%E7%BD%91%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/IoTSeeker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E7%89%A9%E8%81%94%E7%BD%91%E8%AE%BE%E5%A4%87%E6%83%85%E6%8A%A5%E6%94%B6%E9%9B%86/IoTSeeker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="iotseeker使用教程"&gt;IoTSeeker使用教程&lt;a class="anchor" href="#iotseeker%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="软件介绍"&gt;软件介绍&lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;IoTSeeker是一款专注于物联网设备发现和分析的开源工具，能够帮助安全研究人员和网络管理员快速识别网络中的IoT设备，评估其安全状态，并提供详细的设备信息。&lt;/p&gt;
+&lt;h3 id="主要功能"&gt;主要功能&lt;a class="anchor" href="#%e4%b8%bb%e8%a6%81%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;自动发现网络中的物联网设备&lt;/li&gt;
+&lt;li&gt;识别设备类型、厂商和型号&lt;/li&gt;
+&lt;li&gt;检测设备开放的端口和服务&lt;/li&gt;
+&lt;li&gt;评估设备的安全风险&lt;/li&gt;
+&lt;li&gt;生成详细的设备报告&lt;/li&gt;
+&lt;li&gt;支持批量扫描和定时任务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="适用场景"&gt;适用场景&lt;a class="anchor" href="#%e9%80%82%e7%94%a8%e5%9c%ba%e6%99%af"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;企业网络IoT设备审计&lt;/li&gt;
+&lt;li&gt;安全研究和漏洞挖掘&lt;/li&gt;
+&lt;li&gt;物联网设备资产管理&lt;/li&gt;
+&lt;li&gt;网络安全评估&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装iotseeker"&gt;安装IoTSeeker&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85iotseeker"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;IoTSeeker支持多种操作系统，以下是在Ubuntu系统上的安装步骤：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 克隆仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/iotseeker/iotseeker.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 进入目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; iotseeker
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装依赖&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装IoTSeeker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python setup.py install&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本扫描"&gt;基本扫描&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%89%ab%e6%8f%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用IoTSeeker进行简单的网络扫描，发现IoT设备：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描指定网络段&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotseeker scan 192.168.1.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 扫描结果将显示在终端中&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="查看扫描结果"&gt;查看扫描结果&lt;a class="anchor" href="#%e6%9f%a5%e7%9c%8b%e6%89%ab%e6%8f%8f%e7%bb%93%e6%9e%9c"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;扫描完成后，可以查看基本的设备信息：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看最近的扫描结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotseeker list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 查看特定设备的详细信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotseeker info &amp;lt;设备ID&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="初级使用"&gt;初级使用&lt;a class="anchor" href="#%e5%88%9d%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="配置扫描参数"&gt;配置扫描参数&lt;a class="anchor" href="#%e9%85%8d%e7%bd%ae%e6%89%ab%e6%8f%8f%e5%8f%82%e6%95%b0"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;根据需要配置扫描参数，提高扫描效率和准确性：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置扫描超时时间为10秒&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotseeker scan 192.168.1.0/24 --timeout &lt;span style="color:#ff9f43"&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 设置并发扫描数量为50&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotseeker scan 192.168.1.0/24 --threads &lt;span style="color:#ff9f43"&gt;50&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 只扫描特定端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotseeker scan 192.168.1.0/24 --ports 80,443,8080&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="设备类型过滤"&gt;设备类型过滤&lt;a class="anchor" href="#%e8%ae%be%e5%a4%87%e7%b1%bb%e5%9e%8b%e8%bf%87%e6%bb%a4"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;根据设备类型进行过滤，只关注特定类型的IoT设备：&lt;/p&gt;</description></item></channel></rss>

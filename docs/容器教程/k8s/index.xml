@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes (k8s) on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/k8s/</link><description>Recent content in Kubernetes (k8s) on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/k8s/index.xml" rel="self" type="application/rss+xml"/><item><title>Kubernetes教程</title><link>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/k8s/k8s%E6%95%99%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E5%AE%B9%E5%99%A8%E6%95%99%E7%A8%8B/k8s/k8s%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="kubernetes教程"&gt;Kubernetes教程&lt;a class="anchor" href="#kubernetes%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="技术介绍"&gt;技术介绍&lt;a class="anchor" href="#%e6%8a%80%e6%9c%af%e4%bb%8b%e7%bb%8d"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Kubernetes（简称K8s）是一个开源的容器编排平台，用于自动部署、扩展和管理容器化应用程序。它由Google开发并维护，现已成为云原生技术的事实标准。Kubernetes提供了强大的功能，如服务发现、负载均衡、自动扩缩容、滚动更新等，使容器化应用的管理变得简单高效。&lt;/p&gt;
+&lt;h3 id="kubernetes核心概念"&gt;Kubernetes核心概念&lt;a class="anchor" href="#kubernetes%e6%a0%b8%e5%bf%83%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pod&lt;/strong&gt;：Kubernetes的最小调度单位，包含一个或多个容器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Service&lt;/strong&gt;：定义了Pod的访问方式，提供负载均衡&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deployment&lt;/strong&gt;：管理Pod的副本数量，实现滚动更新&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;StatefulSet&lt;/strong&gt;：管理有状态应用的控制器&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DaemonSet&lt;/strong&gt;：在每个节点上运行一个Pod副本&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ConfigMap&lt;/strong&gt;：存储配置数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secret&lt;/strong&gt;：存储敏感数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Namespace&lt;/strong&gt;：为资源提供隔离&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PersistentVolume&lt;/strong&gt;：持久化存储&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PersistentVolumeClaim&lt;/strong&gt;：申请持久化存储&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="kubernetes架构"&gt;Kubernetes架构&lt;a class="anchor" href="#kubernetes%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;控制平面&lt;/strong&gt;：包含API服务器、调度器、控制器管理器、etcd等组件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;节点&lt;/strong&gt;：运行Pod的工作节点，包含kubelet、kube-proxy、容器运行时等组件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;etcd&lt;/strong&gt;：存储集群状态的分布式数据库&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络插件&lt;/strong&gt;：提供Pod间的网络连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="入门级使用"&gt;入门级使用&lt;a class="anchor" href="#%e5%85%a5%e9%97%a8%e7%ba%a7%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="安装kubernetes"&gt;安装Kubernetes&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85kubernetes"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在不同环境中安装Kubernetes：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 使用kubeadm安装Kubernetes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装kubeadm、kubelet和kubectl&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt update &lt;span style="color:#ff6ac1"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt install -y apt-transport-https curl
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;deb https://apt.kubernetes.io/ kubernetes-xenial main&amp;#34;&lt;/span&gt; | tee -a /etc/apt/sources.list.d/kubernetes.list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt install -y kubelet kubeadm kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt-mark hold kubelet kubeadm kubectl
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 初始化集群&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubeadm init --pod-network-cidr&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;10.244.0.0/16
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 配置kubectl&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p &lt;span style="color:#ff5c57"&gt;$HOME&lt;/span&gt;/.kube
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo cp -i /etc/kubernetes/admin.conf &lt;span style="color:#ff5c57"&gt;$HOME&lt;/span&gt;/.kube/config
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo chown &lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;id -u&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;:&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;id -g&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt; &lt;span style="color:#ff5c57"&gt;$HOME&lt;/span&gt;/.kube/config
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 安装网络插件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 加入节点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 在工作节点上运行kubeadm join命令&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本kubernetes命令"&gt;基本Kubernetes命令&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ackubernetes%e5%91%bd%e4%bb%a4"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用Kubernetes的基本命令：&lt;/p&gt;</description></item></channel></rss>
