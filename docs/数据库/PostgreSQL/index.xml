@@ -1,1 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PostgreSQL on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/</link><description>Recent content in PostgreSQL on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PostgreSQL on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/</link><description>Recent content in PostgreSQL on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/index.xml" rel="self" type="application/rss+xml"/><item><title>Postgresql常用命令维护汇总</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/Postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%BB%B4%E6%8A%A4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/Postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%BB%B4%E6%8A%A4/</guid><description>&lt;h1 id="postgresql-全方位指南部署运维开发与核心功能"&gt;PostgreSQL 全方位指南：部署、运维、开发与核心功能&lt;a class="anchor" href="#postgresql-%e5%85%a8%e6%96%b9%e4%bd%8d%e6%8c%87%e5%8d%97%e9%83%a8%e7%bd%b2%e8%bf%90%e7%bb%b4%e5%bc%80%e5%8f%91%e4%b8%8e%e6%a0%b8%e5%bf%83%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;PostgreSQL（简称 Postgres）是一个功能强大的开源对象关系型数据库系统，以其稳定性、功能丰富性和对标准 SQL 的高度支持而闻名。以下将从部署安装、日常维护、研发运维常用命令、注意事项以及核心自带功能五个维度进行详细讲解。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-部署与安装"&gt;1. 部署与安装&lt;a class="anchor" href="#1-%e9%83%a8%e7%bd%b2%e4%b8%8e%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;PostgreSQL 支持多种操作系统，以下是主流环境的安装方式。&lt;/p&gt;
+&lt;h3 id="11-linux-以-ubuntudebian-为例"&gt;1.1 Linux (以 Ubuntu/Debian 为例)&lt;a class="anchor" href="#11-linux-%e4%bb%a5-ubuntudebian-%e4%b8%ba%e4%be%8b"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用官方 APT 源安装是最推荐的方式，以确保版本最新。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 导入仓库签名密钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 添加仓库 (以 PostgreSQL 16 为例，可根据需要修改版本号)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;echo&lt;/span&gt; &lt;span style="color:#5af78e"&gt;&amp;#34;deb http://apt.postgresql.org/pub/repos/apt &lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;$(&lt;/span&gt;lsb_release -cs&lt;span style="color:#ff6ac1"&gt;)&lt;/span&gt;&lt;span style="color:#5af78e"&gt;-pgdg main&amp;#34;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/pgdg.list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 更新包列表并安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get -y install postgresql-16 postgresql-contrib-16
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 启动服务并设置开机自启&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl start postgresql
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl &lt;span style="color:#ff5c57"&gt;enable&lt;/span&gt; postgresql
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 5. 检查状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl status postgresql&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="12-linux-centosrhel"&gt;1.2 Linux (CentOS/RHEL)&lt;a class="anchor" href="#12-linux-centosrhel"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 安装仓库 RPM&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 禁用默认模块 (如果有)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo dnf -qy module disable postgresql
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo dnf install -y postgresql16-server postgresql16-contrib
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 初始化数据库 (仅需首次安装时执行)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 5. 启动服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl start postgresql-16
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl &lt;span style="color:#ff5c57"&gt;enable&lt;/span&gt; postgresql-16&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="13-docker-部署-最便捷的开发测试方式"&gt;1.3 Docker 部署 (最便捷的开发/测试方式)&lt;a class="anchor" href="#13-docker-%e9%83%a8%e7%bd%b2-%e6%9c%80%e4%be%bf%e6%8d%b7%e7%9a%84%e5%bc%80%e5%8f%91%e6%b5%8b%e8%af%95%e6%96%b9%e5%bc%8f"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run --name some-postgres &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -e &lt;span style="color:#ff5c57"&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;mysecretpassword &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -e &lt;span style="color:#ff5c57"&gt;POSTGRES_USER&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;admin &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -e &lt;span style="color:#ff5c57"&gt;POSTGRES_DB&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;mydb &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p 5432:5432 &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v pgdata:/var/lib/postgresql/data &lt;span style="color:#5af78e"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -d postgres:16&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="14-初始配置关键点"&gt;1.4 初始配置关键点&lt;a class="anchor" href="#14-%e5%88%9d%e5%a7%8b%e9%85%8d%e7%bd%ae%e5%85%b3%e9%94%ae%e7%82%b9"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;安装完成后，需修改配置文件以允许远程连接（默认仅限本地）：&lt;/p&gt;</description></item></channel></rss>

@@ -1,1 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>金仓数据库 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%87%91%E4%BB%93/</link><description>Recent content in 金仓数据库 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%87%91%E4%BB%93/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>金仓数据库 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%87%91%E4%BB%93/</link><description>Recent content in 金仓数据库 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%87%91%E4%BB%93/index.xml" rel="self" type="application/rss+xml"/><item><title>金仓数据库常用命令维护</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%87%91%E4%BB%93/%E9%87%91%E4%BB%93%E6%95%B0%E6%8D%AE%E5%BA%93/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%87%91%E4%BB%93/%E9%87%91%E4%BB%93%E6%95%B0%E6%8D%AE%E5%BA%93/</guid><description>&lt;h1 id="人大金仓数据库-kingbasees--kes-全方位指南部署运维开发与核心功能"&gt;人大金仓数据库 (KingbaseES / KES) 全方位指南：部署、运维、开发与核心功能&lt;a class="anchor" href="#%e4%ba%ba%e5%a4%a7%e9%87%91%e4%bb%93%e6%95%b0%e6%8d%ae%e5%ba%93-kingbasees--kes-%e5%85%a8%e6%96%b9%e4%bd%8d%e6%8c%87%e5%8d%97%e9%83%a8%e7%bd%b2%e8%bf%90%e7%bb%b4%e5%bc%80%e5%8f%91%e4%b8%8e%e6%a0%b8%e5%bf%83%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;人大金仓 (KingbaseES) 是中国电子科技集团旗下的重要数据库产品，也是国产数据库“第一梯队”的代表。它的核心架构基于 &lt;strong&gt;PostgreSQL&lt;/strong&gt; 深度开发，因此在内核原理、SQL 语法、运维命令上与 PostgreSQL 高度相似（约 90% 兼容），同时增加了对 &lt;strong&gt;Oracle 语法&lt;/strong&gt; 的高度兼容层（O 兼容模式），是“去 IOE&amp;quot;浪潮中替代 Oracle 和 MySQL 的主力军。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-部署与安装"&gt;1. 部署与安装&lt;a class="anchor" href="#1-%e9%83%a8%e7%bd%b2%e4%b8%8e%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;金仓数据库通常以 ISO 镜像或 RPM/DEB 包形式提供。安装过程分为“软件安装”和“实例初始化”两步。&lt;/p&gt;
+&lt;h3 id="11-环境准备-linux"&gt;1.1 环境准备 (Linux)&lt;a class="anchor" href="#11-%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87-linux"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;与 PostgreSQL 类似，建议创建专用用户 &lt;code&gt;kingbase&lt;/code&gt;。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 创建用户和组&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;groupadd kingbase
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;useradd -g kingbase -m -d /home/kingbase -s /bin/bash kingbase
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 创建安装目录并授权&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p /opt/Kingbase/ES/V8
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chown -R kingbase:kingbase /opt/Kingbase
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 修改系统限制 (limits.conf)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 编辑 /etc/security/limits.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kingbase soft nofile &lt;span style="color:#ff9f43"&gt;65536&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kingbase hard nofile &lt;span style="color:#ff9f43"&gt;65536&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kingbase soft nproc &lt;span style="color:#ff9f43"&gt;10240&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kingbase hard nproc &lt;span style="color:#ff9f43"&gt;10240&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 设置环境变量 (建议在 .bash_profile 中配置)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# export KINGBASE_HOME=/opt/Kingbase/ES/V8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# export PATH=$KINGBASE_HOME/Server/bin:$PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# export LD_LIBRARY_PATH=$KINGBASE_HOME/Server/lib:$LD_LIBRARY_PATH&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="12-图形化命令行安装"&gt;1.2 图形化/命令行安装&lt;a class="anchor" href="#12-%e5%9b%be%e5%bd%a2%e5%8c%96%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;金仓提供图形化安装向导（&lt;code&gt;setup.sh&lt;/code&gt;），也支持命令行静默安装。&lt;/p&gt;</description></item></channel></rss>

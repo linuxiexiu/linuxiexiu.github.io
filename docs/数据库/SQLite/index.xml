@@ -1,1 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQLite on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/SQLite/</link><description>Recent content in SQLite on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/SQLite/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQLite on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/SQLite/</link><description>Recent content in SQLite on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/SQLite/index.xml" rel="self" type="application/rss+xml"/><item><title>Sqlite常用命令维护</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/SQLite/Sqlite%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%BB%B4%E6%8A%A4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/SQLite/Sqlite%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%BB%B4%E6%8A%A4/</guid><description>&lt;h1 id="sqlite-全方位指南部署运维开发与核心功能"&gt;SQLite 全方位指南：部署、运维、开发与核心功能&lt;a class="anchor" href="#sqlite-%e5%85%a8%e6%96%b9%e4%bd%8d%e6%8c%87%e5%8d%97%e9%83%a8%e7%bd%b2%e8%bf%90%e7%bb%b4%e5%bc%80%e5%8f%91%e4%b8%8e%e6%a0%b8%e5%bf%83%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;SQLite 是一个轻量级、零配置、单文件的嵌入式关系型数据库引擎。它不是客户端 - 服务器数据库，而是直接链接到应用程序中。它是世界上部署最广泛的数据库引擎，广泛应用于移动设备 (Android/iOS)、浏览器、嵌入式设备、IoT 以及作为中小型 Web 应用的存储后端。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-部署与安装"&gt;1. 部署与安装&lt;a class="anchor" href="#1-%e9%83%a8%e7%bd%b2%e4%b8%8e%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;SQLite 的最大特点是&lt;strong&gt;无需安装服务器进程&lt;/strong&gt;。数据库就是一个普通的磁盘文件。&lt;/p&gt;
+&lt;h3 id="11-系统自带与安装"&gt;1.1 系统自带与安装&lt;a class="anchor" href="#11-%e7%b3%bb%e7%bb%9f%e8%87%aa%e5%b8%a6%e4%b8%8e%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;大多数 Linux 发行版、macOS 和 Windows 10/11 已预装 SQLite。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 检查版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sqlite3 --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 如果未安装 (Ubuntu/Debian)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install sqlite3 libsqlite3-dev
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 如果未安装 (CentOS/RHEL)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo yum install sqlite sqlite-devel
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# macOS (通常已预装，如需最新版可用 brew)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install sqlite&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="12-创建连接数据库"&gt;1.2 创建/连接数据库&lt;a class="anchor" href="#12-%e5%88%9b%e5%bb%ba%e8%bf%9e%e6%8e%a5%e6%95%b0%e6%8d%ae%e5%ba%93"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;只需指定一个文件名。如果文件不存在，SQLite 会自动创建它。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 创建或连接到名为 mydb.sqlite 的数据库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sqlite3 mydb.sqlite
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 连接到内存数据库 (重启后数据消失，速度极快，适合测试)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sqlite3 :memory:&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="13-编程语言集成"&gt;1.3 编程语言集成&lt;a class="anchor" href="#13-%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e9%9b%86%e6%88%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;SQLite 无需驱动配置，通常随语言标准库直接提供：&lt;/p&gt;</description></item></channel></rss>

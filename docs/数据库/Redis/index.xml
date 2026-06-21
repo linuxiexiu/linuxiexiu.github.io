@@ -1,1 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Redis on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/</link><description>Recent content in Redis on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Redis on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/</link><description>Recent content in Redis on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/index.xml" rel="self" type="application/rss+xml"/><item><title>Redis常用命令维护</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%BB%B4%E6%8A%A4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%BB%B4%E6%8A%A4/</guid><description>&lt;h1 id="redis-全方位指南部署运维开发与核心功能"&gt;Redis 全方位指南：部署、运维、开发与核心功能&lt;a class="anchor" href="#redis-%e5%85%a8%e6%96%b9%e4%bd%8d%e6%8c%87%e5%8d%97%e9%83%a8%e7%bd%b2%e8%bf%90%e7%bb%b4%e5%bc%80%e5%8f%91%e4%b8%8e%e6%a0%b8%e5%bf%83%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Redis (Remote Dictionary Server) 是一个开源的、基于内存的键值存储系统，常被用作数据库、缓存和消息中间件。它以极高的读写性能、丰富的数据类型和原子性操作而闻名。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-部署与安装"&gt;1. 部署与安装&lt;a class="anchor" href="#1-%e9%83%a8%e7%bd%b2%e4%b8%8e%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="11-linux-源码编译安装---推荐生产环境"&gt;1.1 Linux (源码编译安装 - 推荐生产环境)&lt;a class="anchor" href="#11-linux-%e6%ba%90%e7%a0%81%e7%bc%96%e8%af%91%e5%ae%89%e8%a3%85---%e6%8e%a8%e8%8d%90%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;源码安装可以获得最新稳定版，并能针对特定硬件优化。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 安装依赖 (GCC 等)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo yum install -y gcc tcl jemalloc-devel &lt;span style="color:#78787e"&gt;# CentOS/RHEL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 或&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install -y build-essential tcl jemalloc libjemalloc-dev &lt;span style="color:#78787e"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 下载最新稳定版 (以 7.2 为例，请去 redis.io 确认最新版本)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://download.redis.io/redis-stable.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -zxvf redis-stable.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; redis-stable
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 编译 (使用 JEMALLOC 内存分配器以提升性能)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make &lt;span style="color:#ff5c57"&gt;MALLOC&lt;/span&gt;&lt;span style="color:#ff6ac1"&gt;=&lt;/span&gt;jemalloc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 安装到系统目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo make install
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 5. 验证安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;redis-server --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;redis-cli --version&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;配置 systemd 服务 (推荐):&lt;/strong&gt;
+创建 &lt;code&gt;/etc/systemd/system/redis.service&lt;/code&gt;:&lt;/p&gt;</description></item></channel></rss>

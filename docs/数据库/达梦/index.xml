@@ -1,1 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>达梦数据库 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%BE%BE%E6%A2%A6/</link><description>Recent content in 达梦数据库 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%BE%BE%E6%A2%A6/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>达梦数据库 on Linux邪修</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%BE%BE%E6%A2%A6/</link><description>Recent content in 达梦数据库 on Linux邪修</description><generator>Hugo</generator><language>zh</language><copyright>© 2024 Linux邪修</copyright><atom:link href="https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%BE%BE%E6%A2%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>达梦数据库常用命令维护</title><link>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%BE%BE%E6%A2%A6/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://linuxiexiu.github.io/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%BE%BE%E6%A2%A6/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</guid><description>&lt;h1 id="达梦数据库-dameng-db--dm8-全方位指南部署运维开发与核心功能"&gt;达梦数据库 (Dameng DB / DM8) 全方位指南：部署、运维、开发与核心功能&lt;a class="anchor" href="#%e8%be%be%e6%a2%a6%e6%95%b0%e6%8d%ae%e5%ba%93-dameng-db--dm8-%e5%85%a8%e6%96%b9%e4%bd%8d%e6%8c%87%e5%8d%97%e9%83%a8%e7%bd%b2%e8%bf%90%e7%bb%b4%e5%bc%80%e5%8f%91%e4%b8%8e%e6%a0%b8%e5%bf%83%e5%8a%9f%e8%83%bd"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;达梦数据库 (DM) 是中国自主研发的高性能关系型数据库管理系统，广泛应用于国内政府、金融、能源等关键领域。它在架构设计、SQL 语法和使用习惯上高度兼容 &lt;strong&gt;Oracle&lt;/strong&gt;，是“去 IOE&amp;quot;（特别是去 Oracle）国产化替代的首选方案之一。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="1-部署与安装"&gt;1. 部署与安装&lt;a class="anchor" href="#1-%e9%83%a8%e7%bd%b2%e4%b8%8e%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;达梦数据库通常提供图形化安装界面（类似 Oracle OUI），也支持静默安装。&lt;/p&gt;
+&lt;h3 id="11-环境准备-linux"&gt;1.1 环境准备 (Linux)&lt;a class="anchor" href="#11-%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87-linux"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;达梦对操作系统内核参数有一定要求，且&lt;strong&gt;不建议使用 root 用户直接运行数据库&lt;/strong&gt;，需创建专用用户。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 创建用户和组&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;groupadd dinstall
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;useradd -g dinstall -m -d /home/dmdba -s /bin/bash dmdba
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 修改系统限制 ( limits.conf )&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 编辑 /etc/security/limits.conf，添加：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dmdba soft nofile &lt;span style="color:#ff9f43"&gt;65536&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dmdba hard nofile &lt;span style="color:#ff9f43"&gt;65536&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dmdba soft nproc &lt;span style="color:#ff9f43"&gt;10240&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dmdba hard nproc &lt;span style="color:#ff9f43"&gt;10240&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 上传安装包并解压&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 假设安装包为 dm8_202xxxx_x86_rh6_64.iso&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mount -o loop dm8_202xxxx_x86_rh6_64.iso /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp -r /mnt /home/dmdba/dm_install
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chown -R dmdba:dinstall /home/dmdba/dm_install
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 切换用户&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;su - dmdba&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="12-图形化安装-推荐"&gt;1.2 图形化安装 (推荐)&lt;a class="anchor" href="#12-%e5%9b%be%e5%bd%a2%e5%8c%96%e5%ae%89%e8%a3%85-%e6%8e%a8%e8%8d%90"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 在 dmdba 用户下执行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff5c57"&gt;cd&lt;/span&gt; /home/dmdba/dm_install
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./DMInstall.bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 后续步骤：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 1. 选择语言 (中文/英文)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 2. 选择 Key 文件 (试用版可跳过)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 3. 选择时区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 4. 选择安装类型 (典型/服务器/客户端/自定义)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 5. 选择安装路径 (例如 /dm8)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#78787e"&gt;# 6. 执行安装脚本 (最后会提示用 root 执行 root.sh)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;安装完成后，需切换回 root 执行脚本：&lt;/em&gt;&lt;/p&gt;</description></item></channel></rss>
