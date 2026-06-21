@@ -278,6 +278,7 @@ const pages = [
   "/docs/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%A4%96%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7/%E7%A9%BA%E9%97%B4%E5%BC%95%E6%93%8E/Fofa/",
   "/docs/%E7%BD%91%E7%BB%9C/IDS_IPS/",
   "/docs/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/ip/",
+  "/docs/Linux/KernelSU-Next%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/",
   "/docs/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/",
   "/docs/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/",
   "/docs/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/useradd/",
@@ -654,8 +655,8 @@ const pages = [
   "/docs/Linux/shell%E8%84%9A%E6%9C%AC%E9%9B%86/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/",
   "/docs/Linux/shell%E8%84%9A%E6%9C%AC%E9%9B%86/%E7%BD%91%E7%BB%9C/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/",
   "/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css",
-  "/zh.search-data.min.b13763454b97adc77890b15420cc5dc46212ed825ffc6f6ef747d6114aba6771.json",
-  "/zh.search.min.7e6debdaa389bce209fe931b6f9e9c616aa37db345954f91c1e3ad27e8efdff7.js",
+  "/zh.search-data.min.5ad3e755c1e237b4c7b2aeb8b56d26b92f3c7925f3474553b7ebf60d5a3a01d9.json",
+  "/zh.search.min.a058a523b526e5a72d71cead192fdb9121dab1144821436457c88678100df431.js",
   
 ];
 
